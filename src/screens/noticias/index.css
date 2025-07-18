@@ -1,0 +1,26 @@
+
+.padre {
+  display: flex;
+  justify-content: center;  /* Centra horizontal */
+  align-items: center;      /* Centra vertical */
+  height: 100dvh;            /* Altura necesaria para ver efecto */
+  background: white;
+}
+
+.newsGridContainer{
+    width: 70dvw;
+    height: 70dvh;
+    margin:auto;
+    /* background-color: blue; */
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    overflow: scroll;
+    overflow-x: hidden;
+    border-radius: 1rem;
+}
+
+#cardNoticiaIntern{
+    box-shadow: 15px 16px 49px -18px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 15px 16px 49px -18px rgba(0,0,0,0.75);
+    -moz-box-shadow: 15px 16px 49px -18px rgba(0,0,0,0.75);
+}

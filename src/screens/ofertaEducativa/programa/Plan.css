@@ -1,0 +1,186 @@
+:root {
+  --navbar-height: 80px;
+}
+
+* {
+  user-select: none;
+  -webkit-user-drag: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.plan-header {
+  text-align: center;
+  padding: 1rem;
+  background-color: #f7f7f7;
+}
+
+.plan-title {
+  font-size: 2.5rem;
+  color: #2e1a94;
+  margin-bottom: 1rem;
+}
+
+.simbologia {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  font-size: 1rem;
+  color: #333;
+}
+
+.simbologia span {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.simbologia-color {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.carousel-wrapper {
+  overflow: hidden;
+  height: calc(100vh - var(--navbar-height));
+  display: flex;
+  align-items: center;
+  position: relative;
+  touch-action: pan-y;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 1rem;
+  padding: 0 2rem;
+  align-items: center;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.semestre-col {
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 12px;
+  width: 220px;
+  min-width: 220px;
+  height: 80vh;
+  flex-shrink: 0;
+  align-items: center;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+  display: flex;
+  color: #333;
+  flex-direction: column;
+  justify-content: flex-start;
+  scroll-snap-align: start;
+}
+
+.materias-list {
+  width: 100%;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.materia-card {
+  background-color: white;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.materia-nombre {
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: center;
+  color: #222;
+  margin-bottom: 0.5rem;
+  word-wrap: break-word;
+}
+
+.color-bar {
+  height: 6px;
+  width: 100%;
+  border-radius: 4px;
+}
+
+.carousel-fade-left,
+.carousel-fade-right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.carousel-fade-left {
+  left: 0;
+  background: linear-gradient(to right, #f7f7f7 10%, transparent);
+}
+
+.carousel-fade-right {
+  right: 0;
+  background: linear-gradient(to left, #f7f7f7 15%, transparent);
+}
+
+.scroll-right-btn,
+.scroll-left-btn {
+  position: absolute;
+  bottom: 1rem;
+  background-color: #2e1a94;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 20;
+  transition: background-color 0.2s ease;
+  pointer-events: auto;
+}
+
+.scroll-right-btn {
+  right: 1rem;
+}
+
+.scroll-left-btn {
+  left: 1rem;
+}
+
+.scroll-right-btn:hover,
+.scroll-left-btn:hover {
+  background-color: #1b106b;
+}
+
+@media (max-width: 768px) {
+  .scroll-right-btn,
+  .scroll-left-btn {
+    display: none;
+  }
+}

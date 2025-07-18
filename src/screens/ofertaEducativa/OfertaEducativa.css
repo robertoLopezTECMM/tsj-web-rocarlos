@@ -1,0 +1,97 @@
+h2 {
+    font-family: 'Poppins', sans-serif;
+}
+
+.oferta-container {
+    padding-top: 100px;
+    text-align: center;
+}
+
+.titulo-oferta {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #32129a;
+}
+
+.tabs-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    padding: 0.5rem 1rem;
+    background-color: #e5e7eb;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.tab-btn:hover {
+    background-color: #d1d5db;
+}
+
+.tab-btn.activo {
+    background-color: #1e40af;
+    color: white;
+}
+
+.grid-carreras {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.unidad-select {
+    font-family: 'Poppins', sans-serif;
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+    border-radius: 12px;
+    border: 1px solid #c4b5fd;
+    outline: none;
+    min-width: 300px;
+    color: #6b7280;
+    margin: 1rem 0;
+}
+
+.filtros-categorias {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.filter-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #e5e7eb;
+    border: none;
+    border-radius: 9999px;
+    padding: 0.5rem 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: #374151;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.filter-btn.active {
+    background-color: #c7d2fe;
+}
+
+.filter-btn .icon {
+    font-size: 1.2rem;
+}
+
+.text-filtro {
+    margin-top: '1rem';
+    color: '#6b7280';
+    font-family: 'Poppins', sans-serif;
+}

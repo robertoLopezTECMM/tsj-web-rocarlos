@@ -1,0 +1,80 @@
+.filter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    background: #f3f4f6;
+    color: #374151;
+    transition: all 0.2s ease-in-out;
+}
+
+.filter-btn .icon {
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.filter-btn.verde .icon {
+    color: #10b981;
+}
+
+.filter-btn.rosado .icon {
+    color: #ec4899;
+}
+
+.filter-btn.naranja .icon {
+    color: #f59e0b;
+}
+
+.filter-btn.gris .icon {
+    color: #6b7280;
+}
+
+.filter-btn.active {
+    color: white;
+}
+
+.filter-btn.active.verde {
+    background-color: #10b981;
+}
+
+.filter-btn.active.rosado {
+    background-color: #ec4899;
+}
+
+.filter-btn.active.naranja {
+    background-color: #f59e0b;
+}
+
+.filter-btn.active.gris {
+    background-color: #6b7280;
+}
+
+.filter-btn.active .icon {
+    color: white !important;
+}
+
+.filter-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #e5e7eb;
+}
+
+.filter-btn.verde:hover:not(.active) {
+    background-color: #d1fae5;
+}
+
+.filter-btn.rosado:hover:not(.active) {
+    background-color: #fce7f3;
+}
+
+.filter-btn.naranja:hover:not(.active) {
+    background-color: #fef3c7;
+}
+
+.filter-btn.gris:hover:not(.active) {
+    background-color: #e5e7eb;
+}

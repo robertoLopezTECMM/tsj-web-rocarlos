@@ -1,0 +1,29 @@
+.unidadCardInfoContainer{
+    width: 100%;
+    height: 100%;
+    /* background-color: blue; */
+    padding-left:.7rem;
+}
+
+.unidadCardInfoContainer h2{
+    margin: 0;
+    font-family: 'madaniArabicBold';
+    color: var(--navyBlue)
+}
+
+.unidadCardInfoContainer p{
+    margin: 0.2rem 0rem 0.2rem 0rem;
+    font-family: 'madaniArabicLight';
+    font-size: 0.9rem;
+    /* background-color: blue; */
+    word-wrap: break-word;     /* Fuerza el salto de línea dentro de palabras largas */
+    overflow-wrap: break-word; /* Recomendado por compatibilidad moderna */
+    white-space: normal; 
+}
+
+#CardUnidad{
+box-shadow: -1px 1px 20px -4px rgba(0,0,0,0.75);
+-webkit-box-shadow: -1px 1px 20px -4px rgba(0,0,0,0.75);
+-moz-box-shadow: -1px 1px 20px -4px rgba(0,0,0,0.75);
+border-radius: 1rem;
+}
