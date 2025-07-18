@@ -1,0 +1,161 @@
+.perfil-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 4rem;
+  background: #f8f8f8;
+  position: relative;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.perfil-image-container {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  margin-right: 2rem;
+  margin-top: 2rem;
+}
+
+.perfil-foto {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.perfil-card-overlay {
+  position: absolute;
+  bottom: -7rem;
+  right: -12rem;
+  z-index: 2;
+  min-width: 44dvw;
+  max-width: 44dvw;
+}
+
+.perfil-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  height: 42.18dvh;
+  overflow: hidden;
+  animation: fadeIn 0.6s ease-in-out both;
+}
+
+.perfil-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.perfil-container h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #1a237e;
+}
+
+.perfil-tabs {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.perfil-tabs.sub-tabs {
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+.perfil-tab {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.perfil-tab:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  transform: scale(1.2);
+}
+
+.perfil-tab.active {
+  background-color: #000;
+  transform: scale(1.4);
+}
+
+.perfil-list {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0;
+}
+
+.perfil-item {
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.6;
+  animation: slideUp 0.4s ease both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .perfil-wrapper {
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .perfil-card-overlay {
+    bottom: -4rem;
+    right: -4rem;
+    width: 90%;
+  }
+
+  .perfil-container {
+    height: auto;
+    max-height: 420px;
+  }
+
+  .perfil-image-container {
+    margin: 0;
+  }
+}
+
+.perfil-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  height: 42.18dvh;
+  overflow: hidden;
+  animation: fadeIn 0.6s ease-in-out both;
+  position: relative;
+  padding-bottom: 3.5rem;
+}
+
+.perfil-tabs.sub-tabs {
+  position: absolute;
+  bottom: 1.2rem;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  z-index: 3;
+}

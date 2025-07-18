@@ -1,0 +1,6 @@
+.material-icon-marker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none; /* Para que no bloquee clics en el mapa */
+}

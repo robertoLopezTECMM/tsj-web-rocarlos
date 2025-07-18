@@ -1,0 +1,158 @@
+select, button {
+  font-family: 'Madani regular';
+}
+
+.oferta-filter-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+/* Estilo mejorado para el select */
+.oferta-select {
+  padding: 0.7rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background: #f9fafb;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: #374151;
+  outline: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, #6366f1 50%), 
+                    linear-gradient(135deg, #6366f1 50%, transparent 50%);
+  background-position: calc(100% - 20px) calc(1em + 4px), 
+                       calc(100% - 15px) calc(1em + 4px);
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+
+.oferta-select:hover {
+  border-color: #6366f1;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(99, 102, 241, 0.2);
+}
+
+.oferta-select:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
+}
+
+/* Botones de tipos */
+.oferta-botones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.boton-tipo {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1.2rem;
+  border: none;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: #e5e7eb;
+  color: #374151;
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.boton-tipo svg {
+  font-size: 1.5rem;
+  transition: color 0.2s ease;
+}
+
+.boton-tipo:hover:not(.activo) {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Hover mostrando su color real + ícono blanco */
+.boton-tipo.verde:hover {
+  background-color: #34d399;
+  color: white;
+}
+
+.boton-tipo.verde:hover svg {
+  color: white;
+}
+
+.boton-tipo.rosado:hover {
+  background-color: #f472b6;
+  color: white;
+}
+
+.boton-tipo.rosado:hover svg {
+  color: white;
+}
+
+.boton-tipo.naranja:hover {
+  background-color: #fb923c;
+  color: white;
+}
+
+.boton-tipo.naranja:hover svg {
+  color: white;
+}
+
+.boton-tipo.gris:hover {
+  background-color: #9ca3af;
+  color: white;
+}
+
+.boton-tipo.gris:hover svg {
+  color: white;
+}
+
+/* Colores por defecto del ícono */
+.boton-tipo.verde svg {
+  color: #34d399;
+}
+
+.boton-tipo.rosado svg {
+  color: #f472b6;
+}
+
+.boton-tipo.naranja svg {
+  color: #fb923c;
+}
+
+.boton-tipo.gris svg {
+  color: #9ca3af;
+}
+
+/* Colores cuando están activos */
+.boton-tipo.verde.activo,
+.boton-tipo.verde.activo svg {
+  background-color: #34d399;
+  color: white;
+}
+
+.boton-tipo.rosado.activo,
+.boton-tipo.rosado.activo svg {
+  background-color: #f472b6;
+  color: white;
+}
+
+.boton-tipo.naranja.activo,
+.boton-tipo.naranja.activo svg {
+  background-color: #fb923c;
+  color: white;
+}
+
+.boton-tipo.gris.activo,
+.boton-tipo.gris.activo svg {
+  background-color: #9ca3af;
+  color: white;
+}
+
+.boton-tipo.activo {
+  outline: 2px solid #00000030;
+}

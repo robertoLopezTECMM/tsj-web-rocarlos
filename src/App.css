@@ -1,0 +1,83 @@
+
+@import 'leaflet/dist/leaflet.css';
+
+@font-face {
+  font-family: 'madaniArabicBlack';
+  src:local("MadaniArabicBlack"), url('./assets/fonts/Madani-Arabic-Black.ttf') ;
+}
+
+@font-face {
+  font-family: 'madaniArabicBold';
+  src:local("MadaniArabicBlack"), url('./assets/fonts/Madani-Arabic-Bold.ttf') ;
+}
+
+@font-face {
+  font-family: 'madaniArabicExtraBold';
+  src:local("MadaniArabicBlack"), url('./assets/fonts/Madani-Arabic-Extra-Bold.ttf') ;
+}
+
+@font-face {
+  font-family: 'madaniArabicExtraLight';
+  src:local("MadaniArabicBlack"), url('./assets/fonts/Madani-Arabic-Extra-Light.ttf') ;
+}
+
+@font-face {
+  font-family: 'madaniArabicLight';
+  src:local("MadaniArabicBlack"), url('./assets/fonts/Madani-Arabic-Light.ttf') ;
+}
+
+@font-face {
+  font-family: 'madaniArabicMedium';
+  src:local("MadaniArabicBlack"), url('./assets/fonts/Madani-Arabic-Medium.ttf') ;
+}
+
+@font-face {
+  font-family: 'madaniArabicRegular';
+  src:local("MadaniArabicBlack"), url('./assets/fonts/Madani-Arabic-Regular.ttf') ;
+}
+
+@font-face {
+  font-family: 'madaniArabicSemiBold';
+  src:local("MadaniArabicBlack"), url('./assets/fonts/Madani-Arabic-Semi-Bold.ttf') ;
+}
+
+@font-face {
+  font-family: 'madaniArabicVariable';
+  src:local("MadaniArabicBlack"), url('./assets/fonts/Madani-Arabic-Variable.ttf') ;
+}
+
+@font-face {
+  font-family: 'madaniArabicBlack';
+  src:local("MadaniArabicBlack"), url('./assets/fonts/Madani-Arabic-Black.ttf') ;
+}
+
+@font-face {
+  font-family: 'Madani Regular';
+  src: url('./assets/fonts/Madani-Arabic-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Madani Bold';
+  src: url('./assets/fonts/Madani-Arabic-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+:root{
+  --blue: #308FFF;
+  --green:#54c98f;
+  --orange:#ffae31;
+  --navyBlue:#33179c;
+  --red:#ff4d63;
+  --gold:#A7823B;
+  --grey:#d8d8d8;
+}

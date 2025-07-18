@@ -1,0 +1,23 @@
+.icon-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.icon-background-item {
+  position: absolute;
+  width: 75px;
+  height: 75px;
+  object-fit: contain;
+  opacity: 0.6;
+  animation: floatIcon 20s linear infinite;
+  transform-origin: center;
+  animation-timing-function: ease-in-out;
+  will-change: transform;
+}
+

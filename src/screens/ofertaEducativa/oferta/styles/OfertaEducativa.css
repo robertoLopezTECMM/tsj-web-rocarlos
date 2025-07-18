@@ -1,0 +1,57 @@
+.oferta-educativa-wrapper {
+  padding: 2rem;
+  max-width: 1300px;
+  margin: auto;
+}
+
+.titulo-oferta {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #32129a;
+  margin-bottom: 2rem;
+  font-family: 'Madani Bold', sans-serif;
+  animation: fadeInDown 0.6s ease-out;
+}
+
+/* Grid con máximo 4 columnas */
+.grid-carreras {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  max-width: 1100px;
+  gap: 1.8rem;
+  justify-content: center;
+  margin: auto;
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Animaciones básicas */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mensaje cuando no hay carreras */
+.grid-carreras p {
+  grid-column: 1/-1;
+  text-align: center;
+  color: #6b7280;
+  font-size: 1.2rem;
+  font-family: 'Madani regular';
+}

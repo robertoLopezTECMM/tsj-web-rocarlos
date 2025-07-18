@@ -1,0 +1,573 @@
+.red {
+  background-color: #e53935;
+}
+
+.green {
+  background-color: #43a047;
+}
+
+.blue {
+  background-color: #1e88e5;
+}
+
+.grey{
+    background-color: rgb(57, 56, 59);
+}
+
+
+
+
+
+.scroll-container {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+
+}
+
+.sectionLanding {
+  height: 100dvh;
+  scroll-snap-align: start;
+  color: white;
+  position: relative;
+}
+
+.sectionAlignedRightFlex{
+    display: flex;
+    justify-content: flex-start;
+}
+
+
+
+/* VIDEO SECTION */
+.video-section {
+  overflow: hidden;
+  position: relative;
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1; /* para que quede detrás del contenido */
+}
+
+.video-overlay {
+  color: white;
+  text-align: center;
+  z-index: 1;
+  font-size: 2rem;
+  font-weight: bold;
+  text-shadow: 0px 0px 10px rgba(0,0,0,0.7);
+}
+
+.divLottie{
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  width: 3rem; /* ajusta al tamaño que quieras */
+  height: 3rem;
+}
+
+
+
+
+
+
+/* OFERTA ACADEMICA SECTION */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+  grid-template-rows: repeat(2, 1fr); 
+  width: 100%;
+  height: 100%;
+}
+
+.image-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.image-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  object-fit: cover;
+  transition: transform 0.4s ease; /* Suaviza el zoom */
+}
+
+.image-grid img:hover {
+  transform: scale(1.03); /* Aplica zoom al hacer hover */
+  z-index: 1; /* En caso de solapamiento */
+}
+
+
+
+
+
+/* UNIDADES ACADEMICAS SECTION */
+
+#mapaJaliscoContainerMobile{
+    display:none
+}
+
+.mapaJaliscoContainer{
+  width: 50%;
+  height: 100%;
+  overflow: hidden;            /* Oculta cualquier parte fuera del tamaño */
+  /* background-color: green; */
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
+  margin-right: 1rem; */
+  /* background-color: grey; */
+}
+
+
+.mapSectionTextLeft{
+    width: 50%;
+    height: 100%;
+    text-align: center;
+
+    padding: 0px 3rem 0 3rem;
+    font-family: 'madaniArabicBold';
+    /* background-color: red; */
+
+
+    display: flex;
+    flex-direction: column; /* uno encima del otro */
+    justify-content: center; /* centra verticalmente */
+    align-items: center;     /* centra horizontalmente */
+    text-align: center;      /* opcional: centra el texto */
+}
+
+.mapSectionTextLeft h1{
+    margin: 0;
+    font-size: 4rem;
+}
+
+.mapSectionTextLeft p{
+    font-family: 'madaniArabicLight';
+    font-size: 1.5rem;
+}
+
+
+
+
+
+
+
+/* FOOTER SECTION */
+
+.footerSectionContact{
+    width: 100%;
+    height: 70dvh;
+    background-image: url('https://tsjapp.tecmm.mx/resources/images/landing/teclado.png');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+}
+
+.footerSectionContact h1{
+    margin:0;
+    padding-top: 4rem;
+    padding-bottom:1rem;
+    font-family: 'madaniArabicMedium';
+    font-size: 2.5rem;
+}
+
+.logosAddressContainer{
+    display: flex;
+}
+
+.logosRedesSection{
+    width: 50%;
+    height: 35dvh;
+    /* background-color: pink;     */
+}
+
+.redesLogos{
+    width:100%;
+    height: 100%;
+    /* background-color: blue; */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    justify-content: flex-end;
+    text-align: center;
+}
+
+.redesLogos img {
+    width: 6rem;
+    height: 6rem;
+    object-fit: contain;
+    cursor: pointer;
+    justify-self: center;
+}
+
+
+
+
+
+.mapAddressSection{
+    width: 50%;
+    height: 35dvh;
+    /* background-color: brown; */
+}
+
+
+.ubicationMapAddresContainer{
+    width: 100%;
+    height: auto;
+    border-radius:10px;
+    display:flex; 
+    flex-direction:column; 
+    justify-content:flex-start;
+}
+
+.ubicationIframeMap{
+    width: 50%;
+    border:0;
+    border-radius: 10px;
+}
+
+.ubicationMapAddresContainer p{
+    width: 100%;
+    /* background-color: pink; */
+    font-size: 1rem;
+    text-align: left;
+    font-family: 'madaniArabicMedium';
+    margin: 0.5rem 0rem 0.5rem 0;
+}
+
+.whatsappLink{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+    cursor: pointer;
+}
+
+.whatsappLink :hover{
+    color: var(--green)
+}
+
+.whatsappLink h1{
+    margin: 0;
+    padding: 0;
+}
+
+.whatsappLink img{
+    width: 3rem;
+    height: 3rem;
+    align-self: center;
+}
+
+.footerSectionLogos{
+ width: 100%;
+ height: 15vh;
+   display: flex;
+  align-items: center; /* ⛔ Esto centra verticalmente */
+  justify-content: space-around; /* Esto centra horizontalmente */
+}
+
+.footerSectionLogos img{
+    width: 15rem;
+    height: 6rem;
+    object-fit:contain;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Celulares medianos y grandes (480px a 767px) */
+@media (min-width: 350px) and (max-width: 767px) {
+    .divLottie{
+        position: absolute;
+        bottom: 5%;
+        left: 50%;
+        width: 1.5rem; /* ajusta al tamaño que quieras */
+        height: 1.5rem;
+    }
+
+
+    .image-grid {
+        display: block;
+        grid-template-columns: none;
+        grid-template-rows: none;
+        width: 100%;
+        height: 100%;
+        background-color: red;
+    }
+
+    .image-grid img {
+        width: 100%!important;
+        height: 25dvh!important;
+        object-fit: cover;
+        cursor: pointer;
+    }
+
+    .image-grid img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        cursor: pointer;
+        object-fit: cover;
+        transition: transform 0.4s ease; /* Suaviza el zoom */
+    }
+
+    .image-grid img:hover {
+        transform: scale(1.03); /* Aplica zoom al hacer hover */
+        z-index: 1; /* En caso de solapamiento */
+    }
+
+
+
+
+
+    .sectionAlignedRightFlex{
+        display: flex;
+        justify-content: flex-start;
+    }
+
+
+
+
+
+
+
+
+
+
+    /* UNIDADES ACADEMICAS SECTION */
+
+
+    .sectionAlignedRightFlex{
+        display: flex;
+        flex-direction: column; /* uno encima del otro */
+        justify-content: flex-start; /* centra verticalmente */
+        align-items: center;     /* centra horizontalmente */
+        text-align: center;  
+
+    }
+
+    .mapaJaliscoContainer{
+        width: 100%;
+        height: 100%;
+        overflow: hidden;          /* Oculta cualquier parte fuera del tamaño */
+        /* background-color: green; */
+        display: none;
+        /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
+        margin-right: 1rem; */
+        /* background-color: grey; */
+    }
+
+    #mapaJaliscoContainerMobile{
+        display: block;
+    }
+
+
+    .mapSectionTextLeft{
+        width: auto;
+        height: auto;
+        text-align: center;
+        padding: 0px 1rem 0 1rem;
+        font-family: 'madaniArabicBold';
+        /* background-color: red; */
+        display: flex;
+        flex-direction: column; /* uno encima del otro */
+        justify-content: center; /* centra verticalmente */
+        align-items: center;     /* centra horizontalmente */
+        text-align: center;   /* opcional: centra el texto */
+        margin-top: 6dvh;
+    }
+
+    .mapSectionTextLeft h1{
+        margin: 0;
+        font-size: 1.0rem;
+    }
+
+    .mapSectionTextLeft p{
+        font-family: 'madaniArabicLight';
+        font-size: .7rem;
+        margin: 0;
+    }
+
+
+
+
+
+    /* FOOTER SECTION */
+
+.footerSectionContact{
+    width: 100%;
+    height: 70dvh;
+    background-image: url('https://tsjapp.tecmm.mx/resources/images/landing/teclado.png');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+}
+
+.footerSectionContact h1{
+    margin:0;
+    padding-top: 4rem;
+    padding-bottom:1rem;
+    font-family: 'madaniArabicMedium';
+    font-size: 1.5rem;
+}
+
+.logosAddressContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.logosRedesSection{
+    width: 100%;
+    height: auto;
+    /* background-color: pink;     */
+}
+
+.redesLogos{
+    width:100%;
+    height: 100%;
+    /* background-color: blue; */
+    display: flex;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.redesLogos img {
+    width: 3rem;
+    height: 3rem;
+    object-fit: contain;
+    cursor: pointer;
+    justify-self: center;
+}
+
+
+.mapAddressSection{
+    width: 100%;
+    height: auto;
+    /* background-color: brown; */
+    margin-top: 1rem;
+}
+
+
+.ubicationMapAddresContainer{
+    width: 100%;
+    height: auto;
+    border-radius:10px;
+    display:flex; 
+    flex-direction:column; 
+    justify-content:flex-start;
+}
+
+.ubicationIframeMap{
+    width: 50%;
+    border:0;
+    border-radius: 10px;
+    display: none;
+}
+
+.ubicationMapAddresContainer p{
+    width: 100%;
+    /* background-color: pink; */
+    font-size: 1rem;
+    text-align: center;
+    font-family: 'madaniArabicMedium';
+    margin: 0.5rem 0rem 0.5rem 0;
+}
+
+.whatsappLink{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+    cursor: pointer;
+}
+
+.whatsappLink :hover{
+    color: var(--green)
+}
+
+.whatsappLink h1{
+    margin: 0;
+    padding: 0;
+}
+
+.whatsappLink img{
+    width: 3rem;
+    height: 3rem;
+    align-self: center;
+}
+
+.footerSectionLogos{
+ width: 100%;
+ height: 15vh;
+   display: flex;
+  align-items: center; /* ⛔ Esto centra verticalmente */
+  justify-content: space-around; /* Esto centra horizontalmente */
+}
+
+.footerSectionLogos img{
+    width: 7.5rem;
+    height: 3rem;
+    object-fit:contain;
+}
+
+
+
+    
+
+}
+
+@media (min-width: 768px)	{
+
+}
+
+@media (min-width: 1024px) {
+
+}
+
+@media (min-width: 1280px) {
+
+}
+
+@media (min-width: 1536px) {
+  
+}
