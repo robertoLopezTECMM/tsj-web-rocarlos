@@ -29,7 +29,7 @@ function Landing() {
         <section id="sobre" className="section video-section">
           <video
             className="background-video"
-            src="https://tsjapp.tecmm.mx/resources/images/videoPruebas.mp4"
+            src="https://tecmm.edu.mx/apiCms/cmsWebFiles/videoPruebas.mp4"
             autoPlay
             loop
             muted
@@ -59,10 +59,10 @@ function Landing() {
 
 
         <section className="sectionLanding blue image-grid">
-          <img src="https://tsjapp.tecmm.mx/resources/images/landing/landing_ingenierias.png" alt="Imagen 1"  />
-          <img src="https://tsjapp.tecmm.mx/resources/images/landing/landing_licenciaturas.png" alt="Imagen 2"  />
-          <img src="https://tsjapp.tecmm.mx/resources/images/landing/landing_maestrias.png" alt="Imagen 3"  />
-          <img src="https://tsjapp.tecmm.mx/resources/images/landing/landing_enlinea.png" alt="Imagen 4"  />
+          <img src="https://tecmm.edu.mx/apiCms/cmsWebFiles/landing_ingenierias.png" alt="Imagen 1"  />
+          <img src="https://tecmm.edu.mx/apiCms/cmsWebFiles/landing_licenciaturas.png" alt="Imagen 2"  />
+          <img src="https://tecmm.edu.mx/apiCms/cmsWebFiles/landing_maestrias.png" alt="Imagen 3"  />
+          <img src="https://tecmm.edu.mx/apiCms/cmsWebFiles/landing_enlinea.png" alt="Imagen 4"  />
         </section>
 
         <section className="sectionLanding blue sectionAlignedRightFlex">
@@ -96,10 +96,10 @@ function Landing() {
                   <div className='logosRedesSection'>
 
                     <div className='redesLogos'>
-                        <img src="https://tsjapp.tecmm.mx/resources/images/logos/facebook.png" alt="Imagen 1"  />
-                        <img src="https://tsjapp.tecmm.mx/resources/images/logos/tiktok.webp" alt="Imagen 1"  />
-                        <img src="https://tsjapp.tecmm.mx/resources/images/logos/youtube.png" alt="Imagen 1"  />
-                        <img src="https://tsjapp.tecmm.mx/resources/images/logos/X.png" alt="Imagen 1"  />
+                        <img src="https://tecmm.edu.mx/apiCms/cmsWebFiles/facebook.png" alt="Imagen 1"  />
+                        <img src="https://tecmm.edu.mx/apiCms/cmsWebFiles/tiktok.webp" alt="Imagen 1"  />
+                        <img src="https://tecmm.edu.mx/apiCms/cmsWebFiles/youtube.webp" alt="Imagen 1"  />
+                        <img src="https://tecmm.edu.mx/apiCms/cmsWebFiles/X.png" alt="Imagen 1"  />
                     </div>
 
                   </div>
@@ -144,50 +144,16 @@ function Landing() {
                 <div className='whatsappLink'>
                     <img src={whatsappLogo} alt="Imagen 1"  />
                     
-                    <h1>&nbsp;+52 33 3884 9498</h1>
+                    <a
+                      href='https://wa.me/523338849498'
+                      target="_blank"
+                      style={{textDecoration:'none', color:'white'}}
+                    >
+                        <h1>&nbsp;+52 33 3884 9498</h1>
+                    </a>
+
                 </div> 
-                {/* <div className='redesSection'>
 
-
-                    <div className='ubication'>
-                        <div className='ubicationMapAddresContainer'>
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9532.015912463226!2d-103.47132874616723!3d20.70456403385319!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428a92008505ae3%3A0xac0da90d95e836af!2sTecnol%C3%B3gico%20Superior%20de%20Jalisco%20Zapopan!5e0!3m2!1ses!2smx!4v1751047031962!5m2!1ses!2smx" 
-                                className='ubicationIframeMap'
-                                allowFullScreen=""
-                                loading="lazy"
-                                referrerPolicy="no-referrer-when-downgrade"
-                            ></iframe>
-
-                            <p>
-                                <span className="material-icons" style={{ verticalAlign: 'middle' }}>
-                                    location_on
-                                </span>
-                                &nbsp;Camino Arenero 1101, Col. El Bajio. 45017. Zapopan, Jalisco.
-                            </p>
-
-                            <p>
-                                <span className="material-icons" style={{ verticalAlign: 'middle' }}>
-                                    mail
-                                </span>
-                                &nbsp;contacto@tecmm.edu.mx
-                            </p>
-
-                            <p>
-                                <span className="material-icons" style={{ verticalAlign: 'middle' }}>
-                                    phone
-                                </span>
-                                &nbsp;33 1234 1234 ext. 1234, 5678
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div className='whatsappLink'>
-                    <img src={whatsappLogo} alt="Imagen 1"  />
-                    
-                    <h1>&nbsp;+52 33 3884 9498</h1>
-                </div> */}
             </div>
 
             <div className='footerSectionLogos grey'>

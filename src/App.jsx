@@ -12,6 +12,7 @@ import { Noticias } from './screens/noticias'
 import  Noticia  from './screens/noticias/Noticia'
 import Navbar from './components/navbar'
 import { ValidadorCredenciales } from './screens/validadorCredenciales'
+import { Ordenamientos } from './screens/ordenamientos'
 
 
 
@@ -32,6 +33,7 @@ function App() {
         <Route path="/noticias" element={<Noticias/>} />
         <Route path="/noticias/:id" element={<Noticia/>} />
         <Route path="/validarCredencial/:qrId" element={<ValidadorCredenciales/>} />
+        <Route path="/ordenamientos" element={<Ordenamientos/>} />
       </Routes>
     
     </>
