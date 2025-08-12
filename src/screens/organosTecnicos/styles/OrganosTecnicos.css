@@ -1,0 +1,85 @@
+.organos-wrapper {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  margin-top: 3rem;
+}
+
+.organos-container {
+  position: relative;
+  z-index: 2;
+  font-family: 'Poppins', sans-serif;
+  padding: 2rem;
+  max-width: 900px;
+  margin: auto;
+  background-color: #f8f9fc;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.6s ease-out;
+}
+
+.organos-contenido {
+  text-align: left;
+}
+
+.organos-titulo {
+  font-size: 2rem;
+  color: #32129a;
+  margin-bottom: 0.5rem;
+}
+
+.organos-subtitulo {
+  font-size: 1.5rem;
+  color: #32129a;
+  margin: 1.5rem 0 0.75rem;
+}
+
+.organos-parrafo {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #374151;
+  margin: 0.75rem 0 1rem;
+}
+
+.organos-boton {
+  display: inline-block;
+  background-color: rgb(255, 77, 99);
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  padding: 0.6rem 2rem;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+}
+
+.organos-boton:hover {
+  background-color: rgb(200, 50, 70);
+}
+
+.organos-boton:active {
+  transform: translateY(1px);
+}
+
+.organos-separador {
+  border: none;
+  border-top: 1px solid #d1d5db;
+  margin: 1.5rem 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-in-out;
+}
