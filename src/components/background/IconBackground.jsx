@@ -2,8 +2,14 @@ import { useMemo } from 'react';
 import { iconList } from '../../assets/icons';
 import './IconBackground.css';
 
-export default function IconBackground({ count = 30, oppacity = 0.3 }) {
-  // Generar los iconos solo una vez usando useMemo
+export default function IconBackground({
+  count = 30,
+  oppacity = 0.3,
+  children,
+  wrapperClassName = '',
+  backgroundClassName = 'icon-background',
+  itemClassName = 'icon-background-item',
+}) {
   const backgroundIcons = useMemo(() => {
     const icons = [];
     const minDistance = 10;
@@ -13,39 +19,39 @@ export default function IconBackground({ count = 30, oppacity = 0.3 }) {
       const top = Math.random() * 90;
       const left = Math.random() * 90;
       const delay = Math.random() * 5;
-      const iconSrc = iconList[Math.floor(Math.random() * iconList.length)];
+      const src = iconList[Math.floor(Math.random() * iconList.length)];
 
-      const isTooClose = icons.some((icon) => {
-        const dx = icon.left - left;
-        const dy = icon.top - top;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-        return distance < minDistance;
+      const tooClose = icons.some(i => {
+        const dx = i.left - left;
+        const dy = i.top - top;
+        return Math.hypot(dx, dy) < minDistance;
       });
 
-      if (!isTooClose) {
-        icons.push({ top, left, delay, src: iconSrc });
-      }
+      if (!tooClose) icons.push({ top, left, delay, src });
       attempts++;
     }
     return icons;
   }, [count]);
 
   return (
-    <div className="icon-background">
-      {backgroundIcons.map((icon, index) => (
-        <img
-          key={index}
-          src={icon.src}
-          className="icon-background-item"
-          style={{
-            top: `${icon.top}%`,
-            left: `${icon.left}%`,
-            animationDelay: `${icon.delay}s`,
-            opacity: oppacity,
-          }}
-          alt="background icon"
-        />
-      ))}
+    <div className={wrapperClassName} style={{ position: 'relative' }}>
+      <div className={backgroundClassName}>
+        {backgroundIcons.map((icon, idx) => (
+          <img
+            key={idx}
+            src={icon.src}
+            className={itemClassName}
+            style={{
+              top: `${icon.top}%`,
+              left: `${icon.left}%`,
+              animationDelay: `${icon.delay}s`,
+              opacity: oppacity,
+            }}
+            alt="background icon"
+          />
+        ))}
+      </div>
+      {children}
     </div>
   );
 }
