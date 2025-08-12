@@ -27,7 +27,7 @@ export const UnidadesAcademicas = () => {
 
   return (
     <div>
-      <Navbar/>
+      {/* <Navbar/> */}
 
       <div className='mapaListaUnidadesContainer'>
 

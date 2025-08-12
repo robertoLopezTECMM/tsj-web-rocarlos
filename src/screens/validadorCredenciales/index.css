@@ -1,0 +1,33 @@
+
+.validadorPrincipalContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100dvh;
+    background-color: transparent;
+}
+
+.unidadCardInfoContainer p{
+    margin: 0.2rem 0rem 0.2rem 0rem;
+    font-family: 'madaniArabicLight';
+    font-size: 0.9rem;
+    /* background-color: blue; */
+    word-wrap: break-word;     /* Fuerza el salto de línea dentro de palabras largas */
+    overflow-wrap: break-word; /* Recomendado por compatibilidad moderna */
+    white-space: normal; 
+    width: 90%;
+}
+.unidadCardInfoContainer h4{
+    margin:0
+}
+
+#puestoDirector{
+    font-family: 'madaniArabicMedium';
+}
+
+#emailDirector{
+    font-size: 0.7rem;
+}
+
+

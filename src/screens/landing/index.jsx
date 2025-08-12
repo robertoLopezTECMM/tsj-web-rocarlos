@@ -23,8 +23,8 @@ import { NewsSlider } from '../../components/newsSlider';
 function Landing() {
 
   return (
-    <>
-      <Navbar />
+    <> 
+      {/* <Navbar /> */}
       <div className="scroll-container">
         <section id="sobre" className="section video-section">
           <video

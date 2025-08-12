@@ -7,20 +7,20 @@ const unidades = [
   'Tala', 'Tamazula', 'Tepatitlán', 'Tequila', 'Tomatlán', 'Zapopan', 'Zapotlanejo',
 ];
 
-const tipoCarrera = ['Licenciatura', 'Maestría', 'Ingeniería', 'En línea'];
+const tipoCarrera = ['En línea', 'Ingeniería', 'Licenciatura', 'Maestría' ];
 
 const colorMap = {
+  'En línea': 'gris',
+  'Ingeniería': 'naranja',
   'Licenciatura': 'verde',
   'Maestría': 'rosado',
-  'Ingeniería': 'naranja',
-  'En línea': 'gris',
 };
 
 const iconMap = {
+  'En línea': <FaLaptop />,
+  'Ingeniería': <FaCogs />,
   'Licenciatura': <FaGraduationCap />,
   'Maestría': <FaMedal />,
-  'Ingeniería': <FaCogs />,
-  'En línea': <FaLaptop />,
 };
 
 export default function OfertaFilter({ unidad, setUnidad, tipo, setTipo }) {

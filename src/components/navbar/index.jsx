@@ -4,12 +4,17 @@ import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
+import {useLocation} from 'react-router'
+
 
 function Navbar() {
 
   const [isOpen, setIsOpen] = useState(false);
   const [submenuOpen, setSubmenuOpen] = useState(false)
   const toggleDrawer = () => setIsOpen((prev) => !prev);
+
+  const location = useLocation();
+  const isHome = location.pathname === '/';
 
   return (
 
@@ -31,7 +36,7 @@ function Navbar() {
           </div>
       </Drawer>
         
-      <nav className="navbar">
+      <nav className={isHome ? "navbarTranslucid" : "navbarSolid"}>
 
 
 
@@ -64,6 +69,7 @@ function Navbar() {
                 <li id="navBarButton"><a href='/ofertaEducativa'>Oferta Educativa</a></li>
                 <li id="navBarButton"><a href='/unidadesAcademicas'>Unidades Académicas</a></li>
                 {/* <li><img src="https://tsjapp.tecmm.mx/resources/images/logos/logoTsj-01.png" alt="Logo TSJ" className="logo" /></li> */}
+
 
             </ul>
 
