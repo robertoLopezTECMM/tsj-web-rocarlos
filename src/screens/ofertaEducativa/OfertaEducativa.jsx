@@ -38,7 +38,7 @@ export default function OfertaEducativa() {
 
   return (
     <div className="oferta-container">
-      <Navbar />
+      {/* <Navbar /> */}
       <OfertaEducativaHeader
         categoriaActiva={categoriaActiva}
         onChangeCategoria={setCategoriaActiva}

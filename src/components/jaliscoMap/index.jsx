@@ -45,7 +45,7 @@ const MapJalisco = ({isMobile}) => {
             "Atemajac de Brizuela"
         ]
 
-        console.log(nombre[0])
+        // console.log(nombre[0])
         // Determina si el municipio está en la lista
         const esEspecial = unidadesAcademicas.includes(nombre[0]);
         const isExtension = extensiones.includes(nombre[0]);

@@ -1,25 +1,24 @@
 import { useEffect, useRef, useState } from 'react';
-import { useLocation } from 'react-router';
 import './Plan.css';
 
-export default function Plan() {
-  const { state } = useLocation();
+export default function Plan({id}) {
   const [reticula, setReticula] = useState([]);
   const [isVisible, setIsVisible] = useState(false);
   const wrapperRef = useRef(null);
   const trackRef = useRef(null);
   const scrollIndexRef = useRef(0);
 
+  const url = import.meta.env.VITE_PUBLIC_URL;
+
   const madaniRegular = { fontFamily: 'Madani Regular' };
   const madaniBold = { fontFamily: 'Madani Bold' };
 
   useEffect(() => {
-    if (!state?.id) return;
-    fetch(`http://201.116.192.155:3020/reticula/${state.id}`)
+    fetch(`${url}/reticula/${id}`)
       .then(res => res.json())
       .then(data => setReticula(data))
       .catch(err => console.error('Error al obtener retícula:', err));
-  }, [state]);
+  });
 
   const materiasPorSemestre = Array.from({ length: 10 }, (_, i) => {
     const semestre = i + 1;

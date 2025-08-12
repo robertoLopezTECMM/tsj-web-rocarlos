@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { iconList } from '../../assets/icons';
-import Navbar from '../../components/navbar';
 import './styles/Noticia.css';
 
 export default function Noticia() {
@@ -72,8 +71,6 @@ export default function Noticia() {
     if (!noticia) return <div className="noticia-error">No se encontró la noticia.</div>;
 
     return (
-        <>
-        <Navbar/>
         <div className="noticia-wrapper">
             <div className="noticia-background">
                 {backgroundIcons.map((icon, index) => (
@@ -91,7 +88,6 @@ export default function Noticia() {
                 ))}
             </div>
             <div className="noticia-container">
-            
                 <img className="noticia-imagen" src={noticia.fotografiaPrincipal} alt={noticia.titulo} />
                 <div className="noticia-contenido fade-in">
                     <h1 className="noticia-titulo" style={madaniBold}>{noticia.titulo}</h1>
@@ -102,6 +98,5 @@ export default function Noticia() {
                 </div>
             </div>
         </div>
-        </>
     );
 }

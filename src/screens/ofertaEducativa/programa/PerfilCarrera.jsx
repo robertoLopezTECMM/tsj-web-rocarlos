@@ -13,7 +13,7 @@ export default function PerfilCarrera({ ingreso, egreso, photoLink }) {
       .filter((p) => p.length > 0)
   );
 
-  const puntosPorPagina = [4, 4];
+  const puntosPorPagina = [4, 3];
   const puntosActuales = contenidos[perfilIndex] || [];
   const paginasTotales = Math.ceil(puntosActuales.length / puntosPorPagina[perfilIndex]);
 

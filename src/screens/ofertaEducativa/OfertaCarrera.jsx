@@ -22,8 +22,6 @@ export default function OfertaCarrera() {
     // { id: 'contacto' },
   ];
 
-  console.log(carreraNombre)
-
   useEffect(() => {
     if (!carreraNombre) return;
 
@@ -51,9 +49,9 @@ export default function OfertaCarrera() {
           />
         </section>
         <section id="plan" className="section gray">
-          <Plan />
+          <Plan id={carrera.id}/>
         </section>
-        <section id="unidades" className="sectionLanding red">
+        <section id="unidades" className="sectionLanding blue">
           <MapJalisco />
         </section>
         {/* <section id="contacto" className="section orange">

@@ -10,10 +10,13 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import axios from 'axios';
+import { useNavigate } from 'react-router';
+import IconBackground from '../../components/background/IconBackground';
 
 export const Noticias = () => {
 
     const [noticias, setNoticias] = useState([])
+    const navigate = useNavigate()
 
     useEffect(() => {
         axios.get("https://www.tecmm.edu.mx/apiCms/news") // Reemplaza con tu endpoint real si cambia
@@ -54,18 +57,21 @@ export const Noticias = () => {
                 </CardContent>
                 <CardActions>
                     <Button size="small">Compartir</Button>
-                    <Button size="small">Leer Mas</Button>
+                    <Button size="small" onClick={()=>navigate(`/noticias/${noticia.idNoticia}`)}>Leer Mas</Button>
                 </CardActions>
             </Card>
         )
     }
 
   return (
+    <>
+    <IconBackground />
     <div className='padre'>
-        <Navbar/>
+        {/* <Navbar/> */}
 
         <div className='newsGridContainer'>
 
+            <h1>Noticias</h1>
             <Grid container spacing={3} justifyContent="center">
                 {noticias.map((noticia, index) => (
                     <Grid item key={index} xs={12} sm={6} md={4}>
@@ -78,5 +84,6 @@ export const Noticias = () => {
 
         
     </div>
+    </>
   )
 }
