@@ -1,0 +1,24 @@
+.h1-archivo{
+    font-family:'madaniArabicBold' ;
+    color: var(--navyBlue)
+}
+
+.ul-archivos{
+    list-style-type: none;
+}
+
+.li-renderItem{
+    font-family: 'madaniArabicMedium';
+    margin: 1rem;
+    font-size: 1.2rem;
+
+}
+
+.li-renderItem a{
+    text-decoration: none;
+    color: var(--navyBlue)
+}
+
+.li-renderItem a:hover{
+    color: var(--blue)
+}

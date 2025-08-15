@@ -65,7 +65,7 @@ export const Noticias = () => {
 
   return (
     <>
-    <IconBackground />
+    {/* <IconBackground /> */}
     <div className='padre'>
         {/* <Navbar/> */}
 

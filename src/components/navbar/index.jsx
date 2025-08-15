@@ -4,7 +4,8 @@ import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
-import { useLocation } from 'react-router'
+import {useLocation} from 'react-router'
+import logoTsj from '../../assets/logos/logoTsj-01.png'
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,6 +34,8 @@ function Navbar() {
           </ul>
         </div>
       </Drawer>
+
+
       <nav className={isHome ? "navbarTranslucid" : "navbarSolid"}>
         <div className="navbar-left">
           <span onClick={toggleDrawer} className="menu-icon">
@@ -44,7 +47,7 @@ function Navbar() {
           </div> */}
         <div>
           <ul className="navbar-menu">
-            <li><a href='/'><img src="https://tsjapp.tecmm.mx/resources/images/logos/logoTsj-01.png" alt="Logo TSJ" className="logo" /></a></li>
+            <li><a href='/'><img src={logoTsj} alt="Logo TSJ" className="logo" /></a></li>
 
             {/* Submenu: Sobre TSJ */}
             <li
@@ -56,13 +59,14 @@ function Navbar() {
               {openSubmenu === 'sobre' && (
                 <ul className="submenu">
                   <li><a href="/directorio">Directorio</a></li>
-                  <li><a href="/mision-vision">Misión y Visión</a></li>
+                  <li><a href="/mision-vision">¿Quiénes Somos?</a></li>
+                  <li><a href='/noticias'>Noticias</a></li>
                 </ul>
               )}
             </li>
 
-            <li id="navBarButton"><a href='/noticias'>Noticias</a></li>
-            <li id="navBarButton"><a>Servicios Escolares</a></li>
+            {/* <li id="navBarButton"><a href='/noticias'>Noticias</a></li> */}
+            <li id="navBarButton"><a>Admisión</a></li>
             <li id="navBarButton"><a href='/ofertaEducativa'>Oferta Educativa</a></li>
             <li id="navBarButton"><a href='/unidadesAcademicas'>Unidades Académicas</a></li>
             {/* <li><img src="https://tsjapp.tecmm.mx/resources/images/logos/logoTsj-01.png" alt="Logo TSJ" className="logo" /></li> */}
@@ -76,8 +80,11 @@ function Navbar() {
               <a style={{ cursor: 'pointer' }}>Normatividad</a>
               {openSubmenu === 'norma' && (
                 <ul className="submenu">
+                  <li><a href="/archivo">Archivo</a></li>
                   <li><a href="/junta-gobierno">Junta de Gobierno</a></li>
+                  <li><a href="/ordenamientos">Ordenamientos</a></li>
                   <li><a href="/organos-tecnicos">Órganos Técnicos</a></li>
+                  <li><a href="/transparencia">Transparencia</a></li>
                 </ul>
               )}
             </li>
