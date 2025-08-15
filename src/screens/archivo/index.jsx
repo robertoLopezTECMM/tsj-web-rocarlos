@@ -1,13 +1,13 @@
-
 import React, { useEffect, useState } from 'react'
 import IconBackground from '../../components/background/IconBackground'
 import axios from 'axios'
 import './index.css'
 import FileDownload from '@mui/icons-material/FileDownload';
 
-{/*DEBT TECH: this componente is exactly the same of ordenamientos/archivos, make modular, changes the api petitions to the .env */}
+{/*DEBT TECH: changes the api petitions to the .env */}
 
-export const Ordenamientos = () => {
+
+export const Archivo = () => {
 
   const [archivos, setArchivos] = useState([])
   const [loading, setLoading] = useState(true)
@@ -17,7 +17,7 @@ export const Ordenamientos = () => {
 
     try{
       setLoading(true)
-      const res = await axios.get('https://www.tecmm.edu.mx/apiCms/normatividadOrdenamientos')
+      const res = await axios.get('https://www.tecmm.edu.mx/apiCms/normatividadArchivo')
       console.log(res.data)
       setArchivos(res.data)
 
@@ -53,7 +53,7 @@ export const Ordenamientos = () => {
 
       <div className="noticia-container">
 
-        <h1 className='h1-archivo'>Ordenamientos</h1>
+        <h1 className='h1-archivo'>Archivo</h1>
 
         <ul className='ul-archivos'>
 

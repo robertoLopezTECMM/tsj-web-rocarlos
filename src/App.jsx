@@ -15,6 +15,8 @@ import OrganosTecnicos from './screens/organosTecnicos/OrganosTecnicos'
 import COCODI from './screens/organosTecnicos/COCODI'
 import UIG from './screens/organosTecnicos/UIG'
 import ComiteEtica from './screens/organosTecnicos/ComiteEtica'
+import { Archivo } from './screens/archivo'
+import { Transparencia } from './screens/transparencia'
 
 
 
@@ -23,7 +25,7 @@ function App() {
   // const isHome = location.pathname === '/';
 
   return (
-    <>
+    <div >
       <Navbar />
       <Routes>
         <Route path="/" element={<Landing />} />
@@ -39,13 +41,16 @@ function App() {
         <Route path="/noticias" element={<Noticias />} />
         <Route path="/noticias/:id" element={<Noticia />} />
         <Route path="/validarCredencial/:qrId" element={<ValidadorCredenciales />} />
+        <Route path="/archivo" element={<Archivo/>} />
         <Route path="/junta-gobierno" element={<JuntaGobierno />} />
+        <Route path="/ordenamientos" element={<Ordenamientos />} />
+        <Route path="/transparencia" element={<Transparencia />} />
         <Route path="/organos-tecnicos" element={<OrganosTecnicos />} />
         <Route path="/organos-tecnicos/comite-de-control-interno-cocodi" element={<COCODI />} />
         <Route path="/organos-tecnicos/unidad-de-igualdad-de-genero-uig" element={<UIG />} />
         <Route path="/organos-tecnicos/comite-de-etica" element={<ComiteEtica />} />
       </Routes>
-    </>
+    </div>
   )
 }
 
