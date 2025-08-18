@@ -10,8 +10,23 @@
   background-color: #1e88e5;
 }
 
+.navyBlue {
+  background-color: var(--navyBlue);
+}
+
+.orange {
+  background-color: var(--orange);
+}
+
 .grey{
     background-color: rgb(57, 56, 59);
+}
+.white{
+    background-color: white;
+}
+
+.black{
+    background-color: black;
 }
 
 
@@ -66,11 +81,18 @@
 }
 
 .divLottie{
+    /* background-color: red; */
   position: absolute;
   bottom: 5%;
-  left: 50%;
-  width: 3rem; /* ajusta al tamaño que quieras */
+  left: 0%;
+  width: 13rem; /* ajusta al tamaño que quieras */
   height: 3rem;
+  display: flex;
+  left: 45%;
+    justify-content: center;
+    align-items:center;
+    justify-content: space-around;
+
 }
 
 
@@ -81,32 +103,80 @@
 /* OFERTA ACADEMICA SECTION */
 .image-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 columnas */
-  grid-template-rows: repeat(2, 1fr); 
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   width: 100%;
   height: 100%;
 }
 
-.image-grid img {
+.image-item {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.image-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   cursor: pointer;
+  transition: transform 0.4s ease;
+  opacity: 0.7;
 }
 
-.image-grid img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  cursor: pointer;
-  object-fit: cover;
-  transition: transform 0.4s ease; /* Suaviza el zoom */
+.image-item img:hover {
+  transform: scale(1.03);
+  z-index: 1;
 }
 
-.image-grid img:hover {
-  transform: scale(1.03); /* Aplica zoom al hacer hover */
-  z-index: 1; /* En caso de solapamiento */
+.image-text {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white; /* cambia según el fondo */
+    font-family: "madaniArabicLight";
+    font-size: 2.0rem;
+    font-weight: bold;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.7); /* mejora la visibilidad */
+    pointer-events: none; /* para que no bloquee el hover */
+    margin:0px;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+
+.borderBottomGreen{
+    border-bottom: 5px solid var(--green)
+}
+
+.borderBottomOrange{
+    border-bottom: 5px solid var(--orange)
+}
+
+.borderBottomRed{
+    border-bottom: 5px solid var(--red)
+}
+
+.borderBottomBlue{
+    border-bottom: 5px solid var(--blue)
+}
+
+.image-text p{
+    margin:1rem;
+}
+
+.image-text img{
+    width: 5dvh;
+    height: 5dvh;
+    opacity: 1;
+}
+
 
 
 
@@ -166,7 +236,7 @@
 
 .footerSectionContact{
     width: 100%;
-    height: 70dvh;
+    height: 100dvh;
     background-image: url('https://tecmm.edu.mx/apiCms/cmsWebFiles/teclado.png');
     background-size: cover;
     background-position: center;
@@ -181,99 +251,81 @@
     font-size: 2.5rem;
 }
 
-.logosAddressContainer{
-    display: flex;
+
+
+.footerSectionContact h2{
+    margin:0;
+    font-family: 'madaniArabicBold';
+    font-size: 1.5rem;
 }
 
-.logosRedesSection{
-    width: 50%;
-    height: 35dvh;
-    /* background-color: pink;     */
-}
-
-.redesLogos{
+.div-footer-content{
     width:100%;
-    height: 100%;
-    /* background-color: blue; */
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    justify-content: flex-end;
-    text-align: center;
-}
-
-.redesLogos img {
-    width: 6rem;
-    height: 6rem;
-    object-fit: contain;
-    cursor: pointer;
-    justify-self: center;
-}
-
-
-
-
-
-.mapAddressSection{
-    width: 50%;
-    height: 35dvh;
-    /* background-color: brown; */
-}
-
-
-.ubicationMapAddresContainer{
-    width: 100%;
-    height: auto;
-    border-radius:10px;
-    display:flex; 
-    flex-direction:column; 
-    justify-content:flex-start;
-}
-
-.ubicationIframeMap{
-    width: 50%;
-    border:0;
-    border-radius: 10px;
-}
-
-.ubicationMapAddresContainer p{
-    width: 100%;
+    height: 45dvh;
     /* background-color: pink; */
-    font-size: 1rem;
-    text-align: left;
-    font-family: 'madaniArabicMedium';
-    margin: 0.5rem 0rem 0.5rem 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
-.whatsappLink{
+.div-footer-phoneSocialMedia{
+    /* background-color:green; */
+    width:50%;
+    height:100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 3rem;
-    cursor: pointer;
 }
 
-.whatsappLink :hover{
-    color: var(--green)
+.div-footer-phoneSocialMedia img{
+    width: 10dvw;
+    height: 10dvw;
+    margin:0.5rem
 }
 
-.whatsappLink h1{
+.div-footer-phoneSocialMedia h3{
     margin: 0;
-    padding: 0;
+    font-size: 2rem;
 }
 
-.whatsappLink img{
-    width: 3rem;
-    height: 3rem;
-    align-self: center;
+.div-footer-phoneSocialMedia h4{
+    margin: 0;
+    font-family: 'madaniArabicMedium';
+    font-size: 1.3rem;
 }
+
+
+.div-footer-phones{
+    font-size: 1.5rem;
+    font-family: 'madaniArabicBold';
+}
+
+
+.div-footer-ccontainerLogosSocialMedia img{
+    width: 2.5dvw;
+    height: 2.5dvw;
+}
+
+
+
+.div-footer-mapAddress{
+    /* background-color:red; */
+    width:50%;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 
 .footerSectionLogos{
- width: 100%;
- height: 15vh;
-   display: flex;
-  align-items: center; /* ⛔ Esto centra verticalmente */
-  justify-content: space-around; /* Esto centra horizontalmente */
+    width: 100%;
+    height: 20dvh;
+    display: flex;
+    align-items: center; /* ⛔ Esto centra verticalmente */
+    justify-content: space-around; /* Esto centra horizontalmente */
 }
 
 .footerSectionLogos img{
