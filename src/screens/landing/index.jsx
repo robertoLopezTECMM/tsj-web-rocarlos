@@ -7,6 +7,13 @@ import Lottie from "lottie-react";
 import animacion from "../../assets/lotties/Animation.json";
 import { BannerSlider } from '../../components/bannerSliders';
 import MapJalisco from '../../components/jaliscoMap';
+import PlayArrow from '@mui/icons-material/PlayArrow';
+import Pause from '@mui/icons-material/Pause';
+
+import VolumeUp from '@mui/icons-material/VolumeUp';
+import VolumeMute from '@mui/icons-material/VolumeMute';
+
+
 
 import sicytLogoBlanco from '../../assets/logos/sicytBco.png'
 import jaliscoLogoBlanco from '../../assets/logos/jaliscoBco.png'
@@ -14,13 +21,67 @@ import tsjLogoBlanco from '../../assets/logos/tsjBco.png'
 import educacionLogo from '../../assets/logos/educacion.png'
 import tecnmLogo from '../../assets/logos/tecnmSVG.svg'
 import whatsappLogo from '../../assets/logos/whatsapp.webp'
+import facebook from '../../assets/logos/facebook.png'
+import instagram from '../../assets/logos/instagram.png'
+import youtube from '../../assets/logos/youtube.png'
+import twitter from '../../assets/logos/twitter.png'
+import tiktok from '../../assets/logos/tiktok.png'
+import iconLicenciaturas from '../../assets/logos/iconLicenciaturas.png'
+import iconIngenierias from '../../assets/logos/iconIngenierias.png'
+import iconMaestrias from '../../assets/logos/iconMaestrias.png'
+import iconEnLinea from '../../assets/logos/iconEnLinea.png'
+
+
+import whatsappQr from '../../assets/logos/whatsappQr.jpeg'
 
 import { NewsSlider } from '../../components/newsSlider';
 
 
 
+import { styled } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
+
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: '#fff',
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: (theme.vars ?? theme).palette.text.secondary,
+  ...theme.applyStyles('dark', {
+    backgroundColor: '#1A2027',
+  }),
+}));
+
+
+
+
 
 function Landing() {
+
+  const videoRef = useRef();
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [isMuted, setIsMuted] = useState(true);
+
+  const handlePlayPause = () => {
+    if (!videoRef.current) return;
+
+    if (isPlaying) {
+      videoRef.current.pause();
+    } else {
+      videoRef.current.play();
+    }
+    setIsPlaying(!isPlaying);
+  };
+
+  const handleMute = () => {
+    if (!videoRef.current) return;
+
+    videoRef.current.muted = !isMuted;
+    setIsMuted(!isMuted);
+  };
+
 
   return (
     <> 
@@ -28,20 +89,28 @@ function Landing() {
       <div className="scroll-container">
         <section id="sobre" className="section video-section">
           <video
+            ref={videoRef}
             className="background-video"
-            src="https://tecmm.edu.mx/apiCms/cmsWebFiles/videoPruebas.mp4"
+            src="https://tecmm.edu.mx/apiCms/cmsWebFiles/aquitsj.mp4"
             autoPlay
             loop
-            muted
+            muted={isMuted}
             playsInline
           />
           <div className="divLottie">
+            {!isMuted ? <VolumeUp onClick={handleMute} fontSize='large'/> : <VolumeMute onClick={handleMute} fontSize='large'/>}
+
+
             <Lottie 
               animationData={animacion}
               className="absolute bottom-0 left-0 w-32 h-32"
               loop={true}
             />
+
+            {!isPlaying ? <Pause onClick={handlePlayPause} fontSize='large'/> : <PlayArrow onClick={handlePlayPause} fontSize='large'/> }
           </div>
+
+
 
         </section>
 
@@ -55,14 +124,44 @@ function Landing() {
         </section>
 
 
-
-
-
-        <section className="sectionLanding blue image-grid">
-          <img src="https://tecmm.edu.mx/apiCms/cmsWebFiles/landing_ingenierias.png" alt="Imagen 1"  />
-          <img src="https://tecmm.edu.mx/apiCms/cmsWebFiles/landing_licenciaturas.png" alt="Imagen 2"  />
-          <img src="https://tecmm.edu.mx/apiCms/cmsWebFiles/landing_maestrias.png" alt="Imagen 3"  />
-          <img src="https://tecmm.edu.mx/apiCms/cmsWebFiles/landing_enlinea.png" alt="Imagen 4"  />
+        <section className="sectionLanding black image-grid">
+          <div className="image-item">
+            <img src="https://tecmm.edu.mx/apiCms/cmsWebFiles/landing_ingenierias.png" alt="Imagen 1" />
+            <span className="image-text ">
+              <img src={iconIngenierias}/>
+              <p className='borderBottomGreen'>
+                Ingenierías
+              </p>
+              
+            </span>
+          </div>
+          <div className="image-item">
+            <img src="https://tecmm.edu.mx/apiCms/cmsWebFiles/landing_licenciaturas.png" alt="Imagen 2" />
+            <span className="image-text">
+              <img src={iconLicenciaturas}/>
+              <p className='borderBottomOrange'>
+                Licenciaturas
+              </p>
+            </span>
+          </div>
+          <div className="image-item">
+            <img src="https://tecmm.edu.mx/apiCms/cmsWebFiles/landing_maestrias.png" alt="Imagen 3" />
+            <span className="image-text">
+              <img src={iconMaestrias}/>
+              <p className='borderBottomRed'>
+                Maestrías
+              </p>
+            </span>
+          </div>
+          <div className="image-item">
+            <img src="https://tecmm.edu.mx/apiCms/cmsWebFiles/landing_enlinea.png" alt="Imagen 4" />
+            <span className="image-text">
+              <img src={iconEnLinea}/>
+              <p className='borderBottomBlue'>
+                En línea
+              </p>
+            </span>
+          </div>
         </section>
 
         <section className="sectionLanding blue sectionAlignedRightFlex">
@@ -85,87 +184,125 @@ function Landing() {
         </section>
 
 
+        {/* <section className="sectionLanding green">
+          
+              <Box>
+                <Grid container spacing={0.3}>
+
+                  <Grid size={4}>
+                    <Item>
+                      size=4
+                      <br/>
+                      <br/>
+                      <br/>
+                      <br/>
+                    </Item>
+                  </Grid>
+
+                  <Grid size={6}>
+                    <Item>
+                      size=6
+                      <br/>
+                      <br/>
+                      <br/>
+                      <br/>
+                    </Item>
+                  </Grid>
+
+                  <Grid size={6}>
+                    <Item>
+                      size=6
+                      <br/>
+                      <br/>
+                      <br/>
+                      <br/>
+                    </Item>
+                  </Grid>
+
+                  <Grid size={8}>
+                    <Item>
+                      size=8
+                      <br/>
+                      <br/>
+                      <br/>
+                      <br/>
+                    </Item>
+                  </Grid>
+
+                </Grid>
+              </Box>
+        </section> */}
+
+
 
         <section className="sectionLanding sectionDisplayBlock">
           
             <div className='footerSectionContact'>
-                <h1>¿Tienes Dudas? Contactanos</h1>
+              <h1>¿Tienes Dudas? Contactanos</h1>
 
-                <div className='logosAddressContainer'>
+              <div className='div-footer-content'>
 
-                  <div className='logosRedesSection'>
+                <div className='div-footer-phoneSocialMedia'>
+                  <img src={whatsappQr}/>
 
-                    <div className='redesLogos'>
-                        <img src="https://tecmm.edu.mx/apiCms/cmsWebFiles/facebook.png" alt="Imagen 1"  />
-                        <img src="https://tecmm.edu.mx/apiCms/cmsWebFiles/tiktok.webp" alt="Imagen 1"  />
-                        <img src="https://tecmm.edu.mx/apiCms/cmsWebFiles/youtube.webp" alt="Imagen 1"  />
-                        <img src="https://tecmm.edu.mx/apiCms/cmsWebFiles/X.png" alt="Imagen 1"  />
-                    </div>
-
+                  <div className='div-footer-phones'>
+                    <h3>33 3884 9498</h3>
                   </div>
 
-                  <div className='mapAddressSection'>
+                  <div className='div-footer-phones'>
+                    <h3>33 3884 9470</h3>
+                  </div>
 
-                    <div className='ubicationMapAddresContainer'>
-                      <iframe
-                          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9532.015912463226!2d-103.47132874616723!3d20.70456403385319!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428a92008505ae3%3A0xac0da90d95e836af!2sTecnol%C3%B3gico%20Superior%20de%20Jalisco%20Zapopan!5e0!3m2!1ses!2smx!4v1751047031962!5m2!1ses!2smx" 
-                          className='ubicationIframeMap'
-                          allowFullScreen=""
-                          loading="lazy"
-                          referrerPolicy="no-referrer-when-downgrade"
-                      ></iframe>
+                  <br/>
+                  <br/>
 
-                      <p>
-                          <span className="material-icons" style={{ verticalAlign: 'middle' }}>
-                              location_on
-                          </span>
-                          &nbsp;Camino Arenero 1101, Col. El Bajio. 45017. Zapopan, Jalisco.
-                      </p>
 
-                      <p>
-                          <span className="material-icons" style={{ verticalAlign: 'middle' }}>
-                              mail
-                          </span>
-                          &nbsp;contacto@tecmm.edu.mx
-                      </p>
 
-                      <p>
-                          <span className="material-icons" style={{ verticalAlign: 'middle' }}>
-                              phone
-                          </span>
-                          &nbsp;33 1234 1234 ext. 1234, 5678
-                      </p>
+                  <div>
+                    <h4>Siguenos en redes #TSJ</h4>
+
+                    <div className='div-footer-ccontainerLogosSocialMedia'>
+
+                      <img src={facebook}/>
+                      <img src={instagram}/>
+                      <img src={youtube}/>
+                      <img src={twitter}/>
+                      <img src={tiktok}/>
+
+
                     </div>
-
                   </div>
 
                 </div>
 
-                <div className='whatsappLink'>
-                    <img src={whatsappLogo} alt="Imagen 1"  />
-                    
-                    <a
-                      href='https://wa.me/523338849498'
-                      target="_blank"
-                      style={{textDecoration:'none', color:'white'}}
-                    >
-                        <h1>&nbsp;+52 33 3884 9498</h1>
-                    </a>
+                <div className='div-footer-mapAddress'>
+                  <p>Camino Arenero 1101 45019, Zapopan, Jalisco</p>
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9532.015912463226!2d-103.47132874616723!3d20.70456403385319!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428a92008505ae3%3A0xac0da90d95e836af!2sTecnol%C3%B3gico%20Superior%20de%20Jalisco%20Zapopan!5e0!3m2!1ses!2smx!4v1751047031962!5m2!1ses!2smx" 
+                    className='ubicationIframeMap'
+                    allowFullScreen=""
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    width='90%'
+                    height='80%'
+                  ></iframe>
+                </div>
 
-                </div> 
+              </div>
 
-            </div>
+              <h2>INNOVAR PARA TRANSFORMAR A MÉXICO</h2>
+              
+              <div className='footerSectionLogos grey'>
+                  <img src={sicytLogoBlanco} alt="Imagen 1"  />
+                  <img src={tsjLogoBlanco} alt="Imagen 1"  />
+                  <img src={jaliscoLogoBlanco} alt="Imagen 1"  />
+              </div>
 
-            <div className='footerSectionLogos grey'>
-                <img src={sicytLogoBlanco} alt="Imagen 1"  />
-                <img src={tsjLogoBlanco} alt="Imagen 1"  />
-                <img src={jaliscoLogoBlanco} alt="Imagen 1"  />
-                
-            </div>
+              <div className='footerSectionLogos white'>
+                  <img src={educacionLogo} alt="Imagen 1"  />
+                  <img src={tecnmLogo} alt="Imagen 1"  />
+              </div>
 
-            <div className='footerSectionLogos'>
-                <img src={educacionLogo} alt="Imagen 1"  />
-                <img src={tecnmLogo} alt="Imagen 1"  />
             </div>
         </section>
 
