@@ -1,7 +1,9 @@
+// OfertaEducativa.jsx
 import { useState, useEffect } from 'react';
 import CarreraCard from '../../components/cardsCarrera/CarreraCard';
 import OfertaEducativaHeader from './OfertaEducativaHeader';
 import './OfertaEducativa.css';
+import Navbar from '../../components/navbar';
 
 export default function OfertaEducativa() {
   const [carreras, setCarreras] = useState([]);
@@ -36,6 +38,7 @@ export default function OfertaEducativa() {
 
   return (
     <div className="oferta-container">
+      {/* <Navbar /> */}
       <OfertaEducativaHeader
         categoriaActiva={categoriaActiva}
         onChangeCategoria={setCategoriaActiva}
