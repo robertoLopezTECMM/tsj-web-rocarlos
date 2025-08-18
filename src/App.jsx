@@ -31,9 +31,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/ofertaEducativa" element={<OfertaEducativa />} />
-        <Route path="/ofertaEducativa/categoria/:categoria" element={<OfertaEducativa />} />
-        <Route path="/ofertaEducativa/categoria/:categoria/unidad/:unidad" element={<OfertaEducativa />} />
-        <Route path="/ofertaEducativa/carrera/:carreraNombre" element={<OfertaCarrera />} />
+        <Route path="/ofertaEducativa/filtro/:idFilter" element={<OfertaEducativa />} />
+        {/* <Route path="/ofertaEducativa/categoria/:categoria" element={<OfertaEducativa />} />
+        <Route path="/ofertaEducativa/categoria/:categoria/unidad/:unidad" element={<OfertaEducativa />} /> */}
+        <Route path="/ofertaEducativa/:carreraNombre" element={<OfertaCarrera />} />
         <Route path="/unidadesAcademicas" element={<UnidadesAcademicas />} />
         <Route path="/directorio" element={<Directorio/>} />
         <Route path="/noticias" element={<Noticias/>} />

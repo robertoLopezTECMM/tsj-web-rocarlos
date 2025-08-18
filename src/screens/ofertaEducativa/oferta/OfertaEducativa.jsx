@@ -3,8 +3,11 @@ import CarreraCard from './CarreraCard';
 import OfertaFilter from './OfertaFilter';
 import IconBackground from '../../../components/background/IconBackground';
 import './styles/OfertaEducativa.css';
+import { useNavigation, useParams } from 'react-router';
 
 export default function OfertaEducativa() {
+  // const navigate = useNavigation()
+  const {idFilter} = useParams();
   const [carreras, setCarreras] = useState([]);
   const [unidad, setUnidad] = useState('');
   const [tipo, setTipo] = useState('');
@@ -12,6 +15,18 @@ export default function OfertaEducativa() {
 
   const observer = useRef(null);
   const url = import.meta.env.VITE_PUBLIC_URL;
+
+  useEffect(() => {
+    if(idFilter?.toLocaleLowerCase() === 'ingenierias') setTipo('Ingeniería')
+    if(idFilter?.toLocaleLowerCase() === 'licenciaturas') setTipo('Licenciatura')
+    if(idFilter?.toLocaleLowerCase() === 'maestrias') setTipo('Maestría')
+    if(idFilter?.toLocaleLowerCase() === 'enlinea') setTipo('En línea')
+    // else{
+    //   navigate('/ofertaEducativa')
+    // }
+  }, [idFilter])
+  
+
 
   useEffect(() => {
     fetch(`${url}/educational`)
