@@ -17,6 +17,7 @@ import UIG from './screens/organosTecnicos/UIG'
 import ComiteEtica from './screens/organosTecnicos/ComiteEtica'
 import { Archivo } from './screens/archivo'
 import { Transparencia } from './screens/transparencia'
+import QuienesSomos from './screens/quienesSomos/QuienesSomos'
 
 
 
@@ -30,7 +31,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/ofertaEducativa" element={<OfertaEducativa />} />
-        <Route path="/ofertaEducativa/:carreraNombre" element={<OfertaCarrera />} />
+        <Route path="/ofertaEducativa/categoria/:categoria" element={<OfertaEducativa />} />
+        <Route path="/ofertaEducativa/categoria/:categoria/unidad/:unidad" element={<OfertaEducativa />} />
+        <Route path="/ofertaEducativa/carrera/:carreraNombre" element={<OfertaCarrera />} />
         <Route path="/unidadesAcademicas" element={<UnidadesAcademicas />} />
         <Route path="/directorio" element={<Directorio/>} />
         <Route path="/noticias" element={<Noticias/>} />
@@ -49,6 +52,7 @@ function App() {
         <Route path="/organos-tecnicos/comite-de-control-interno-cocodi" element={<COCODI />} />
         <Route path="/organos-tecnicos/unidad-de-igualdad-de-genero-uig" element={<UIG />} />
         <Route path="/organos-tecnicos/comite-de-etica" element={<ComiteEtica />} />
+        <Route path="/quienes-somos" element={<QuienesSomos />} />
       </Routes>
     </div>
   )

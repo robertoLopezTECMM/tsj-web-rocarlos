@@ -59,7 +59,7 @@ function Navbar() {
               {openSubmenu === 'sobre' && (
                 <ul className="submenu">
                   <li><a href="/directorio">Directorio</a></li>
-                  <li><a href="/mision-vision">¿Quiénes Somos?</a></li>
+                  <li><a href="/quienes-somos">¿Quiénes Somos?</a></li>
                   <li><a href='/noticias'>Noticias</a></li>
                 </ul>
               )}
