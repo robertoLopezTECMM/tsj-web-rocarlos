@@ -26,8 +26,7 @@ export default function OfertaEducativa() {
     // }
   }, [idFilter])
   
-
-
+  
   useEffect(() => {
     fetch(`${url}/educational`)
       .then((res) => res.json())

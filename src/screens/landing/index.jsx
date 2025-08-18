@@ -42,6 +42,7 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
+import { Link } from 'react-router-dom';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: '#fff',
@@ -126,41 +127,51 @@ function Landing() {
 
         <section className="sectionLanding black image-grid">
           <div className="image-item">
-            <img src="https://tecmm.edu.mx/apiCms/cmsWebFiles/landing_ingenierias.png" alt="Imagen 1" />
-            <span className="image-text ">
-              <img src={iconIngenierias}/>
-              <p className='borderBottomGreen'>
-                Ingenierías
-              </p>
-              
-            </span>
+            <Link to='/ofertaEducativa/filtro/ingenierias'>
+              <img src="https://tecmm.edu.mx/apiCms/cmsWebFiles/landing_ingenierias.png" alt="Imagen 1" />
+              <span className="image-text ">
+                <img src={iconIngenierias}/>
+                <p className='borderBottomGreen'>
+                  Ingenierías
+                </p>
+              </span>
+            </Link>
           </div>
+
           <div className="image-item">
-            <img src="https://tecmm.edu.mx/apiCms/cmsWebFiles/landing_licenciaturas.png" alt="Imagen 2" />
-            <span className="image-text">
-              <img src={iconLicenciaturas}/>
-              <p className='borderBottomOrange'>
-                Licenciaturas
-              </p>
-            </span>
+            <Link to='/ofertaEducativa/filtro/licenciaturas'>
+              <img src="https://tecmm.edu.mx/apiCms/cmsWebFiles/landing_licenciaturas.png" alt="Imagen 2" />
+              <span className="image-text">
+                <img src={iconLicenciaturas}/>
+                <p className='borderBottomOrange'>
+                  Licenciaturas
+                </p>
+              </span>
+            </Link>
           </div>
+
           <div className="image-item">
-            <img src="https://tecmm.edu.mx/apiCms/cmsWebFiles/landing_maestrias.png" alt="Imagen 3" />
-            <span className="image-text">
-              <img src={iconMaestrias}/>
-              <p className='borderBottomRed'>
-                Maestrías
-              </p>
-            </span>
+            <Link to='/ofertaEducativa/filtro/maestrias'>
+              <img src="https://tecmm.edu.mx/apiCms/cmsWebFiles/landing_maestrias.png" alt="Imagen 3" />
+              <span className="image-text">
+                <img src={iconMaestrias}/>
+                <p className='borderBottomRed'>
+                  Maestrías
+                </p>
+              </span>
+            </Link>
           </div>
+
           <div className="image-item">
-            <img src="https://tecmm.edu.mx/apiCms/cmsWebFiles/landing_enlinea.png" alt="Imagen 4" />
-            <span className="image-text">
-              <img src={iconEnLinea}/>
-              <p className='borderBottomBlue'>
-                En línea
-              </p>
-            </span>
+            <Link to='/ofertaEducativa/filtro/enlinea'>
+              <img src="https://tecmm.edu.mx/apiCms/cmsWebFiles/landing_enlinea.png" alt="Imagen 4" />
+              <span className="image-text">
+                <img src={iconEnLinea}/>
+                <p className='borderBottomBlue'>
+                  En línea
+                </p>
+              </span>
+            </Link>
           </div>
         </section>
 

@@ -66,7 +66,7 @@ function Navbar() {
             </li>
 
             {/* <li id="navBarButton"><a href='/noticias'>Noticias</a></li> */}
-            <li id="navBarButton"><a>Admisión</a></li>
+            <li id="navBarButton"><a href='https://admision.tsj.mx:3000/' target='_blank'>Admisión</a></li>
             <li id="navBarButton"><a href='/ofertaEducativa'>Oferta Educativa</a></li>
             <li id="navBarButton"><a href='/unidadesAcademicas'>Unidades Académicas</a></li>
             {/* <li><img src="https://tsjapp.tecmm.mx/resources/images/logos/logoTsj-01.png" alt="Logo TSJ" className="logo" /></li> */}
