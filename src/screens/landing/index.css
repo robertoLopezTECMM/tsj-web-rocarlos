@@ -92,6 +92,41 @@
     justify-content: center;
     align-items:center;
     justify-content: space-around;
+}
+
+
+/*NEWS SECTIOM*/
+
+.row{
+    margin:0!important;
+}
+
+.cols-1stRow-news{
+    position: relative;
+    padding:1px!important;
+    height: 70dvh;
+
+}
+
+.cols-2ndRow-news{
+    position: relative;
+    padding:1px!important;
+    height: 30dvh;
+}
+
+.div-shadowBox{
+    width: 80%;
+    height: 7dvh;
+    bottom: 3dvh;
+    position: absolute;
+    /* border: 2px red solid; */
+    background-color: var(--red);
+}
+
+.imgClass{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 
 }
 

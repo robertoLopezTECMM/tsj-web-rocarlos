@@ -37,6 +37,11 @@ import whatsappQr from '../../assets/logos/whatsappQr.jpeg'
 import { NewsSlider } from '../../components/newsSlider';
 
 
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
+
 
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -63,7 +68,7 @@ function Landing() {
 
   const videoRef = useRef();
   const [isPlaying, setIsPlaying] = useState(true);
-  const [isMuted, setIsMuted] = useState(true);
+  const [isMuted, setIsMuted] = useState(false);
 
   const handlePlayPause = () => {
     if (!videoRef.current) return;
@@ -84,6 +89,18 @@ function Landing() {
   };
 
 
+  const NewsItem = ({xs, md, image, classname}) =>{
+    return(
+    <Col className= {classname === '1st' ? 'cols-1stRow-news white'  : 'cols-2ndRow-news white'} xs={xs} md={md}>
+      <div className='div-shadowBox'>
+        hola
+      </div>
+      <img className='imgClass' src={image}/>
+    </Col>
+    )
+  }
+
+
   return (
     <> 
       {/* <Navbar /> */}
@@ -92,7 +109,7 @@ function Landing() {
           <video
             ref={videoRef}
             className="background-video"
-            src="https://tecmm.edu.mx/apiCms/cmsWebFiles/aquitsj.mp4"
+            src="https://tecmm.edu.mx/apiCms/cmsWebFiles/videoLanding.mp4"
             autoPlay
             loop
             muted={isMuted}
@@ -114,10 +131,6 @@ function Landing() {
 
 
         </section>
-
-
-
-
 
         <section className="sectionLanding news">
           <BannerSlider/>
@@ -195,54 +208,24 @@ function Landing() {
         </section>
 
 
-        {/* <section className="sectionLanding green">
-          
-              <Box>
-                <Grid container spacing={0.3}>
+        <section className="sectionLanding green">
 
-                  <Grid size={4}>
-                    <Item>
-                      size=4
-                      <br/>
-                      <br/>
-                      <br/>
-                      <br/>
-                    </Item>
-                  </Grid>
+          <div>
+            <Row>
+              <NewsItem classname='1st' xs={12} md={8} image='https://tecmm.edu.mx/media/noticias/2025-07-29-22-40-29-fb7872ac-87f8-46b5-9195-eefba9527c8d.jpeg'/>
+              <NewsItem classname='1st'  xs={6} md={4} image='https://tecmm.edu.mx/media/original_images/Diagnostico-02.jpg'/>
+            </Row>
 
-                  <Grid size={6}>
-                    <Item>
-                      size=6
-                      <br/>
-                      <br/>
-                      <br/>
-                      <br/>
-                    </Item>
-                  </Grid>
 
-                  <Grid size={6}>
-                    <Item>
-                      size=6
-                      <br/>
-                      <br/>
-                      <br/>
-                      <br/>
-                    </Item>
-                  </Grid>
+            <Row>
+              <NewsItem classname='2nd'  xs={6} md={4} image='https://tecmm.edu.mx/media/noticias/2025-06-04-17-27-28-IMG_8619.JPG'/>
+              <NewsItem classname='2nd'  xs={6} md={4} image='https://tecmm.edu.mx/media/noticias/2025-05-15-03-59-55-REDI.jpg'/>
+              <NewsItem classname='2nd'  xs={6} md={4} image='https://tecmm.edu.mx/media/noticias/2025-04-10-00-42-47-IMG_0027.JPG'/>
+            </Row>
 
-                  <Grid size={8}>
-                    <Item>
-                      size=8
-                      <br/>
-                      <br/>
-                      <br/>
-                      <br/>
-                    </Item>
-                  </Grid>
+          </div>          
 
-                </Grid>
-              </Box>
-        </section> */}
+        </section>
 
 
 
