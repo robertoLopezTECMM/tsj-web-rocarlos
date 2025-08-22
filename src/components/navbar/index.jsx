@@ -39,7 +39,7 @@ function Navbar() {
       <nav className={isHome ? "navbarTranslucid" : "navbarSolid"}>
         <div className="navbar-left">
           <span onClick={toggleDrawer} className="menu-icon">
-            <MenuIcon fontSize='large' />
+            {/* <MenuIcon fontSize='large' /> */}
           </span>
         </div>
         {/* <div className="navbar-right">
@@ -91,7 +91,7 @@ function Navbar() {
           </ul>
         </div>
         <div className="navbar-right">
-          <SearchIcon fontSize='large' />
+          {/* <SearchIcon fontSize='large' /> */}
         </div>
       </nav>
     </>

@@ -30,7 +30,7 @@ export const Directorio = () => {
         <div className="organigrama-container">
             {/* Director */}
             <div className="fila fila-director">
-                <DirectorioCard directorInfo={{name:'Gloria Luz Rodríguez Gil', puesto:'Directora General', email:'direccion@tecmm.edu.mx', phone:'384-73-33000', image:'https://tecmm.edu.mx/media/original_images/foto2.png'}} />
+                <DirectorioCard directorInfo={{name:'Gloria Luz Rodríguez Gil', puesto:'Directora General', email:'direccion@tecmm.edu.mx', phone:'3338849470', image:'https://tecmm.edu.mx/apiCms/cmsWebFiles/directora_general.jpg'}} />
             </div>
 
             {/* Empleados */}

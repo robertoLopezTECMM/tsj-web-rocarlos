@@ -18,7 +18,7 @@ import ComiteEtica from './screens/organosTecnicos/ComiteEtica'
 import { Archivo } from './screens/archivo'
 import { Transparencia } from './screens/transparencia'
 import QuienesSomos from './screens/quienesSomos/QuienesSomos'
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { Credenciales } from './screens/credenciales'
 
 
 function App() {
@@ -54,6 +54,7 @@ function App() {
         <Route path="/organos-tecnicos/unidad-de-igualdad-de-genero-uig" element={<UIG />} />
         <Route path="/organos-tecnicos/comite-de-etica" element={<ComiteEtica />} />
         <Route path="/quienes-somos" element={<QuienesSomos />} />
+        <Route path="/credenciales" element={<Credenciales />} />
       </Routes>
     </div>
   )

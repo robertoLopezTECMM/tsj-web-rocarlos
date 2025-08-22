@@ -13,6 +13,8 @@ import Pause from '@mui/icons-material/Pause';
 import VolumeUp from '@mui/icons-material/VolumeUp';
 import VolumeMute from '@mui/icons-material/VolumeMute';
 
+import Newspaper from '@mui/icons-material/Newspaper'
+
 
 
 import sicytLogoBlanco from '../../assets/logos/sicytBco.png'
@@ -32,7 +34,7 @@ import iconMaestrias from '../../assets/logos/iconMaestrias.png'
 import iconEnLinea from '../../assets/logos/iconEnLinea.png'
 
 
-import whatsappQr from '../../assets/logos/whatsappQr.jpeg'
+import whatsappQr from '../../assets/images/qrWhatsapp.jpeg'
 
 import { NewsSlider } from '../../components/newsSlider';
 
@@ -48,6 +50,7 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: '#fff',
@@ -68,7 +71,10 @@ function Landing() {
 
   const videoRef = useRef();
   const [isPlaying, setIsPlaying] = useState(true);
-  const [isMuted, setIsMuted] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
+  const [banners, setBanners] = useState([])
+  const [news, setNews] = useState([])
+
 
   const handlePlayPause = () => {
     if (!videoRef.current) return;
@@ -89,16 +95,51 @@ function Landing() {
   };
 
 
-  const NewsItem = ({xs, md, image, classname}) =>{
+
+  useEffect( () => {
+
+
+
+    
+
+  const fetchData = async () => {
+    try {
+      const bannersRes = await axios.get("https://www.tecmm.edu.mx/apiCms/banners")
+      const newsRes = await axios.get("https://www.tecmm.edu.mx/apiCms/news")
+
+      console.log('news: ', newsRes.data)
+      console.log('banners: ', bannersRes.data)
+
+
+      setNews(newsRes.data);      // solo noticias
+      setBanners(bannersRes.data); // solo banners
+    } catch (err) {
+      console.error(err);
+    }finally{
+
+    }
+  };
+
+  fetchData();
+  }, [])
+
+  const NewsItem = ({xs, md, image, classname, title, url}) =>{
     return(
-    <Col className= {classname === '1st' ? 'cols-1stRow-news white'  : 'cols-2ndRow-news white'} xs={xs} md={md}>
-      <div className='div-shadowBox'>
-        hola
-      </div>
-      <img className='imgClass' src={image}/>
-    </Col>
+        <Col className= {classname === '1st' ? 'cols-1stRow-news white'  : 'cols-2ndRow-news white'} xs={xs} md={md}>
+        <a target='_blank' href={url}>
+          <div className='div-shadowBox'>
+            {title}
+          </div>
+          
+          <div className='div-itemTitleIcon'>
+            <Newspaper fontSize='large' style={{color:'var(--navyBlue)'}}/>
+          </div>
+          <img className='imgClass ' src={image}/>
+          </a>
+        </Col>
     )
   }
+  
 
 
   return (
@@ -109,7 +150,8 @@ function Landing() {
           <video
             ref={videoRef}
             className="background-video"
-            src="https://tecmm.edu.mx/apiCms/cmsWebFiles/videoLanding.mp4"
+            // src="https://tecmm.edu.mx/apiCms/cmsWebFiles/videoLanding.mp4"
+            src="https://tecmm.edu.mx/apiCms/video"
             autoPlay
             loop
             muted={isMuted}
@@ -125,17 +167,46 @@ function Landing() {
               loop={true}
             />
 
-            {!isPlaying ? <Pause onClick={handlePlayPause} fontSize='large'/> : <PlayArrow onClick={handlePlayPause} fontSize='large'/> }
+            {isPlaying ? <Pause onClick={handlePlayPause} fontSize='large'/> : <PlayArrow onClick={handlePlayPause} fontSize='large'/> }
           </div>
 
 
 
         </section>
 
-        <section className="sectionLanding news">
+        <section className="sectionLanding green">
+
+          <div>
+            <Row>
+
+              {banners.length>0 && (
+                <>
+                  <NewsItem url={banners[3].urlPagina} title={banners[3].titulo} classname='1st' xs={12} md={8} image={banners[3].fotografiaPrincipal}/>
+                  <NewsItem url={banners[0].urlPagina} title={banners[0].titulo}  classname='1st'  xs={6} md={4} image={banners[0].fotografiaPrincipal}/>
+                </>
+
+              )}
+            </Row>
+
+
+            <Row>
+
+              {news.length>0 && (
+                <>
+                  <NewsItem url={`/noticias/${news.length}`} title={`${news[news.length - 1].titulo}`} classname='2nd'  xs={6} md={4} image={`${news[news.length - 1].fotografiaPrincipal}`}/>
+                  <NewsItem url={`/noticias/${news.length - 1}`} title={`${news[news.length - 2].titulo}`} classname='2nd'  xs={6} md={4} image={`${news[news.length - 2].fotografiaPrincipal}`}/>
+                  <NewsItem url={`/noticias/${news.length - 2}`} title={`${news[news.length - 3].titulo}`}  classname='2nd'  xs={6} md={4} image={`${news[news.length - 3].fotografiaPrincipal}`}/>
+                </>
+              )}
+            </Row>
+
+          </div>          
+
+        </section>
+        {/* <section className="sectionLanding news">
           <BannerSlider/>
           <NewsSlider/>
-        </section>
+        </section> */}
 
 
         <section className="sectionLanding black image-grid">
@@ -198,7 +269,7 @@ function Landing() {
                 <h1>#AQUI Tenemos un </h1>
                 <h1>#TSJ cerca de ti</h1>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sollicitudin, ex non accumsan vestibulum, nunc urna elementum orci, vel eleifend nisl nunc eget ipsum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce quis dui in ipsum dictum sodales. Curabitur porta, felis et blandit commodo, elit elit dictum sapien, non posuere tellus purus non dui. Praesent eu odio sit amet ligula tristique cursus. Proin eget est vel turpis accumsan sodales. Suspendisse arcu turpis, egestas nec risus ultricies, gravida aliquam leo. Nunc pellentesque tortor at justo euismod commodo.</p>
+                <p>En Jalisco, más de 15,000 estudiantes acuden a alguno de los servicios educativos constituidos por nuestra red de 16 unidades académicas y tres extensiones, que dan cobertura de educación superior en 11 de las 12 regiones del estado de Jalisco.</p>
             </div>
 
 
@@ -206,27 +277,6 @@ function Landing() {
                <MapJalisco isMobile={true}/> 
             </span>
         </section>
-
-
-        <section className="sectionLanding green">
-
-          <div>
-            <Row>
-              <NewsItem classname='1st' xs={12} md={8} image='https://tecmm.edu.mx/media/noticias/2025-07-29-22-40-29-fb7872ac-87f8-46b5-9195-eefba9527c8d.jpeg'/>
-              <NewsItem classname='1st'  xs={6} md={4} image='https://tecmm.edu.mx/media/original_images/Diagnostico-02.jpg'/>
-            </Row>
-
-
-            <Row>
-              <NewsItem classname='2nd'  xs={6} md={4} image='https://tecmm.edu.mx/media/noticias/2025-06-04-17-27-28-IMG_8619.JPG'/>
-              <NewsItem classname='2nd'  xs={6} md={4} image='https://tecmm.edu.mx/media/noticias/2025-05-15-03-59-55-REDI.jpg'/>
-              <NewsItem classname='2nd'  xs={6} md={4} image='https://tecmm.edu.mx/media/noticias/2025-04-10-00-42-47-IMG_0027.JPG'/>
-            </Row>
-
-          </div>          
-
-        </section>
-
 
 
         <section className="sectionLanding sectionDisplayBlock">
