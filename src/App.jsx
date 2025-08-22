@@ -19,6 +19,7 @@ import { Archivo } from './screens/archivo'
 import { Transparencia } from './screens/transparencia'
 import QuienesSomos from './screens/quienesSomos/QuienesSomos'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Gaceta from './screens/gaceta/Gaceta'
 
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
         <Route path="/noticias/:id" element={<Noticia />} />
         <Route path="/validarCredencial/:qrId" element={<ValidadorCredenciales />} />
         <Route path="/archivo" element={<Archivo/>} />
+        <Route path="/gaceta" element={<Gaceta />} />
         <Route path="/junta-gobierno" element={<JuntaGobierno />} />
         <Route path="/ordenamientos" element={<Ordenamientos />} />
         <Route path="/transparencia" element={<Transparencia />} />
