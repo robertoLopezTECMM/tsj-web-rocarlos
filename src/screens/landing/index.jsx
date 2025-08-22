@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import './index.css'
 import Lottie from "lottie-react";
 import animacion from "../../assets/lotties/Animation.json";
@@ -31,7 +31,7 @@ import iconEnLinea from '../../assets/logos/iconEnLinea.png'
 
 import whatsappQr from '../../assets/images/qrWhatsapp.jpeg'
 
-import whatsappQr from '../../assets/logos/whatsappQr.jpeg'
+// import whatsappQr from '../../assets/logos/whatsappQr.jpeg'
 import { Convocatorias, Gaceta, Licitaciones, Transparencia } from '../../assets/icons';
 import { NewsSlider } from '../../components/newsSlider';
 
