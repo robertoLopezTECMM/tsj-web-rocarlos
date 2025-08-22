@@ -711,3 +711,163 @@
 @media (min-width: 1536px) {
   
 }
+
+/* ====== Sección con iconos + enlaces de interés ====== */
+.sectionLanding.light {
+  background-color: #33179c; /* gris claro similar al mock */
+  color: initial;
+}
+
+/* Centrado vertical y ancho máximo como “container” */
+.landing-quick-and-links {
+  min-height: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;          /* 👈 centra verticalmente */
+  gap: 2rem;
+  padding: clamp(1rem, 3vh, 2.5rem) clamp(1rem, 3vw, 2rem);
+}
+
+/* Que ambos bloques no se peguen a los lados en pantallas grandes */
+.landing-quick-and-links > * {
+  width: 100%;
+  max-width: 1280px;                /* container */
+  margin-inline: auto;
+}
+
+/* Iconos grandes (fila de 4) */
+.quick-links {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(1rem, 3vw, 3rem);
+  align-items: start;
+  justify-items: center;
+}
+
+.quick-item {
+  position: relative;
+  display: grid;
+  justify-items: center;
+}
+
+.quick-item img {
+  transition: transform .25s ease, filter .2s ease;
+  transform-origin: center;
+  will-change: transform;
+}
+
+.quick-item .quick-label {
+  transition: transform .2s ease;
+}
+
+.quick-label {
+  display: block;
+  margin-top: 0.75rem;
+  font-weight: 800;
+  font-size: clamp(1.1rem, 2vw, 1.6rem);
+  font-family: 'madaniArabicBold', 'Poppins', sans-serif;
+}
+
+/* hover/focus */
+.quick-item:hover img,
+.quick-item:focus-visible img {
+  transform: scale(1.08);
+}
+
+.quick-item:hover .quick-label,
+.quick-item:focus-visible .quick-label {
+  transform: translateY(2px);
+}
+
+/* Colores del texto bajo el icono */
+.ql-blue  { color: #3b82f6; }   /* Transparencia */
+.ql-yellow{ color: #f59e0b; }   /* Convocatorias */
+.ql-green { color: #22c55e; }   /* Gaceta */
+.ql-red   { color: #ef4444; }   /* Licitaciones */
+
+/* Enlaces de interés (tarjeta contenedora) */
+.interest-wrapper {
+  background: #f5f6f8;
+  border-radius: 24px;
+  padding: 2rem 1.25rem;
+}
+
+.interest-title {
+  text-align: center;
+  color: #3b248f; /* morado */
+  font-size: clamp(1.4rem, 2.6vw, 2rem);
+  margin: 0 0 1.25rem;
+  font-family: 'Madani Bold', 'Poppins', sans-serif;
+}
+
+/* Grid de tarjetas */
+.interest-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+/* Tarjeta */
+.interest-card {
+  background: #ffffff;
+  border: 2px solid #c7dbff;         /* azul suave */
+  border-radius: 12px;
+  min-height: 110px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 1rem;
+  line-height: 1.25;
+  color: #3b82f6;                     /* texto azul */
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.interest-card:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  background-color: #f9fbff;
+}
+
+/* ====== Responsive ====== */
+@media (max-width: 1024px) {
+  .quick-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .landing-quick-and-links { padding: 1.5rem 1rem; }
+  .interest-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 420px) {
+  .interest-grid { grid-template-columns: 1fr; }
+}
+
+/* Un pelín de separación respecto al navbar fijo en pantallas muy bajas */
+@media (max-height: 700px) {
+  .landing-quick-and-links { justify-content: flex-start; padding-top: 4rem; }
+}
+
+/* Quitar subrayado en los íconos grandes */
+.landing-quick-and-links .quick-item,
+.landing-quick-and-links .quick-item:link,
+.landing-quick-and-links .quick-item:visited,
+.landing-quick-and-links .quick-item:hover,
+.landing-quick-and-links .quick-item:active {
+  text-decoration: none !important;
+}
+
+.landing-quick-and-links .quick-item .quick-label {
+  text-decoration: none;
+  border-bottom: 0;
+}
+
+/* (ya lo tenías) por si alguna regla global se impone */
+.landing-quick-and-links .interest-card,
+.landing-quick-and-links .interest-card:hover {
+  text-decoration: none !important;
+}

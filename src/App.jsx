@@ -18,7 +18,12 @@ import ComiteEtica from './screens/organosTecnicos/ComiteEtica'
 import { Archivo } from './screens/archivo'
 import { Transparencia } from './screens/transparencia'
 import QuienesSomos from './screens/quienesSomos/QuienesSomos'
+<<<<<<< HEAD
 import { Credenciales } from './screens/credenciales'
+=======
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Gaceta from './screens/gaceta/Gaceta'
+>>>>>>> a6e5dffef723705671745d08fa6409c88d59763e
 
 
 function App() {
@@ -46,6 +51,7 @@ function App() {
         <Route path="/noticias/:id" element={<Noticia />} />
         <Route path="/validarCredencial/:qrId" element={<ValidadorCredenciales />} />
         <Route path="/archivo" element={<Archivo/>} />
+        <Route path="/gaceta" element={<Gaceta />} />
         <Route path="/junta-gobierno" element={<JuntaGobierno />} />
         <Route path="/ordenamientos" element={<Ordenamientos />} />
         <Route path="/transparencia" element={<Transparencia />} />

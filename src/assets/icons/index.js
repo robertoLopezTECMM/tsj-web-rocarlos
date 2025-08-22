@@ -13,6 +13,10 @@ import Recurso_12 from './Recurso_12.svg';
 import Recurso_13 from './Recurso_13.svg';
 import Recurso_14 from './Recurso_14.svg';
 import Recurso_15 from './Recurso_15.svg';
+import Convocatorias from './convocatorias_icon.max-165x165.png';
+import Gaceta from './gaceta_icon.max-165x165.png';
+import Licitaciones from './licitaciones_icon.max-165x165.png';
+import Transparencia from './transparencia_icon.max-165x165.png';
 
 
 export const iconList = [
@@ -32,3 +36,10 @@ export const iconList = [
   Recurso_14,
   Recurso_15,
 ];
+
+export {
+  Convocatorias,
+  Gaceta,
+  Licitaciones,
+  Transparencia,
+};
