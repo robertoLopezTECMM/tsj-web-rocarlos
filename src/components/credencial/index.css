@@ -1,0 +1,154 @@
+.component-credencialContainerViews{
+    display: flex;
+}
+
+
+
+.component-credencialContainerFront{
+    width:20rem;
+    height: 30rem;
+    background-image: url('../../assets/images/credencialFront.jpg');
+    background-size: cover; /* Ajusta la imagen para que cubra todo el div */
+    background-position: center; /* Centra la imagen */
+    border-radius: 1rem;
+    margin:1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+}
+
+.component-credencialContainerDatos{
+    width: 100%;
+    height: 18rem;
+    /* border: 2px solid red; */
+    /*border: red solid 5px;*/
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+
+
+.component-credencialPhotoContainer{
+    width: 35%;
+    height: 12dvh;
+    /* background-color: red; */
+}
+
+
+.component-credencialPhotoContainer img{
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+
+
+
+.component-credencialName{
+    font-size: 1rem;
+    font-family: 'madaniArabicBold';
+    color: var(--navyBlue);
+    margin:0;
+    text-align: center;
+}
+
+.component-credencialPosicion{
+    font-size: 1rem;
+    font-family: 'madaniArabicBold';
+    color: var(--green);
+    margin:0
+}
+
+
+
+.component-credencialOtherData{
+    width: 85%;
+    height: auto;
+    background-color: transparent;
+    text-align: left;
+    margin-top: 2rem;
+}
+
+.component-credencialSmallData{
+    width: 100%;
+    font-size: 0.7rem;
+    font-family: 'madaniArabicBold';
+    color: var(--navyBlue);
+    margin:5px
+}
+
+.component-credencialSmallDataRow{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+
+
+
+
+
+
+
+.component-credencialContainerBack{
+    width:20rem;
+    height: 30rem;
+    background-image: url('../../assets/images/credencialBackNew.jpg');
+    background-size: cover; /* Ajusta la imagen para que cubra todo el div */
+    background-position: center; /* Centra la imagen */
+    padding-top: 2rem;
+    border-radius: 1rem;
+    margin:1rem
+}
+
+.component-credencialContainerDatosBack{
+    width: 100%;
+    height: 18rem;
+    /*border: red solid 5px;*/
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.component-credencialQrContainer{
+    width: 5rem;
+    height: 5rem;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.component-credencialPhoto{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.component-credencialPhone{
+    font-size: 0.8rem;
+    font-family: 'madaniArabicBold';
+    color: var(--navyBlue);
+    margin:0
+}
+
+.component-credencialUnidadAcademica{
+    font-size: 0.8rem;
+    font-family: 'madaniArabicBold';
+    color: var(--green);
+    margin-bottom:0;
+    text-align: center;
+}
+
+
+
+
+

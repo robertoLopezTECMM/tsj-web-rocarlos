@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import './index.css'
 import Lottie from "lottie-react";
 import animacion from "../../assets/lotties/Animation.json";
@@ -8,6 +8,11 @@ import PlayArrow from '@mui/icons-material/PlayArrow';
 import Pause from '@mui/icons-material/Pause';
 import VolumeUp from '@mui/icons-material/VolumeUp';
 import VolumeMute from '@mui/icons-material/VolumeMute';
+
+import Newspaper from '@mui/icons-material/Newspaper'
+
+
+
 import sicytLogoBlanco from '../../assets/logos/sicytBco.png'
 import jaliscoLogoBlanco from '../../assets/logos/jaliscoBco.png'
 import tsjLogoBlanco from '../../assets/logos/tsjBco.png'
@@ -22,12 +27,27 @@ import iconLicenciaturas from '../../assets/logos/iconLicenciaturas.png'
 import iconIngenierias from '../../assets/logos/iconIngenierias.png'
 import iconMaestrias from '../../assets/logos/iconMaestrias.png'
 import iconEnLinea from '../../assets/logos/iconEnLinea.png'
-import whatsappQr from '../../assets/logos/whatsappQr.jpeg'
+
+
+import whatsappQr from '../../assets/images/qrWhatsapp.jpeg'
+
+// import whatsappQr from '../../assets/logos/whatsappQr.jpeg'
 import { Convocatorias, Gaceta, Licitaciones, Transparencia } from '../../assets/icons';
 import { NewsSlider } from '../../components/newsSlider';
+
+
+
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
+
+
+
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 // import Navbar from '../../components/navbar/index'
@@ -49,6 +69,9 @@ function Landing() {
   const videoRef = useRef();
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
+  const [banners, setBanners] = useState([])
+  const [news, setNews] = useState([])
+
 
   const handlePlayPause = () => {
     if (!videoRef.current) return;
@@ -90,6 +113,53 @@ function Landing() {
     { label: 'Becas', to: '/becas' },
   ];
 
+
+  useEffect( () => {
+
+
+
+    
+
+  const fetchData = async () => {
+    try {
+      const bannersRes = await axios.get("https://www.tecmm.edu.mx/apiCms/banners")
+      const newsRes = await axios.get("https://www.tecmm.edu.mx/apiCms/news")
+
+      console.log('news: ', newsRes.data)
+      console.log('banners: ', bannersRes.data)
+
+
+      setNews(newsRes.data);      // solo noticias
+      setBanners(bannersRes.data); // solo banners
+    } catch (err) {
+      console.error(err);
+    }finally{
+
+    }
+  };
+
+  fetchData();
+  }, [])
+
+  const NewsItem = ({xs, md, image, classname, title, url}) =>{
+    return(
+        <Col className= {classname === '1st' ? 'cols-1stRow-news white'  : 'cols-2ndRow-news white'} xs={xs} md={md}>
+        <a target='_blank' href={url}>
+          <div className='div-shadowBox'>
+            {title}
+          </div>
+          
+          <div className='div-itemTitleIcon'>
+            <Newspaper fontSize='large' style={{color:'var(--navyBlue)'}}/>
+          </div>
+          <img className='imgClass ' src={image}/>
+          </a>
+        </Col>
+    )
+  }
+  
+
+
   return (
     <>
       <div className="scroll-container">
@@ -97,7 +167,8 @@ function Landing() {
           <video
             ref={videoRef}
             className="background-video"
-            src="https://tecmm.edu.mx/apiCms/cmsWebFiles/aquitsj.mp4"
+            // src="https://tecmm.edu.mx/apiCms/cmsWebFiles/videoLanding.mp4"
+            src="https://tecmm.edu.mx/apiCms/video"
             autoPlay
             loop
             muted={isMuted}
@@ -113,10 +184,42 @@ function Landing() {
             {!isPlaying ? <Pause onClick={handlePlayPause} fontSize='large' /> : <PlayArrow onClick={handlePlayPause} fontSize='large' />}
           </div>
         </section>
-        <section className="sectionLanding news">
-          <BannerSlider />
-          <NewsSlider />
+
+        <section className="sectionLanding green">
+
+          <div>
+            <Row>
+
+              {banners.length>0 && (
+                <>
+                  <NewsItem url={banners[3].urlPagina} title={banners[3].titulo} classname='1st' xs={12} md={8} image={banners[3].fotografiaPrincipal}/>
+                  <NewsItem url={banners[0].urlPagina} title={banners[0].titulo}  classname='1st'  xs={6} md={4} image={banners[0].fotografiaPrincipal}/>
+                </>
+
+              )}
+            </Row>
+
+
+            <Row>
+
+              {news.length>0 && (
+                <>
+                  <NewsItem url={`/noticias/${news.length}`} title={`${news[news.length - 1].titulo}`} classname='2nd'  xs={6} md={4} image={`${news[news.length - 1].fotografiaPrincipal}`}/>
+                  <NewsItem url={`/noticias/${news.length - 1}`} title={`${news[news.length - 2].titulo}`} classname='2nd'  xs={6} md={4} image={`${news[news.length - 2].fotografiaPrincipal}`}/>
+                  <NewsItem url={`/noticias/${news.length - 2}`} title={`${news[news.length - 3].titulo}`}  classname='2nd'  xs={6} md={4} image={`${news[news.length - 3].fotografiaPrincipal}`}/>
+                </>
+              )}
+            </Row>
+
+          </div>          
+
         </section>
+        {/* <section className="sectionLanding news">
+          <BannerSlider/>
+          <NewsSlider/>
+        </section> */}
+
+
         <section className="sectionLanding black image-grid">
           <div className="image-item">
             <Link to='/ofertaEducativa/filtro/ingenierias'>
@@ -164,17 +267,22 @@ function Landing() {
           </div>
         </section>
         <section className="sectionLanding blue sectionAlignedRightFlex">
-          <span className='mapaJaliscoContainer'>
-            <MapJalisco isMobile={false} />
-          </span>
-          <div className='mapSectionTextLeft'>
-            <h1>#AQUI Tenemos un </h1>
-            <h1>#TSJ cerca de ti</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sollicitudin, ex non accumsan vestibulum, nunc urna elementum orci, vel eleifend nisl nunc eget ipsum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce quis dui in ipsum dictum sodales. Curabitur porta, felis et blandit commodo, elit elit dictum sapien, non posuere tellus purus non dui. Praesent eu odio sit amet ligula tristique cursus. Proin eget est vel turpis accumsan sodales. Suspendisse arcu turpis, egestas nec risus ultricies, gravida aliquam leo. Nunc pellentesque tortor at justo euismod commodo.</p>
-          </div>
-          <span id="mapaJaliscoContainerMobile" className='mapaJaliscoContainer'>
-            <MapJalisco isMobile={true} />
-          </span>
+
+            <span className='mapaJaliscoContainer'>
+               <MapJalisco isMobile={false}/> 
+            </span>
+
+            <div className='mapSectionTextLeft'>
+                <h1>#AQUI Tenemos un </h1>
+                <h1>#TSJ cerca de ti</h1>
+
+                <p>En Jalisco, más de 15,000 estudiantes acuden a alguno de los servicios educativos constituidos por nuestra red de 16 unidades académicas y tres extensiones, que dan cobertura de educación superior en 11 de las 12 regiones del estado de Jalisco.</p>
+            </div>
+
+
+            <span id="mapaJaliscoContainerMobile" className='mapaJaliscoContainer'>
+               <MapJalisco isMobile={true}/> 
+            </span>
         </section>
         <section className="sectionLanding light landing-quick-and-links">
           {/* ICONOS GRANDES */}
@@ -198,6 +306,9 @@ function Landing() {
             </div>
           </div>
         </section>
+
+
+
         <section className="sectionLanding sectionDisplayBlock">
           <div className='footerSectionContact'>
             <h1>¿Tienes Dudas? Contactanos</h1>
