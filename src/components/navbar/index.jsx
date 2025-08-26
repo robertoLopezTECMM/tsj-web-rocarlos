@@ -26,11 +26,19 @@ function Navbar() {
         zIndex={100000000}
       >
         <div className="p-4">
-          <h2 className="text-xl font-bold">Menú</h2>
+          <h2 className="text-xl font-bold">Tsj</h2>
           <ul className="mt-4 space-y-2">
-            <li><a href="#section1">Sección 1</a></li>
-            <li><a href="#section2">Sección 2</a></li>
-            <li><a href="#section3">Sección 3</a></li>
+            <li><a href="/directorio">Directorio</a></li>
+            <li><a href="/quienes-somos">¿Quiénes Somos?</a></li>
+            <li><a href='/noticias'>Noticias</a></li>
+            <li><a href='https://admision.tsj.mx:3000/' target='_blank'>Admisión</a></li>
+            <li><a href='/ofertaEducativa'>Oferta Educativa</a></li>
+            <li><a href='/unidadesAcademicas'>Unidades Académicas</a></li>
+            <li><a href="/archivo">Archivo</a></li>
+            <li><a href="/junta-gobierno">Junta de Gobierno</a></li>
+            <li><a href="/ordenamientos">Ordenamientos</a></li>
+            <li><a href="/organos-tecnicos">Órganos Técnicos</a></li>
+            <li><a href="/transparencia">Transparencia</a></li>
           </ul>
         </div>
       </Drawer>
@@ -39,7 +47,7 @@ function Navbar() {
       <nav className={isHome ? "navbarTranslucid" : "navbarSolid"}>
         <div className="navbar-left">
           <span onClick={toggleDrawer} className="menu-icon">
-            {/* <MenuIcon fontSize='large' /> */}
+            <MenuIcon className='menu-burgerIcon' fontSize='large' />
           </span>
         </div>
         {/* <div className="navbar-right">

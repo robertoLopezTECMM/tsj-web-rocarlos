@@ -88,6 +88,11 @@
 }
 
 
+.menu-burgerIcon{
+  display: none!important;
+}
+
+
 
 .submenu-wrapper {
   position: relative;
@@ -188,5 +193,11 @@
 @media (min-width: 1536px) {
   #navBarButton{
     display:block
+  }
+}
+
+@media (min-width: 350px) and (max-width: 767px) {
+  .menu-burgerIcon{
+    display: block!important;
   }
 }
