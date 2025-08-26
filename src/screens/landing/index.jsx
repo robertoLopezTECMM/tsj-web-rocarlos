@@ -50,6 +50,10 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
+
+
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
 // import Navbar from '../../components/navbar/index'
 // import viteLogo from '/vite.svg'
 // import whatsappLogo from '../../assets/logos/whatsapp.webp'
@@ -65,12 +69,29 @@ const Item = styled(Paper)(({ theme }) => ({
   }),
 }));
 
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: '80dvw',
+  height:'65dvh',
+
+
+  boxShadow: 24,
+  p: 4,
+};
+
 function Landing() {
   const videoRef = useRef();
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
   const [banners, setBanners] = useState([])
   const [news, setNews] = useState([])
+
+  const [open, setOpen] = useState(true);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
 
   const handlePlayPause = () => {
@@ -100,11 +121,11 @@ function Landing() {
 
   // --- enlaces de interés (tarjetas) ---
   const interestLinks = [
-    { label: 'Identidad', to: '/identidad' },
+    { label: 'Identidad', to: '/quienes-somos' },
     { label: 'Calendario', to: '/calendario' },
-    { label: 'Organigrama', to: '/organigrama' },
+    { label: 'Organigrama', to: '/directorio' },
     { label: 'Licitaciones Vencidas', to: '/licitaciones-vencidas' },
-    { label: 'Programa Anual de Desarrollo Archivístico', to: '/programa-anual-desarrollo-archivistico' },
+    { label: 'Programa Anual de Desarrollo Archivístico', to: '/archivo' },
     { label: 'CONAHCYT', to: '/conahcyt' },
     { label: 'Contraloría social', to: '/contraloria-social' },
     { label: 'Retroalimentación SEAES', to: '/retroalimentacion-seaes' },
@@ -116,29 +137,25 @@ function Landing() {
 
   useEffect( () => {
 
+    const fetchData = async () => {
+      try {
+        const bannersRes = await axios.get("https://www.tecmm.edu.mx/apiCms/banners")
+        const newsRes = await axios.get("https://www.tecmm.edu.mx/apiCms/news")
+
+        console.log('news: ', newsRes.data)
+        console.log('banners: ', bannersRes.data)
 
 
-    
+        setNews(newsRes.data);      // solo noticias
+        setBanners(bannersRes.data); // solo banners
+      } catch (err) {
+        console.error(err);
+      }finally{
 
-  const fetchData = async () => {
-    try {
-      const bannersRes = await axios.get("https://www.tecmm.edu.mx/apiCms/banners")
-      const newsRes = await axios.get("https://www.tecmm.edu.mx/apiCms/news")
+      }
+    };
 
-      console.log('news: ', newsRes.data)
-      console.log('banners: ', bannersRes.data)
-
-
-      setNews(newsRes.data);      // solo noticias
-      setBanners(bannersRes.data); // solo banners
-    } catch (err) {
-      console.error(err);
-    }finally{
-
-    }
-  };
-
-  fetchData();
+    fetchData();
   }, [])
 
   const NewsItem = ({xs, md, image, classname, title, url}) =>{
@@ -162,6 +179,26 @@ function Landing() {
 
   return (
     <>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <video
+            className="background-video"
+            // src="https://tecmm.edu.mx/apiCms/cmsWebFiles/videoLanding.mp4"
+            src="https://tecmm.edu.mx/apiCms/video/bienvenida"
+            autoPlay
+            
+            loop
+            controls   
+            playsInline
+          />
+        </Box>
+      </Modal>
+
       <div className="scroll-container">
         <section id="sobre" className="section video-section">
           <video
@@ -193,7 +230,7 @@ function Landing() {
               {banners.length>0 && (
                 <>
                   <NewsItem url={banners[3].urlPagina} title={banners[3].titulo} classname='1st' xs={12} md={8} image={banners[3].fotografiaPrincipal}/>
-                  <NewsItem url={banners[0].urlPagina} title={banners[0].titulo}  classname='1st'  xs={6} md={4} image={banners[0].fotografiaPrincipal}/>
+                  <NewsItem url={banners[0].urlPagina} title={banners[0].titulo}  classname='1st'  xs={12} md={4} image={banners[0].fotografiaPrincipal}/>
                 </>
 
               )}
@@ -204,9 +241,9 @@ function Landing() {
 
               {news.length>0 && (
                 <>
-                  <NewsItem url={`/noticias/${news.length}`} title={`${news[news.length - 1].titulo}`} classname='2nd'  xs={6} md={4} image={`${news[news.length - 1].fotografiaPrincipal}`}/>
-                  <NewsItem url={`/noticias/${news.length - 1}`} title={`${news[news.length - 2].titulo}`} classname='2nd'  xs={6} md={4} image={`${news[news.length - 2].fotografiaPrincipal}`}/>
-                  <NewsItem url={`/noticias/${news.length - 2}`} title={`${news[news.length - 3].titulo}`}  classname='2nd'  xs={6} md={4} image={`${news[news.length - 3].fotografiaPrincipal}`}/>
+                  <NewsItem url={`/noticias/${news.length}`} title={`${news[news.length - 1].titulo}`} classname='2nd'  xs={12} md={4} image={`${news[news.length - 1].fotografiaPrincipal}`}/>
+                  <NewsItem url={`/noticias/${news.length - 1}`} title={`${news[news.length - 2].titulo}`} classname='2nd'  xs={12} md={4} image={`${news[news.length - 2].fotografiaPrincipal}`}/>
+                  <NewsItem url={`/noticias/${news.length - 2}`} title={`${news[news.length - 3].titulo}`}  classname='2nd'  xs={12} md={4} image={`${news[news.length - 3].fotografiaPrincipal}`}/>
                 </>
               )}
             </Row>
@@ -221,6 +258,7 @@ function Landing() {
 
 
         <section className="sectionLanding black image-grid">
+
           <div className="image-item">
             <Link to='/ofertaEducativa/filtro/ingenierias'>
               <img src="https://tecmm.edu.mx/apiCms/cmsWebFiles/landing_ingenierias.png" alt="Imagen 1" />
@@ -232,6 +270,7 @@ function Landing() {
               </span>
             </Link>
           </div>
+
           <div className="image-item">
             <Link to='/ofertaEducativa/filtro/licenciaturas'>
               <img src="https://tecmm.edu.mx/apiCms/cmsWebFiles/landing_licenciaturas.png" alt="Imagen 2" />
@@ -266,6 +305,7 @@ function Landing() {
             </Link>
           </div>
         </section>
+
         <section className="sectionLanding blue sectionAlignedRightFlex">
 
             <span className='mapaJaliscoContainer'>
@@ -284,18 +324,25 @@ function Landing() {
                <MapJalisco isMobile={true}/> 
             </span>
         </section>
-        <section className="sectionLanding light landing-quick-and-links">
-          {/* ICONOS GRANDES */}
+        
+
+        <section className="sectionLanding light section-enlacesInteres">
+           {/* ICONOS GRANDES */}
           <div className="quick-links">
             {quickTiles.map((q) => (
-              <Link key={q.label} to={q.to} className="quick-item">
-                <img src={q.icon} alt={q.label} />
-                <span className={`quick-label ${q.color}`}>{q.label}</span>
-              </Link>
+              <div className="quick-item">
+                {/* <Link key={q.label} to={q.to}> */}
+                  <img src={q.icon} alt={q.label} />
+                  <span className={`quick-label ${q.color}`}>{q.label}</span>
+                {/* </Link> */}
+              </div>
+
             ))}
           </div>
-          {/* ENLACES DE INTERÉS */}
+          
+           {/* ENLACES DE INTERÉS  */}
           <div className="interest-wrapper">
+
             <h2 className="interest-title">Enlaces de interés</h2>
             <div className="interest-grid">
               {interestLinks.map((it) => (
@@ -321,8 +368,7 @@ function Landing() {
                 <div className='div-footer-phones'>
                   <h3>33 3884 9470</h3>
                 </div>
-                <br />
-                <br />
+
                 <div>
                   <h4>Siguenos en redes #TSJ</h4>
                   <div className='div-footer-ccontainerLogosSocialMedia'>

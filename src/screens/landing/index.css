@@ -455,60 +455,96 @@
 
 /* Celulares medianos y grandes (480px a 767px) */
 @media (min-width: 350px) and (max-width: 767px) {
-    .divLottie{
-        position: absolute;
-        bottom: 5%;
-        left: 50%;
-        width: 1.5rem; /* ajusta al tamaño que quieras */
-        height: 1.5rem;
-    }
+  .divLottie{
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    width: 1.5rem; /* ajusta al tamaño que quieras */
+    height: 1.5rem;
+  }
 
+/*NEWS SECTIOM*/
 
-    .image-grid {
-        display: block;
-        grid-template-columns: none;
-        grid-template-rows: none;
-        width: 100%;
-        height: 100%;
-        background-color: red;
-    }
+.row{
+    margin:0!important;
+}
 
-    .image-grid img {
-        width: 100%!important;
-        height: 25dvh!important;
-        object-fit: cover;
-        cursor: pointer;
-    }
+.cols-1stRow-news{
 
-    .image-grid img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        cursor: pointer;
-        object-fit: cover;
-        transition: transform 0.4s ease; /* Suaviza el zoom */
-    }
+    height: 20dvh;
 
-    .image-grid img:hover {
-        transform: scale(1.03); /* Aplica zoom al hacer hover */
-        z-index: 1; /* En caso de solapamiento */
-    }
+}
+
+.cols-2ndRow-news{
+
+    height: 20dvh;
+
+}
 
 
 
 
+.div-shadowBox{
+  width: 70%;
+  height: 5dvh;
+  bottom: 1.5dvh;
+  font-size: 0.8rem;
 
-    .sectionAlignedRightFlex{
-        display: flex;
-        justify-content: flex-start;
-    }
+  z-index: 10;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow: hidden;
+}
 
 
 
 
 
+.imgClass{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
 
 
+
+.div-itemTitleIcon{
+    width: 4dvh;
+    height: 4dvh;
+    bottom: 2dvh;
+    left: 70%;
+    position: absolute;
+    background-color: white;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* OFERTA ACADEMICA SECTION */
+
+  .image-text {
+    font-size: 1.2rem;
+  }
+  .image-item img:hover {
+    transform: none;
+    z-index: 1;
+  }
 
 
 
@@ -570,125 +606,160 @@
 
 
 
-    /* FOOTER SECTION */
 
-.footerSectionContact{
-    width: 100%;
-    height: 70dvh;
-    background-image: url('https://tsjapp.tecmm.mx/resources/images/landing/teclado.png');
-    background-size: cover;
-    background-position: center;
-    text-align: center;
-}
+
+
+
+/* FOOTER SECTION */
 
 .footerSectionContact h1{
-    margin:0;
-    padding-top: 4rem;
-    padding-bottom:1rem;
-    font-family: 'madaniArabicMedium';
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
-.logosAddressContainer{
-    display: flex;
+
+
+.footerSectionContact h2{
+  margin:10px;
+  font-size: 1rem;
+}
+
+.div-footer-content{
+  flex-direction: column;
+}
+
+.div-footer-phoneSocialMedia{
+  /* background-color:green; */
+  width:100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.div-footer-phoneSocialMedia h3{
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+
+
+
+
+
+.div-footer-ccontainerLogosSocialMedia img{
+    width: 10dvw;
+    height: 10dvw;
+}
+
+
+
+
+
+
+
+.div-footer-mapAddress{
+    /* background-color:red; */
+    width:100%;
     flex-direction: column;
 }
 
-.logosRedesSection{
-    width: 100%;
-    height: auto;
-    /* background-color: pink;     */
-}
-
-.redesLogos{
-    width:100%;
-    height: 100%;
-    /* background-color: blue; */
-    display: flex;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    justify-content: space-around;
-    text-align: center;
-}
-
-.redesLogos img {
-    width: 3rem;
-    height: 3rem;
-    object-fit: contain;
-    cursor: pointer;
-    justify-self: center;
-}
-
-
-.mapAddressSection{
-    width: 100%;
-    height: auto;
-    /* background-color: brown; */
-    margin-top: 1rem;
-}
-
-
-.ubicationMapAddresContainer{
-    width: 100%;
-    height: auto;
-    border-radius:10px;
-    display:flex; 
-    flex-direction:column; 
-    justify-content:flex-start;
-}
-
-.ubicationIframeMap{
-    width: 50%;
-    border:0;
-    border-radius: 10px;
-    display: none;
-}
-
-.ubicationMapAddresContainer p{
-    width: 100%;
-    /* background-color: pink; */
-    font-size: 1rem;
-    text-align: center;
-    font-family: 'madaniArabicMedium';
-    margin: 0.5rem 0rem 0.5rem 0;
-}
-
-.whatsappLink{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 3rem;
-    cursor: pointer;
-}
-
-.whatsappLink :hover{
-    color: var(--green)
-}
-
-.whatsappLink h1{
-    margin: 0;
-    padding: 0;
-}
-
-.whatsappLink img{
-    width: 3rem;
-    height: 3rem;
-    align-self: center;
-}
-
-.footerSectionLogos{
- width: 100%;
- height: 15vh;
-   display: flex;
-  align-items: center; /* ⛔ Esto centra verticalmente */
-  justify-content: space-around; /* Esto centra horizontalmente */
-}
 
 .footerSectionLogos img{
-    width: 7.5rem;
-    height: 3rem;
-    object-fit:contain;
+    width: 7rem;
+    height: 4rem;
 }
+
+
+
+
+
+
+.section-enlacesInteres{
+  padding-top: 4rem;
+  background-color: var(--navyBlue);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.quick-links{
+  width: 100%;
+  height: 30%!important;
+  /* background-color: red; */
+  display: grid!important;
+  grid-template-columns: repeat(2, 1fr)!important;
+  grid-template-rows: repeat(2, 1fr)!important;
+}
+
+.quick-item{
+  width: 100%!important;
+  height: 100%important;
+  /* background-color: pink; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.quick-item img{
+  width: 100%;
+  height: 80%;
+  object-fit: contain;
+}
+
+.quick-label{
+  margin: 1rem;
+  font-size: 1rem!important;
+  font-family: 'madaniArabicBold';
+}
+
+
+.interest-wrapper {
+  width: 80%;
+  height: 70%;
+  background: white;
+  border-radius: 24px;
+  padding: 2rem 1.25rem;
+  display: block;
+  flex-direction: column;
+  justify-items: center;
+  justify-content: center;
+  overflow: scroll;
+}
+
+.interest-title{
+  color: var(--navyBlue);
+  font-family: 'madaniArabicBold';
+}
+
+.interest-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); 
+  width: 100%;
+  gap: 2rem
+}
+
+
+/* Tarjeta */
+.interest-card {
+  background: #ffffff;
+  border: 2px solid #c7dbff;         /* azul suave */
+  border-radius: 12px;
+  min-height: auto;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 1rem;
+  line-height: 1.25;
+  color: #3b82f6;                     /* texto azul */
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+/* Colores del texto bajo el icono */
+.ql-blue  { color: #3b82f6; }   /* Transparencia */
+.ql-yellow{ color: #f59e0b; }   /* Convocatorias */
+.ql-green { color: #22c55e; }   /* Gaceta */
+.ql-red   { color: #ef4444; }   /* Licitaciones */
 
 
 
@@ -712,108 +783,75 @@
   
 }
 
-/* ====== Sección con iconos + enlaces de interés ====== */
-.sectionLanding.light {
-  background-color: #33179c; /* gris claro similar al mock */
-  color: initial;
-}
-
-/* Centrado vertical y ancho máximo como “container” */
-.landing-quick-and-links {
-  min-height: 100%;
-  height: 100%;
+.section-enlacesInteres{
+  padding-top: 4rem;
+  background-color: var(--navyBlue);
   display: flex;
   flex-direction: column;
-  justify-content: center;          /* 👈 centra verticalmente */
+  align-items: center;
   gap: 2rem;
-  padding: clamp(1rem, 3vh, 2.5rem) clamp(1rem, 3vw, 2rem);
 }
 
-/* Que ambos bloques no se peguen a los lados en pantallas grandes */
-.landing-quick-and-links > * {
+.quick-links{
   width: 100%;
-  max-width: 1280px;                /* container */
-  margin-inline: auto;
+  /* background-color: red; */
+  display: flex;
+  justify-content: space-evenly;
 }
 
-/* Iconos grandes (fila de 4) */
-.quick-links {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: clamp(1rem, 3vw, 3rem);
-  align-items: start;
-  justify-items: center;
+.quick-item{
+  width: 12dvw;
+  height: 12dvw;
+  /* background-color: pink; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.quick-item {
-  position: relative;
-  display: grid;
-  justify-items: center;
+.quick-item img{
+  width: 100%;
+  height: 80%;
+  object-fit: contain;
 }
 
-.quick-item img {
-  transition: transform .25s ease, filter .2s ease;
-  transform-origin: center;
-  will-change: transform;
+.quick-label{
+  margin: 1rem;
+  font-size: 1.5rem;
+  font-family: 'madaniArabicBold';
 }
 
-.quick-item .quick-label {
-  transition: transform .2s ease;
-}
 
-.quick-label {
-  display: block;
-  margin-top: 0.75rem;
-  font-weight: 800;
-  font-size: clamp(1.1rem, 2vw, 1.6rem);
-  font-family: 'madaniArabicBold', 'Poppins', sans-serif;
-}
-
-/* hover/focus */
-.quick-item:hover img,
-.quick-item:focus-visible img {
-  transform: scale(1.08);
-}
-
-.quick-item:hover .quick-label,
-.quick-item:focus-visible .quick-label {
-  transform: translateY(2px);
-}
-
-/* Colores del texto bajo el icono */
-.ql-blue  { color: #3b82f6; }   /* Transparencia */
-.ql-yellow{ color: #f59e0b; }   /* Convocatorias */
-.ql-green { color: #22c55e; }   /* Gaceta */
-.ql-red   { color: #ef4444; }   /* Licitaciones */
-
-/* Enlaces de interés (tarjeta contenedora) */
 .interest-wrapper {
-  background: #f5f6f8;
+  width: 80%;
+  background: white;
   border-radius: 24px;
   padding: 2rem 1.25rem;
+  display: block;
+  flex-direction: column;
+  justify-items: center;
+  justify-content: center;
 }
 
-.interest-title {
-  text-align: center;
-  color: #3b248f; /* morado */
-  font-size: clamp(1.4rem, 2.6vw, 2rem);
-  margin: 0 0 1.25rem;
-  font-family: 'Madani Bold', 'Poppins', sans-serif;
+.interest-title{
+  color: var(--navyBlue);
+  font-family: 'madaniArabicBold';
 }
 
-/* Grid de tarjetas */
-.interest-grid {
+.interest-grid{
   display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); 
+  width: 100%;
+  gap: 2rem
 }
+
 
 /* Tarjeta */
 .interest-card {
   background: #ffffff;
   border: 2px solid #c7dbff;         /* azul suave */
   border-radius: 12px;
-  min-height: 110px;
+  min-height: auto;
   display: grid;
   place-items: center;
   text-align: center;
@@ -824,50 +862,8 @@
   text-decoration: none;
   transition: transform 0.15s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
-
-.interest-card:hover {
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-  background-color: #f9fbff;
-}
-
-/* ====== Responsive ====== */
-@media (max-width: 1024px) {
-  .quick-links {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 600px) {
-  .landing-quick-and-links { padding: 1.5rem 1rem; }
-  .interest-grid { grid-template-columns: 1fr 1fr; }
-}
-
-@media (max-width: 420px) {
-  .interest-grid { grid-template-columns: 1fr; }
-}
-
-/* Un pelín de separación respecto al navbar fijo en pantallas muy bajas */
-@media (max-height: 700px) {
-  .landing-quick-and-links { justify-content: flex-start; padding-top: 4rem; }
-}
-
-/* Quitar subrayado en los íconos grandes */
-.landing-quick-and-links .quick-item,
-.landing-quick-and-links .quick-item:link,
-.landing-quick-and-links .quick-item:visited,
-.landing-quick-and-links .quick-item:hover,
-.landing-quick-and-links .quick-item:active {
-  text-decoration: none !important;
-}
-
-.landing-quick-and-links .quick-item .quick-label {
-  text-decoration: none;
-  border-bottom: 0;
-}
-
-/* (ya lo tenías) por si alguna regla global se impone */
-.landing-quick-and-links .interest-card,
-.landing-quick-and-links .interest-card:hover {
-  text-decoration: none !important;
-}
+/* Colores del texto bajo el icono */
+.ql-blue  { color: #3b82f6; }   /* Transparencia */
+.ql-yellow{ color: #f59e0b; }   /* Convocatorias */
+.ql-green { color: #22c55e; }   /* Gaceta */
+.ql-red   { color: #ef4444; }   /* Licitaciones */

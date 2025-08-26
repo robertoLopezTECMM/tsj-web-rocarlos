@@ -31,3 +31,16 @@
     font-size: 3rem;
 
 }
+
+@media (min-width: 350px) and (max-width: 767px) {
+  .fila-empleados {
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    width: 100%;
+    max-width: 1000px;
+    justify-items: center;
+  }
+
+}
