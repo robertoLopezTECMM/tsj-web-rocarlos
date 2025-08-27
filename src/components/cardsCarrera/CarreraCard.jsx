@@ -14,7 +14,7 @@ export default function CarreraCard({ nombre, descripcion, imagen, id }) {
 
     navigate(`/ofertaEducativa/${carreraURL}`, { state: { id } });
   };
-
+  
   return (
     <div className="carrera-card" onClick={handleClick}>
       <img src={imagen} alt={nombre} className="carrera-img" />

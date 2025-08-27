@@ -14,7 +14,7 @@ export default function UnidadAcademicaCard({unidadInfo}) {
 
 
   return (
-    <Card id='CardUnidad' sx={{ maxWidth: 345, height: '100%', display: 'flex', flexDirection: 'column' }}>
+    <Card id='CardUnidad' sx={{minWidth:250, maxWidth: 300, height: '100%', display: 'flex', flexDirection: 'column' }}>
 
       <CardMedia
         component="img"

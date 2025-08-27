@@ -53,6 +53,36 @@
 }
 
 
+@media (min-width: 350px) and (max-width: 767px) {
+  .mapaUnidadesContainer{
+    width: 55dvw;
+    height: 100%;
+    /* background-color: grey; */
+    display: none;
+  }
+
+  .listaUnidadesContainer {
+    width: 100%;
+    height: 100%;
+    /* background-color: red; */
+    padding: 3rem 0rem 0rem 0rem;
+    box-sizing: border-box;
+  }
+
+
+  .unidades-grid {
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: repeat(2, 1fr); /* dos columnas */
+    gap: 2rem;
+    place-items: center;
+    align-items: stretch;
+    padding:2rem;
+    /* background-color: red; */
+    
+  }
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }

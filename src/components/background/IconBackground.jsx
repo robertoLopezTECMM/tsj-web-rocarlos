@@ -4,7 +4,7 @@ import './IconBackground.css';
 
 export default function IconBackground({
   count = 30,
-  oppacity = 0.3,
+  oppacity = 0.1,
   children,
   wrapperClassName = '',
   backgroundClassName = 'icon-background',
