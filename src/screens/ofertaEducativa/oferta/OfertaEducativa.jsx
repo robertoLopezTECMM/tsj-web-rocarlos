@@ -4,6 +4,9 @@ import OfertaFilter from './OfertaFilter';
 import IconBackground from '../../../components/background/IconBackground';
 import './styles/OfertaEducativa.css';
 import { useNavigation, useParams } from 'react-router';
+import Lottie from 'lottie-react';
+
+import tsjLoading from '../../../assets/lotties/tsjLoading.json'
 
 export default function OfertaEducativa() {
   // const navigate = useNavigation()
@@ -32,6 +35,7 @@ export default function OfertaEducativa() {
       .then((res) => res.json())
       .then((data) => setCarreras(data))
       .catch((err) => console.error('Error al obtener carreras:', err));
+      
   }, [url]);
 
   const carrerasFiltradas = carreras.filter((c) => {
@@ -53,6 +57,7 @@ export default function OfertaEducativa() {
   }, [cargarMas]);
 
   const visibles = carrerasFiltradas.slice(0, visibleCount);
+  console.log(visibles)
 
   return (
     <div className="oferta-educativa-wrapper">
@@ -60,20 +65,27 @@ export default function OfertaEducativa() {
       <h1 className="titulo-oferta">Oferta Educativa</h1>
       <OfertaFilter unidad={unidad} setUnidad={setUnidad} tipo={tipo} setTipo={setTipo} />
 
-      <div className="grid-carreras masonry-grid">
+      <div className="grid-carreras-prueba">
         {visibles.length > 0 ? (
           visibles.map((carrera, i) => (
             <div
               ref={i === visibles.length - 1 ? lastElementRef : null}
               key={carrera.id}
-              className="fade-in-card"
-              style={{ animationDelay: `${(i % 4) * 0.1}s` }}
+              // className="fade-in-card"
+              // style={{ animationDelay: `${(i % 4) * 0.1}s` }}
             >
-              <CarreraCard nombre={carrera.name} foto={carrera.photoLink} />
+              <CarreraCard type={carrera.type} nombre={carrera.name} foto={carrera.photoLink} />
             </div>
           ))
         ) : (
-          <p>No se encontraron carreras con los filtros seleccionados.</p>
+          <div className='div-animationLoading'>
+            <Lottie
+              animationData={tsjLoading}
+              loop={true}
+              autoplay={true}
+            />
+          </div>
+
         )}
       </div>
     </div>
