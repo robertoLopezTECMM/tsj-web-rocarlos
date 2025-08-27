@@ -455,13 +455,20 @@
 
 /* Celulares medianos y grandes (480px a 767px) */
 @media (min-width: 350px) and (max-width: 767px) {
-  .divLottie{
-    position: absolute;
-    bottom: 5%;
-    left: 50%;
-    width: 1.5rem; /* ajusta al tamaño que quieras */
-    height: 1.5rem;
-  }
+.divLottie{
+  /* background-color: red; */
+  position: absolute;
+  bottom: 50%;
+
+  width: 2rem; /* ajusta al tamaño que quieras */
+  height: 10rem;
+  left:2dvw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+  justify-content: space-around;
+}
 
 /*NEWS SECTIOM*/
 
