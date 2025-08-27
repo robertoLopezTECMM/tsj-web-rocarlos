@@ -1,4 +1,4 @@
-import IconBackground from '../../components/background/IconBackground';
+import IconBackground from '../../../components/background/IconBackground';
 import './styles/ComiteEtica.css';
 
 export default function ComiteEtica() {

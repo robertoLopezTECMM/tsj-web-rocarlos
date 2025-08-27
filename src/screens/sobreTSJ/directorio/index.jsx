@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import Navbar from '../../components/navbar'
-import DirectorioCard from '../../components/directorioCard'
+import DirectorioCard from '../../../components/directorioCard'
 import './index.css'
 import axios from 'axios'
-import IconBackground from '../../components/background/IconBackground'
+import IconBackground from '../../../components/background/IconBackground'
 export const Directorio = () => {
 
     const [directores, setDirectores] = useState([])

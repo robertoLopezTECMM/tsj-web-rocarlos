@@ -114,7 +114,7 @@ function Landing() {
   // --- quick tiles (iconos grandes) ---
   const quickTiles = [
     { label: 'Transparencia', icon: Transparencia, to: '/transparencia', color: 'ql-blue' },
-    { label: 'Convocatorias', icon: Convocatorias, to: '/', color: 'ql-yellow' },
+    { label: 'Convocatorias', icon: Convocatorias, to: 'https://docs.google.com/spreadsheets/d/1M_ovkjKrKyNQJ2K62vwYvZ2fNH6qEFRDB3iZ_gqatfI/edit?gid=0#gid=0', color: 'ql-yellow' },
     { label: 'Gaceta TSJ', icon: Gaceta, to: '/gaceta', color: 'ql-green' },
     { label: 'Licitaciones', icon: Licitaciones, to: 'https://sites.google.com/tecmm.edu.mx/adquisiciones/inicio?authuser=0', color: 'ql-red' },
   ];
@@ -127,7 +127,7 @@ function Landing() {
     { label: 'Licitaciones Vencidas', to: '/licitaciones-vencidas' },
     { label: 'Programa Anual de Desarrollo Archivístico', to: '/archivo' },
     { label: 'CONAHCYT', to: '/conahcyt' },
-    { label: 'Contraloría social', to: '/contraloria-social' },
+    { label: 'Contraloría social', to: '/contraloriaSocial' },
     { label: 'Retroalimentación SEAES', to: '/retroalimentacion-seaes' },
     { label: 'Denuncia Ante el Comité de Ética', to: '/organos-tecnicos/comite-de-etica' },
     { label: 'Denuncias Ante el Órgano Interno de Control', to: '/denuncias-organo-interno-de-control' },

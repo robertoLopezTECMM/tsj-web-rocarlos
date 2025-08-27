@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import IconBackground from '../../components/background/IconBackground'
+import IconBackground from '../../../components/background/IconBackground'
 import axios from 'axios'
 import './index.css'
 import FileDownload from '@mui/icons-material/FileDownload';

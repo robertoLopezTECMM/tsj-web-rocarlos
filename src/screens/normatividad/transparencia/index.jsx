@@ -1,5 +1,5 @@
 import React from 'react'
-import IconBackground from '../../components/background/IconBackground'
+import IconBackground from '../../../components/background/IconBackground'
 import { Link } from 'react-router';
 
 
