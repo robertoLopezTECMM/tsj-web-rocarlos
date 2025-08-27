@@ -30,8 +30,8 @@ function App() {
 
   return (
     <div >
-      <Navbar/>
-      {/* <DrawerAppBar/> */}
+      {/* <Navbar/> */}
+      <DrawerAppBar/>
       {/* <div style={{marginTop:'5dvh'}}> */}
         <Routes>
           <Route path="/" element={<Landing />} />
