@@ -114,7 +114,7 @@ function Landing() {
   // --- quick tiles (iconos grandes) ---
   const quickTiles = [
     { label: 'Transparencia', icon: Transparencia, to: '/transparencia', color: 'ql-blue' },
-    { label: 'Convocatorias', icon: Convocatorias, to: 'https://docs.google.com/spreadsheets/d/1-e_KZxTdw-QQNAgv6h4_S73g97yO3eKOiY0Fr0-I0hY/edit?usp=sharing', color: 'ql-yellow' },
+    { label: 'Convocatorias', icon: Convocatorias, to: '/', color: 'ql-yellow' },
     { label: 'Gaceta TSJ', icon: Gaceta, to: '/gaceta', color: 'ql-green' },
     { label: 'Licitaciones', icon: Licitaciones, to: 'https://sites.google.com/tecmm.edu.mx/adquisiciones/inicio?authuser=0', color: 'ql-red' },
   ];
