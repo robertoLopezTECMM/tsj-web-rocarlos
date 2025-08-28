@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import IconBackground from '../../components/background/IconBackground';
+import IconBackground from '../../../components/background/IconBackground';
 import './styles/QuienesSomos.css';
 
 export default function QuienesSomos() {

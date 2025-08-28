@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Navbar from '../../components/navbar'
+import Navbar from '../../../components/navbar'
 import Grid from '@mui/material/Grid'
 import './index.css'
 
@@ -11,7 +11,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import axios from 'axios';
 import { useNavigate } from 'react-router';
-import IconBackground from '../../components/background/IconBackground';
+import IconBackground from '../../../components/background/IconBackground';
 
 export const Noticias = () => {
 

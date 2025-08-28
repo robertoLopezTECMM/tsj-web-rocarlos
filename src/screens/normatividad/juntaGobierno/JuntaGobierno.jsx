@@ -1,4 +1,4 @@
-import IconBackground from '../../components/background/IconBackground';
+import IconBackground from '../../../components/background/IconBackground';
 import './styles/JuntaGobierno.css';
 
 export default function JuntaGobierno() {

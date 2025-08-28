@@ -19,7 +19,15 @@ export default function CarreraCard({ nombre, foto, type }) {
   return(
     <div className='carrera-newCard' onClick={handleClick}>
       <img src={foto} alt={nombre} className="carrera-newCard-img" />
-      <div style={{backgroundColor: type==='LICENCIATURA' ? 'var(--green)': type==='INGENIERÍA' ? 'var(--orange)': 'var(--red)'}} className='carrera-newCard-title'>
+      <div
+        className='carrera-newCard-title'
+        style={{
+          backgroundColor: 
+            type==='LICENCIATURA' ? 'var(--green)' 
+          : type==='INGENIERÍA' ? 'var(--orange)'
+          : type==='MAESTRÍA'? 'var(--red)'
+          : 'grey'
+        }}>
         <p>{nombre}</p>
       </div>
     </div>

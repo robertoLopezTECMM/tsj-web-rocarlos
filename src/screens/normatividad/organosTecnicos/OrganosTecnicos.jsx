@@ -1,5 +1,5 @@
 import { Link } from 'react-router';
-import IconBackground from '../../components/background/IconBackground';
+import IconBackground from '../../../components/background/IconBackground';
 import './styles/OrganosTecnicos.css';
 
 export default function OrganosTecnicos() {
