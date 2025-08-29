@@ -61,7 +61,8 @@ function App() {
           <Route path="/organos-tecnicos/unidad-de-igualdad-de-genero-uig" element={<UIG />} />
           <Route path="/organos-tecnicos/comite-de-etica" element={<ComiteEtica />} />
           <Route path="/quienes-somos" element={<QuienesSomos />} />
-          <Route path="/credenciales" element={<Credenciales />} />
+          {/* <Route path="/credenciales" element={<Credenciales />} /> */}
+          {/* <Route path="/credenciales" element={<Credenciales />} /> */}
           <Route path="/contraloria-social" element={<ContraloriaSocial />} />
 
         </Routes>
