@@ -22,7 +22,7 @@ import Gaceta from './screens/gaceta/Gaceta'
 import DrawerAppBar from './components/navBarMaterial'
 import { Archivo } from './screens/normatividad/archivo'
 import { Directorio } from './screens/sobreTSJ/directorio'
-import { ContraloriaSocial } from './screens/enlacesInteres/contraloriaSocial'
+import ContraloriaSocial from './screens/enlacesInteres/contraloriaSocial/ContraloriaSocial'
 
 
 function App() {
@@ -62,7 +62,7 @@ function App() {
           <Route path="/organos-tecnicos/comite-de-etica" element={<ComiteEtica />} />
           <Route path="/quienes-somos" element={<QuienesSomos />} />
           <Route path="/credenciales" element={<Credenciales />} />
-          <Route path="/contraloraSocial" element={<ContraloriaSocial />} />
+          <Route path="/contraloria-social" element={<ContraloriaSocial />} />
 
         </Routes>
       {/* </div> */}

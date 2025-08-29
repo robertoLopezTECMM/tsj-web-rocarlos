@@ -127,7 +127,7 @@ function Landing() {
     { label: 'Licitaciones Vencidas', to: '/licitaciones-vencidas' },
     { label: 'Programa Anual de Desarrollo Archivístico', to: '/archivo' },
     { label: 'CONAHCYT', to: '/conahcyt' },
-    { label: 'Contraloría social', to: '/contraloriaSocial' },
+    { label: 'Contraloría social', to: '/contraloria-social' },
     { label: 'Retroalimentación SEAES', to: '/retroalimentacion-seaes' },
     { label: 'Denuncia Ante el Comité de Ética', to: '/organos-tecnicos/comite-de-etica' },
     { label: 'Denuncias Ante el Órgano Interno de Control', to: '/denuncias-organo-interno-de-control' },
