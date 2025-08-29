@@ -8,16 +8,6 @@ import { Noticias } from './screens/sobreTSJ/noticias/index'
 import Noticia from './screens/sobreTSJ/noticias/Noticia'
 import Navbar from './components/navbar'
 import { ValidadorCredenciales } from './screens/validadorCredenciales'
-import { Ordenamientos } from './screens/ordenamientos'
-import JuntaGobierno from './screens/juntaGobierno/JuntaGobierno'
-import OrganosTecnicos from './screens/organosTecnicos/OrganosTecnicos'
-import COCODI from './screens/organosTecnicos/COCODI'
-import UIG from './screens/organosTecnicos/UIG'
-import ComiteEtica from './screens/organosTecnicos/ComiteEtica'
-import { Archivo } from './screens/archivo'
-import { Transparencia } from './screens/transparencia'
-import QuienesSomos from './screens/quienesSomos/QuienesSomos'
-import { Credenciales } from './screens/credenciales/index.jsx'
 import {Ordenamientos} from './screens/normatividad/ordenamientos'
 import JuntaGobierno from './screens/normatividad/juntaGobierno/JuntaGobierno'
 import OrganosTecnicos from './screens/normatividad/organosTecnicos/OrganosTecnicos'
@@ -72,7 +62,7 @@ function App() {
           <Route path="/organos-tecnicos/comite-de-etica" element={<ComiteEtica />} />
           <Route path="/quienes-somos" element={<QuienesSomos />} />
           {/* <Route path="/credenciales" element={<Credenciales />} /> */}
-          <Route path="/credenciales" element={<Credenciales />} />
+          {/* <Route path="/credenciales" element={<Credenciales />} /> */}
           <Route path="/contraloria-social" element={<ContraloriaSocial />} />
 
         </Routes>
