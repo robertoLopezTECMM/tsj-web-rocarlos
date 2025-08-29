@@ -3,7 +3,7 @@ import CarreraCard from './CarreraCard';
 import OfertaFilter from './OfertaFilter';
 import IconBackground from '../../../components/background/IconBackground';
 import './styles/OfertaEducativa.css';
-import { useNavigation, useParams } from 'react-router';
+import { useParams } from 'react-router';
 import Lottie from 'lottie-react';
 
 import tsjLoading from '../../../assets/lotties/tsjLoading.json'

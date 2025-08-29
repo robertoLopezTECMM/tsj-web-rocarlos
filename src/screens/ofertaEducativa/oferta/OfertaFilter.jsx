@@ -3,8 +3,8 @@ import './styles/OfertaFilter.css';
 
 const unidades = [
   'Arandas', 'Chapala', 'Cocula', 'El Grullo', 'La Huerta', 'Lagos de Moreno',
-  'Mascota', 'Puerto Vallarta', 'San Juan de los Lagos', 'TSJ en línea',
-  'Tala', 'Tamazula', 'Tepatitlán', 'Tequila', 'Tomatlán', 'Zapopan', 'Zapotlanejo',
+  'Mascota', 'Puerto Vallarta', 'San Juan de los Lagos', 'TSJ en Línea',
+  'Tala', 'Tamazula', 'Tepatitlan', 'Tequila', 'Tomatlan', 'Zapopan', 'Zapotlanejo',
 ];
 
 const tipoCarrera = ['En línea', 'Ingeniería', 'Licenciatura', 'Maestría' ];
