@@ -4,9 +4,8 @@ import Landing from './screens/landing'
 import OfertaEducativa from './screens/ofertaEducativa/oferta/OfertaEducativa'
 import OfertaCarrera from './screens/ofertaEducativa/OfertaCarrera'
 import { UnidadesAcademicas } from './screens/unidadesAcademicas'
-import { Directorio } from './screens/directorio'
-import { Noticias } from './screens/noticias'
-import Noticia from './screens/noticias/Noticia'
+import { Noticias } from './screens/sobreTSJ/noticias/index'
+import Noticia from './screens/sobreTSJ/noticias/Noticia'
 import Navbar from './components/navbar'
 import { ValidadorCredenciales } from './screens/validadorCredenciales'
 import { Ordenamientos } from './screens/ordenamientos'
@@ -19,9 +18,21 @@ import { Archivo } from './screens/archivo'
 import { Transparencia } from './screens/transparencia'
 import QuienesSomos from './screens/quienesSomos/QuienesSomos'
 import { Credenciales } from './screens/credenciales/index.jsx'
+import {Ordenamientos} from './screens/normatividad/ordenamientos'
+import JuntaGobierno from './screens/normatividad/juntaGobierno/JuntaGobierno'
+import OrganosTecnicos from './screens/normatividad/organosTecnicos/OrganosTecnicos'
+import COCODI from './screens/normatividad/organosTecnicos/COCODI'
+import UIG from './screens/normatividad/organosTecnicos/UIG'
+import ComiteEtica from './screens/normatividad/organosTecnicos/ComiteEtica'
+import { Transparencia } from './screens/normatividad/transparencia'
+import QuienesSomos from './screens/sobreTSJ/quienesSomos/QuienesSomos'
+import { Credenciales } from './screens/credenciales'
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import Gaceta from './screens/gaceta/Gaceta'
 import DrawerAppBar from './components/navBarMaterial'
+import { Archivo } from './screens/normatividad/archivo'
+import { Directorio } from './screens/sobreTSJ/directorio'
+import ContraloriaSocial from './screens/enlacesInteres/contraloriaSocial/ContraloriaSocial'
 
 
 function App() {
@@ -61,6 +72,9 @@ function App() {
           <Route path="/organos-tecnicos/comite-de-etica" element={<ComiteEtica />} />
           <Route path="/quienes-somos" element={<QuienesSomos />} />
           {/* <Route path="/credenciales" element={<Credenciales />} /> */}
+          <Route path="/credenciales" element={<Credenciales />} />
+          <Route path="/contraloria-social" element={<ContraloriaSocial />} />
+
         </Routes>
       {/* </div> */}
     </div>

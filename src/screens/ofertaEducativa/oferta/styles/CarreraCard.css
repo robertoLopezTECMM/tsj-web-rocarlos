@@ -111,21 +111,25 @@
 
 /*Nuevo Card*/
 
-.carrera-newCard{
+.carrera-newCard {
+  position: relative;
   width: 20dvw;
   height: 20dvh;
   background-color: white;
-  position: relative;
   border-radius: 10px;
-
+  overflow: hidden;                     /* recorta la imagen al hacer zoom */
+  cursor: pointer;
+  transition: transform .25s ease, box-shadow .25s ease;
+  will-change: transform;
 }
 
-.carrera-newCard-img{
+.carrera-newCard-img {
   width: 100%;
   height: 100%;
-  object-fit:cover;
+  object-fit: cover;
   border-radius: 10px;
-
+  transition: transform .35s ease;      /* transición suave del zoom */
+  will-change: transform;
 }
 
 .carrera-newCard-title{
@@ -166,5 +170,29 @@
     position: relative;
     border-radius: 10px;
 
+  }
+}
+
+@media (hover: hover) {
+  .carrera-newCard:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 10px 24px rgba(0,0,0,.18);
+  }
+  .carrera-newCard:hover .carrera-newCard-img {
+    transform: scale(1.08);
+  }
+}
+
+/* Accesible con teclado */
+.carrera-newCard:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 2px;
+}
+
+/* Por si el usuario prefiere menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  .carrera-newCard,
+  .carrera-newCard-img {
+    transition: none;
   }
 }
