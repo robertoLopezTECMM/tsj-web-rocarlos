@@ -1,4 +1,4 @@
-import * as React from "react";
+import {useState, useEffect} from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -20,6 +20,8 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 
 import './index.css'
+import { useAuth } from "../../context/authContext";
+import Avatar from "@mui/material/Avatar";
 
 interface Props {
   /**
@@ -41,14 +43,26 @@ const navItems = [
 export default function DrawerAppBar(props: Props) {
   const isHome = location.pathname === '/';
   const { window } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
-  const [anchorSobreTsj, setAnchorSobreTsj] =
-    React.useState<null | HTMLElement>(null);
+
+  const { login, logout, isAuthenticated} = useAuth();
+
+  const [avatar, setAvatar] = useState(sessionStorage.getItem("userAvatar"));
+  const [auth, setAuth] = useState(isAuthenticated)
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  const [anchorSobreTsj, setAnchorSobreTsj] = useState<null | HTMLElement>(null);
   const openSobreTsj = Boolean(anchorSobreTsj);
 
-  const [anchorNormatividad, setAnchorNormatividad] =
-    React.useState<null | HTMLElement>(null);
+  const [anchorNormatividad, setAnchorNormatividad] = useState<null | HTMLElement>(null);
   const openNormatividad = Boolean(anchorNormatividad);
+
+  const [anchorUser, setAnchorUser] = useState<null | HTMLElement>(null);
+  const openUser = Boolean(anchorUser);
+
+  useEffect(() => {
+    setAvatar(sessionStorage.getItem("userAvatar"))
+    setAuth(isAuthenticated)
+  }, [avatar, isAuthenticated])
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorSobreTsj(event.currentTarget);
@@ -58,14 +72,22 @@ export default function DrawerAppBar(props: Props) {
     setAnchorSobreTsj(null);
   };
 
-  const handleClickNormatividad = (
-    event: React.MouseEvent<HTMLButtonElement>
-  ) => {
+
+  const handleClickNormatividad = ( event: React.MouseEvent<HTMLButtonElement> ) => {
     setAnchorNormatividad(event.currentTarget);
   };
 
   const handleCloseNormatividad = () => {
     setAnchorNormatividad(null);
+  };
+
+
+  const handleClickUser = ( event: React.MouseEvent<HTMLButtonElement> ) => {
+    setAnchorUser(event.currentTarget);
+  };
+
+  const handleCloseUser = () => {
+    setAnchorUser(null);
   };
 
   const handleDrawerToggle = () => {
@@ -202,8 +224,11 @@ export default function DrawerAppBar(props: Props) {
             />
           </Box>
 
+
           {/* Botones de navegación (solo desktop) */}
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
+              
+
             <Button
               key={"Sobre TSJ"}
               sx={{ color: "#fff", fontFamily: "madaniArabicMedium" }}
@@ -298,6 +323,40 @@ export default function DrawerAppBar(props: Props) {
               </MenuItem>
             </Menu>
           </Box>
+
+            {auth && (
+            
+              <div>
+                <IconButton
+                  size="small"
+                  aria-label="account of current user"
+                  aria-controls="menu-appbar"
+                  aria-haspopup="true"
+                  onClick={handleClickUser}
+                  color="inherit"
+                >
+                  <Avatar alt="Remy Sharp" src={`${avatar}`}/>
+                </IconButton>
+                <Menu
+                  id="menu-appbar"
+                  anchorEl={anchorUser}
+                  anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'right',
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                  open={openUser}
+                  onClose={handleCloseUser}
+                >
+                  {/* <MenuItem onClick={handleCloseUser}>Profile</MenuItem> */}
+                  <MenuItem onClick={logout}>Cerrar Sesión</MenuItem>
+                </Menu>
+            </div>
+          )}
         </Toolbar>
       </AppBar>
 

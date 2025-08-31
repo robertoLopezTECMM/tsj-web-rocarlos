@@ -23,6 +23,8 @@ import DrawerAppBar from './components/navBarMaterial'
 import { Archivo } from './screens/normatividad/archivo'
 import { Directorio } from './screens/sobreTSJ/directorio'
 import ContraloriaSocial from './screens/enlacesInteres/contraloriaSocial/ContraloriaSocial'
+import PrivateRoute from './components/privateRoute'
+import Login from './screens/login'
 
 
 function App() {
@@ -62,8 +64,10 @@ function App() {
           <Route path="/organos-tecnicos/comite-de-etica" element={<ComiteEtica />} />
           <Route path="/quienes-somos" element={<QuienesSomos />} />
           {/* <Route path="/credenciales" element={<Credenciales />} /> */}
-          {/* <Route path="/credenciales" element={<Credenciales />} /> */}
+          <Route path="/credenciales" element={<PrivateRoute> <Credenciales /> </PrivateRoute>} />
           <Route path="/contraloria-social" element={<ContraloriaSocial />} />
+          <Route path="/login" element={<Login />} />
+
 
         </Routes>
       {/* </div> */}
