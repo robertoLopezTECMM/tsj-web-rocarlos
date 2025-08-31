@@ -1,0 +1,14 @@
+.div-basicContainer{
+
+    /* border: 1px solid red; */
+
+    width: 80%;
+    height: calc(100dvh - 65px);
+    margin:65px auto auto auto;
+    padding:1dvh;
+    background-color: transparent;
+    border-radius: 10px;
+    /* box-shadow: 0px 0px 92px -17px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 0px 92px -17px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 92px -17px rgba(0,0,0,0.75); */
+}
