@@ -89,9 +89,9 @@ function Landing() {
   const [banners, setBanners] = useState([])
   const [news, setNews] = useState([])
 
-  const [open, setOpen] = useState(true);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  // const [open, setOpen] = useState(true);
+  // const handleOpen = () => setOpen(true);
+  // const handleClose = () => setOpen(false);
 
 
   const handlePlayPause = () => {
@@ -179,7 +179,7 @@ function Landing() {
 
   return (
     <>
-      <Modal
+      {/* <Modal
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
@@ -197,7 +197,7 @@ function Landing() {
             playsInline
           />
         </Box>
-      </Modal>
+      </Modal> */}
 
       <div className="scroll-container">
         <section id="sobre" className="section video-section">
