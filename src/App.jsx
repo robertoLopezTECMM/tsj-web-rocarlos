@@ -25,6 +25,7 @@ import { Directorio } from './screens/sobreTSJ/directorio'
 import ContraloriaSocial from './screens/enlacesInteres/contraloriaSocial/ContraloriaSocial'
 import PrivateRoute from './components/privateRoute'
 import Login from './screens/login'
+import { EnConstruccion } from './screens/enConstruccion'
 
 
 function App() {
@@ -67,6 +68,8 @@ function App() {
           <Route path="/credenciales" element={<PrivateRoute> <Credenciales /> </PrivateRoute>} />
           <Route path="/contraloria-social" element={<ContraloriaSocial />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/enConstruccion" element={<EnConstruccion />} />
+
 
 
         </Routes>
