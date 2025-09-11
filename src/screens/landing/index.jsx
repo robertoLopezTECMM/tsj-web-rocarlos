@@ -132,6 +132,7 @@ function Landing() {
     { label: 'Denuncia Ante el Comité de Ética', to: 'forms.gle/5a28ZqotwPDu7LA69' },
     { label: 'Denuncias Ante el Órgano Interno de Control', to: 'https://contranet.jalisco.gob.mx/SIDEN/home' },
     { label: 'Becas', to: '/enConstruccion' },
+    { label: 'CID', to: 'https://cid.jalisco.gob.mx/' },
   ];
 
 
