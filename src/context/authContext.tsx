@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 
 interface AuthContextType {
   isAuthenticated: boolean;
-  login: (token: string, userAvatar: string) => void;
+  login: (token: string, userAvatar: string, userEmail: string) => void;
   logout: () => void;
 }
 
@@ -28,9 +28,10 @@ export const AuthProvider: React.FC = ({ children }:any) => {
     }
   }, []);
 
-  const login = (token: string, userAvatar:string) => {
+  const login = (token: string, userAvatar:string, userEmail:string) => {
     sessionStorage.setItem("token", token); // Guardamos el token en sessionStorage
     sessionStorage.setItem('userAvatar', userAvatar)
+    sessionStorage.setItem('userEmail', userEmail)
     setIsAuthenticated(true); // Marcamos al usuario como logueado
   };
 
