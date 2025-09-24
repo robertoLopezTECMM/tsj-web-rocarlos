@@ -56,6 +56,7 @@ export const CredencialesAlumnos = () => {
 
   const [formData, setFormData] = useState({
     image: "",
+    imageFromEdcore: '',
     nombre: "",
     apellidoPaterno: "",
     apellidoMaterno: "",
@@ -137,21 +138,25 @@ export const CredencialesAlumnos = () => {
     });
     console.log(nombre);
     console.log('IMAGE: ', image)
-    // Asegúrate de tener el file desde el input
-    const file = formData.image;
 
-    // Convertir a JPG bytes
-    const photoBytes = await convertToJpeg(file);
+// dataUrl viene de handleImage (base64)
+const dataUrl = formData.imageFromEdcore; 
 
-    // Ahora sí usar pdf-lib
-    const photo = await pdfDoc.embedJpg(photoBytes);
+// Extraer solo la parte base64
+const base64Data = dataUrl.split(',')[1]; 
 
-    frontPage.drawImage(photo, {
-    x: 53,
-    y: height - 120,
-    width: 55,
-    height: 60,
-    });
+// Convertir a ArrayBuffer
+const photoBytes = Uint8Array.from(atob(base64Data), c => c.charCodeAt(0));
+
+// Embed en pdf-lib
+const photo = await pdfDoc.embedJpg(photoBytes);
+
+frontPage.drawImage(photo, {
+  x: 53,
+  y: height - 120,
+  width: 55,
+  height: 60,
+});
 
     pdfDoc.registerFontkit(fontkit);
 
@@ -357,44 +362,44 @@ export const CredencialesAlumnos = () => {
   };
 
 
-  async function convertToJpeg(file) {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
+//   async function convertToJpeg(file) {
+//   return new Promise((resolve, reject) => {
+//     const reader = new FileReader();
 
-    reader.onload = (event) => {
-      const img = new Image();
-      img.onload = () => {
-        const canvas = document.createElement("canvas");
-        canvas.width = img.width;
-        canvas.height = img.height;
+//     reader.onload = (event) => {
+//       const img = new Image();
+//       img.onload = () => {
+//         const canvas = document.createElement("canvas");
+//         canvas.width = img.width;
+//         canvas.height = img.height;
 
-        const ctx = canvas.getContext("2d");
-        if (!ctx) return reject("No se pudo crear contexto canvas");
+//         const ctx = canvas.getContext("2d");
+//         if (!ctx) return reject("No se pudo crear contexto canvas");
 
-        // Dibujar la imagen
-        ctx.drawImage(img, 0, 0);
+//         // Dibujar la imagen
+//         ctx.drawImage(img, 0, 0);
 
-        // Exportar como JPEG
-        canvas.toBlob(
-          async (blob) => {
-            if (!blob) return reject("Error al convertir a JPEG");
+//         // Exportar como JPEG
+//         canvas.toBlob(
+//           async (blob) => {
+//             if (!blob) return reject("Error al convertir a JPEG");
 
-            // Obtener los bytes en formato ArrayBuffer
-            const arrayBuffer = await blob.arrayBuffer();
-            resolve(new Uint8Array(arrayBuffer));
-          },
-          "image/jpeg",
-          0.92 // calidad (0-1)
-        );
-      };
-      img.onerror = reject;
-      img.src = event.target?.result;
-    };
+//             // Obtener los bytes en formato ArrayBuffer
+//             const arrayBuffer = await blob.arrayBuffer();
+//             resolve(new Uint8Array(arrayBuffer));
+//           },
+//           "image/jpeg",
+//           0.92 // calidad (0-1)
+//         );
+//       };
+//       img.onerror = reject;
+//       img.src = event.target?.result;
+//     };
 
-    reader.onerror = reject;
-    reader.readAsDataURL(file);
-  });
-}
+//     reader.onerror = reject;
+//     reader.readAsDataURL(file);
+//   });
+// }
 
 
 
@@ -468,28 +473,31 @@ export const CredencialesAlumnos = () => {
         try {
             setLoading(true)
         const studentInfo = await axios.get(`https://www.tecmm.edu.mx/tsjApi/students-ids/${noControlSearch}`)
+        console.log(studentInfo)
 
-        if(studentInfo.data[0] === undefined) {
+        if(studentInfo.data === undefined) {
             setDisabledForm(true)
             return alert("no se encontro al alumno con el numero de control: " + noControlSearch)
         }
 
         setFormData({
             ...formData,
-            nombre: studentInfo.data[0].name,
-            apellidoPaterno:studentInfo.data[0].firstName,
-            apellidoMaterno:studentInfo.data[0].secondName,
-            carrera:studentInfo.data[0].programName,
-            nss:studentInfo.data[0].numeroSeguro,
-            noControl:studentInfo.data[0].code,
-            unidadAcademica:studentInfo.data[0].campusName,
+            image:studentInfo.data.photo,
+            imageFromEdcore:studentInfo.data.photo,
+            nombre: studentInfo.data.name,
+            apellidoPaterno:studentInfo.data.firstName,
+            apellidoMaterno:studentInfo.data.secondName,
+            carrera:studentInfo.data.programName,
+            nss:studentInfo.data.numeroSeguro,
+            noControl:studentInfo.data.code,
+            unidadAcademica:studentInfo.data.campusName,
             //noEmpleado:studentInfo.data[0].code,
-            tipoSangre:studentInfo.data[0].blobFactor === 'NC'?'':studentInfo.data[0].blobFactor,
+            tipoSangre:studentInfo.data.blobFactor === 'NC'?'':studentInfo.data.blobFactor,
 
         });
 
 
-        console.log('student: ', studentInfo.data[0])
+        console.log('student: ', studentInfo.data)
         setDisabledForm(false)
 
 
@@ -502,6 +510,80 @@ export const CredencialesAlumnos = () => {
 
 
 
+  //    const handleImage = (event) => {
+  //   const file = event.target.files?.[0];
+  //   if (!file) return;
+
+  //   const reader = new FileReader();
+  //   reader.onload = (e) => {
+  //     const img = new Image();
+  //     img.onload = () => {
+  //       const canvas = document.createElement("canvas");
+  //       canvas.width = 300;
+  //       canvas.height = 352;
+
+  //       const ctx = canvas.getContext("2d");
+  //       if (!ctx) return;
+
+  //       // Redimensionar y recortar la imagen
+  //       ctx.drawImage(img, 0, 0, 300, 352);
+
+  //       const dataUrl = canvas.toDataURL("image/jpeg", 0.8);
+  //       setFormData({...formData, imageFromEdcore: dataUrl}); // preview listo
+  //     };
+  //     img.src = e.target?.result;
+  //   };
+  //   reader.readAsDataURL(file);
+  // };
+
+
+  const handleImage = (event) => {
+  const file = event.target.files?.[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    const img = new Image();
+    img.onload = () => {
+      const canvas = document.createElement("canvas");
+      const ctx = canvas.getContext("2d");
+      if (!ctx) return;
+
+      const targetWidth = 300;
+      const targetHeight = 352;
+      canvas.width = targetWidth;
+      canvas.height = targetHeight;
+
+      // Proporción original de la imagen
+      const aspectRatio = img.width / img.height;
+      const targetRatio = targetWidth / targetHeight;
+
+      let drawWidth = targetWidth;
+      let drawHeight = targetHeight;
+      let offsetX = 0;
+      let offsetY = 0;
+
+      if (aspectRatio > targetRatio) {
+        // Imagen más ancha → recortar horizontalmente
+        drawHeight = targetHeight;
+        drawWidth = img.width * (targetHeight / img.height);
+        offsetX = (targetWidth - drawWidth) / 2;
+      } else {
+        // Imagen más alta → recortar verticalmente
+        drawWidth = targetWidth;
+        drawHeight = img.height * (targetWidth / img.width);
+        offsetY = (targetHeight - drawHeight) / 2;
+      }
+
+      ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
+
+      const dataUrl = canvas.toDataURL("image/jpeg", 0.8);
+              setFormData({...formData, imageFromEdcore: dataUrl, image:dataUrl}); // preview listo
+    };
+    img.src = e.target?.result;
+  };
+  reader.readAsDataURL(file);
+};
 
 
 
@@ -523,7 +605,7 @@ export const CredencialesAlumnos = () => {
           <h1 className="h1-archivo">Vista previa</h1>
           <div>
             <Credencial
-              photoUrl={formData.image ? URL.createObjectURL(formData.image):'hola'}
+              photoUrl={formData.image}
               cara="front"
               nombre={`${formData.nombre} ${formData.apellidoPaterno} ${formData.apellidoMaterno}`}
               rol="ADMINISTRATIVO"
@@ -569,9 +651,10 @@ export const CredencialesAlumnos = () => {
 
         </InputGroup>
 
+
         <fieldset disabled={disabledForm} className={disabledForm ? "form-disabled" : ""}>
             <Form noValidate validated={validated} onSubmit={handleSubmit}>
-            <Row className="mb-3 pt-3">
+            {/* <Row className="mb-3 pt-3">
                 <Form.Group as={Col} md="12" controlId="formFile">
                 <Form.Label>Fotografia</Form.Label>
                 <Form.Control
@@ -582,9 +665,112 @@ export const CredencialesAlumnos = () => {
                     onChange={handleChange}
                 />
                 </Form.Group>
-            </Row>
+            </Row> */}
 
             <Row className="mb-3 pt-3">
+<Form.Group as={Col} md="3">
+  {formData.imageFromEdcore ? (
+    <img
+      src={formData.imageFromEdcore}
+      alt="Foto del alumno"
+  //       style={{
+  //   width: "300px",
+  //   height: "352px",
+  //   objectFit: "cover",   // recorta la imagen manteniendo proporciones
+  //   borderRadius: "8px",
+  //   border: "2px dashed #ccc"
+  // }}
+      style={{
+        width: '100%',
+        borderRadius: '8px',
+        objectFit: 'cover',
+        border: '2px solid #ddd',
+      }}
+    />
+  ) : (
+    <div
+      style={{
+        border: '2px dashed #6c757d',
+        borderRadius: '8px',
+        padding: '20px',
+        textAlign: 'center',
+        cursor: 'pointer',
+        color: '#6c757d',
+        backgroundColor: '#f8f9fa',
+        transition: 'all 0.3s ease',
+        height:'100%',
+        width:'100%'
+      }}
+      onClick={() => document.getElementById('fileInput')?.click()}
+    >
+      <p style={{ margin: 0 }}>📷 Haz clic o arrastra una imagen</p>
+      <Form.Control
+        id="fileInput"
+        type="file"
+        accept="image/*"
+        style={{ display: 'none' }}
+        onChange={handleImage}
+
+        // onChange={(e) => {
+        //   const file = e.target.files?.[0];
+        //   if (file) {
+        //     setFormData({
+        //       ...formData,
+        //       imageFromEdcore: URL.createObjectURL(file), // preview
+        //       image: file
+        //       // fileToUpload: file, // archivo real
+        //     });
+        //   }
+        // }}
+
+                    //         required
+                    
+                    // name="image"
+                    // // value={formData.image}
+                    // onChange={handleChange}
+      />
+    </div>
+  )}
+</Form.Group>
+
+
+              <Form.Group as={Col} md="9" controlId="validationCustom01">
+                <Form.Label>Nombre(s)</Form.Label>
+                <Form.Control
+                    required
+                    type="text"
+                    name="nombre"
+                    disabled
+                    value={formData.nombre}
+                    onChange={handleChange}
+                />
+                
+                <Form.Label>Apellido Paterno</Form.Label>
+                <Form.Control
+                    required
+                    type="text"
+                    name="apellidoPaterno"
+                    disabled
+                    value={formData.apellidoPaterno}
+                    onChange={handleChange}
+                />
+                
+                <Form.Label>Apellido Materno</Form.Label>
+                <Form.Control
+                    required
+                    type="text"
+                    name="apellidoMaterno"
+                    disabled
+                    value={formData.apellidoMaterno}
+                    onChange={handleChange}
+                />
+              </Form.Group>
+
+
+
+            </Row>
+
+            {/* <Row className="mb-3 pt-3">
                 <Form.Group as={Col} md="4" controlId="validationCustom01">
                 <Form.Label>Nombre(s)</Form.Label>
                 <Form.Control
@@ -620,10 +806,21 @@ export const CredencialesAlumnos = () => {
                     onChange={handleChange}
                 />
                 </Form.Group>
-            </Row>
+            </Row> */}
 
             <Row className="mb-3 pt-3">
-                <Form.Group as={Col} md="12" controlId="validationCustom04">
+                <Form.Group as={Col} md="6" controlId="validationCustom04">
+                <Form.Label>Unidad Academica</Form.Label>
+                <Form.Control
+                    required
+                    type="text"
+                    name="unidadAcademica"
+                    disabled
+                    value={formData.unidadAcademica}
+                    onChange={handleChange}
+                />
+                </Form.Group>
+                <Form.Group as={Col} md="6" controlId="validationCustom04">
                 <Form.Label>Carrera</Form.Label>
                 <Form.Control
                     required
@@ -634,7 +831,6 @@ export const CredencialesAlumnos = () => {
                     onChange={handleChange}
                 />
                 </Form.Group>
-
             </Row>
 
             <Row className="mb-3 pt-3">
@@ -703,7 +899,7 @@ export const CredencialesAlumnos = () => {
 
             <Row className="mb-3 pt-3">
                 <Form.Group as={Col} md="4">
-                <Button type="submit">Generar vista previa</Button>
+                  <Button type="submit">Generar vista previa</Button>
                 </Form.Group>
 
                 <Form.Group as={Col} md="4">
@@ -724,7 +920,6 @@ export const CredencialesAlumnos = () => {
                         tipoSangre: formData.tipoSangre,
                         contactoEmergencia: formData.contactoEmergencia,
                         telefonoEmergencia: formData.telefonoEmergencia
-
                     })
                     }
                 
