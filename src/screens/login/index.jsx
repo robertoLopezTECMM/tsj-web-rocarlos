@@ -26,7 +26,7 @@ const Login = () => {
       console.log("Usuario autenticado:", res.data);
 
       if(res.data.accessToken){
-        login(res.data.accessToken, res.data.user.picture)
+        login(res.data.accessToken, res.data.user.picture, res.data.user.email)
         setIsLoggedIn(true)
       }
 

@@ -1,0 +1,4 @@
+.form-disabled {
+  opacity: 0.5;      /* lo hace semitransparente */
+  pointer-events: none; /* bloquea interacción adicional (por si acaso) */
+}

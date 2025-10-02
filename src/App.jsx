@@ -26,6 +26,7 @@ import ContraloriaSocial from './screens/enlacesInteres/contraloriaSocial/Contra
 import PrivateRoute from './components/privateRoute'
 import Login from './screens/login'
 import { EnConstruccion } from './screens/enConstruccion'
+import { CredencialesAlumnos } from './screens/credencialesAlumnos'
 
 
 function App() {
@@ -65,11 +66,15 @@ function App() {
           <Route path="/organos-tecnicos/comite-de-etica" element={<ComiteEtica />} />
           <Route path="/quienes-somos" element={<QuienesSomos />} />
           {/* <Route path="/credenciales" element={<Credenciales />} /> */}
-          <Route path="/credenciales" element={<PrivateRoute> <Credenciales /> </PrivateRoute>} />
+
           <Route path="/contraloria-social" element={<ContraloriaSocial />} />
           <Route path="/login" element={<Login />} />
           <Route path="/enConstruccion" element={<EnConstruccion />} />
 
+
+
+          <Route path="/credenciales" element={<PrivateRoute> <Credenciales /> </PrivateRoute>} />
+          <Route path="/credencialesAlumnos" element={<PrivateRoute> <CredencialesAlumnos /> </PrivateRoute>} />
 
 
         </Routes>
