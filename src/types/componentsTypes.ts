@@ -12,6 +12,19 @@ export interface CredencialType{
     unidadAcademica:string
 }
 
+export interface CredencialStudentType{
+    cara: 'front' | 'back';
+    photoUrl: string;
+    nombre: string;
+    carrera: string;
+    rol: string;
+    noControl: string;
+    noSeguro: string;
+    tipoSangre: string;
+    telefonoEmergencia: string;
+    unidadAcademica:string
+}
+
 export interface cardPersonCredential {
     name: string,
     role: string,

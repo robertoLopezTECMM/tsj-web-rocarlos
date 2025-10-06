@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
-import { Credencial } from "../../components/credencial";
+import { Credencial, CredencialAlumno } from "../../components/credencial";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 
@@ -59,6 +59,7 @@ export const CredencialesAlumnos = () => {
     unidadAcademica: "",
     contactoEmergencia: "",
     telefonoEmergencia: "",
+    studentEmail: "",
   });
 
   const [noControlSearch, setNoControlSearch] = useState("");
@@ -475,6 +476,42 @@ export const CredencialesAlumnos = () => {
     reader.readAsDataURL(file);
   };
 
+  const postID = async () => {
+
+    const dataID = {
+      fullName: `${formData.nombre} ${formData.apellidoPaterno} ${formData.apellidoMaterno}`,
+      career: formData.carrera,
+      unidadAcademica: formData.unidadAcademica,
+      nss: formData.nss,
+      controlNumber: formData.noControl,
+      bloodType: formData.tipoSangre,
+      emergencyContactName: formData.contactoEmergencia,
+      emergencyContactPhone: formData.telefonoEmergencia,
+      studentEmail: formData.studentEmail,
+      whoCreated: 'usuario loggeado'
+
+    }
+
+
+    try {
+      const response = await axios.post(
+        "http://localhost:3001/tsjApi/students-ids",
+        dataID,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      console.log(response);
+      alert("Estudiante creado y correo enviado ✅");
+    } catch (error) {
+      console.error("Error al enviar:", error.response?.data || error.message);
+      alert("Hubo un error al enviar los datos ❌");
+    }
+  }
+
   return (
     <div>
       <IconBackground />
@@ -491,19 +528,36 @@ export const CredencialesAlumnos = () => {
           <div className="noticia-container">
             <h1 className="h1-archivo">Vista previa</h1>
             <div>
-              <Credencial
+              <CredencialAlumno
                 photoUrl={formData.image}
                 cara="front"
                 nombre={`${formData.nombre} ${formData.apellidoPaterno} ${formData.apellidoMaterno}`}
-                rol="ADMINISTRATIVO"
+                carrera={formData.carrera}
+                rol="ESTUDIANTE"
                 noSeguro={formData.nss}
                 tipoSangre={formData.tipoSangre}
                 vigencia={"2024 - 2026"}
                 telefonoEmergencia={formData.telefonoEmergencia}
-                unidadAcademica={"DIRECCIÓN GENERAL"}
-                noEmpleado={formData.noControl}
+                unidadAcademica={formData.unidadAcademica}
+                noControl={formData.noControl}
               />
             </div>
+
+            <Row className="mb-3 pt-3">
+              <Form.Group as={Col} md="2">
+                <Button
+                  onClick={postID}
+                >
+                  Enviar
+                </Button>
+              </Form.Group>
+
+              <Form.Group as={Col} md="2">
+                <Button>
+                  cancelar
+                </Button>
+              </Form.Group>
+            </Row>
           </div>
         </Box>
       </Modal>
@@ -737,6 +791,20 @@ export const CredencialesAlumnos = () => {
                 </Row>
 
                 <Row className="mb-3 pt-3">
+                  <Form.Group as={Col} md="12" controlId="validationCustom07">
+                    <Form.Label>Correo electronico</Form.Label>
+                    <Form.Control
+                      required
+                      type="text"
+                      name="studentEmail"
+                      placeholder="correo electronico"
+                      value={formData.studentEmail}
+                      onChange={handleChange}
+                    />
+                  </Form.Group>
+                </Row>
+
+                <Row className="mb-3 pt-3">
                   <Form.Group as={Col} md="4">
                     <Button type="submit">Generar vista previa</Button>
                   </Form.Group>
@@ -772,152 +840,6 @@ export const CredencialesAlumnos = () => {
               </Form.Group>
             </Row>
 
-            {/* <Row className="mb-3 pt-3">
-                <Form.Group as={Col} md="3" controlId="validationCustom04">
-                <Form.Label>Unidad Academica</Form.Label>
-                <Form.Control
-                    required
-                    type="text"
-                    name="unidadAcademica"
-                    disabled
-                    value={formData.unidadAcademica}
-                    onChange={handleChange}
-                />
-                </Form.Group>
-
-                                <Form.Group as={Col} md="3" controlId="validationCustom05">
-                <Form.Label>No. Control</Form.Label>
-                <Form.Control
-                    required
-                    type="text"
-                    name="noControl"
-                    disabled
-                    value={formData.noControl}
-                    onChange={handleChange}
-                />
-                </Form.Group>
-                <Form.Group as={Col} md="6" controlId="validationCustom04">
-                <Form.Label>Carrera</Form.Label>
-                <Form.Control
-                    required
-                    type="text"
-                    name="carrera"
-                    disabled
-                    value={formData.carrera}
-                    onChange={handleChange}
-                />
-                </Form.Group>
-            </Row> */}
-
-            {/* <Row  className="mb-3 pt-3" >
-              <Form.Group as={Col} md="3" controlId="validationCustom04">
-                <Form.Label>No. Seguro social</Form.Label>
-                <Form.Control
-                  required
-                  type="text"
-                  name="nss"
-                  disabled={formData.nss.length >= 15 ? true : false}
-                  value={formData.nss}
-                  onChange={handleChange}
-                />
-              </Form.Group>
-
-              <Form.Group as={Col} md="2" controlId="validationCustom06">
-                <Form.Label>Tipo de sangre</Form.Label>
-                <Form.Control
-                  required
-                  type="text"
-                  name="tipoSangre"
-                  disabled={formData.tipoSangre.length >= 3 ? true : false}
-                  value={formData.tipoSangre}
-                  onChange={handleChange}
-                />
-              </Form.Group>
-
-              <Form.Group as={Col} md="4" controlId="validationCustom07">
-                <Form.Label>Contacto de emergencia</Form.Label>
-                <Form.Control
-                  required
-                  type="text"
-                  name="contactoEmergencia"
-                  placeholder="Nombre"
-                  value={formData.contactoEmergencia}
-                  onChange={handleChange}
-                />
-              </Form.Group>
-
-              <Form.Group as={Col} md="3" controlId="validationCustom08">
-                <Form.Label> &nbsp;</Form.Label>
-                <Form.Control
-                  required
-                  type="text"
-                  name="telefonoEmergencia"
-                  placeholder="Telefono"
-                  value={formData.telefonoEmergencia}
-                  onChange={handleChange}
-                />
-              </Form.Group>
-            </Row> */}
-
-            {/* <Row className="mb-3 pt-3">
-              <Form.Group as={Col} md="6" controlId="validationCustom07">
-                <Form.Label>Contacto en caso de emergencia</Form.Label>
-                <Form.Control
-                  required
-                  type="text"
-                  name="contactoEmergencia"
-                  placeholder="Nombre"
-                  value={formData.contactoEmergencia}
-                  onChange={handleChange}
-                />
-              </Form.Group>
-
-              <Form.Group as={Col} md="6" controlId="validationCustom08">
-                <Form.Label> &nbsp;</Form.Label>
-                <Form.Control
-                  required
-                  type="text"
-                  name="telefonoEmergencia"
-                  placeholder="Telefono"
-                  value={formData.telefonoEmergencia}
-                  onChange={handleChange}
-                />
-              </Form.Group>
-            </Row> */}
-
-            {/* <Row className="mb-3 pt-3">
-              <Form.Group as={Col} md="4">
-                <Button type="submit">Generar vista previa</Button>
-              </Form.Group>
-
-              <Form.Group as={Col} md="4">
-                <Button
-                  onClick={() =>
-                    generateCredentialPDF({
-                      image: formData.image,
-                      nombre: `${formData.nombre} ${formData.apellidoPaterno} ${formData.apellidoMaterno}`,
-                      position: "ESTUDIANTE",
-                      carrera: formData.carrera,
-                      unidadAcademica: formData.unidadAcademica,
-                      apellidoPaterno: formData.apellidoPaterno,
-                      apellidoMaterno: formData.apellidoMaterno,
-                      nss: formData.nss,
-                      noEmpleado: formData.noEmpleado,
-                      noControl: formData.noControl,
-                      tipoSangre: formData.tipoSangre,
-                      contactoEmergencia: formData.contactoEmergencia,
-                      telefonoEmergencia: formData.telefonoEmergencia,
-                    })
-                  }
-                >
-                  Generar Credencial
-                </Button>
-              </Form.Group>
-
-              <Form.Group as={Col} md="4">
-                <Button type="reset">Limpiar Campos</Button>
-              </Form.Group>
-            </Row> */}
           </Form>
         </fieldset>
       </div>

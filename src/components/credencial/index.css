@@ -59,13 +59,22 @@
     text-align: center;
 }
 
-.component-credencialPosicion{
-    font-size: 1rem;
+
+.component-credencialCarrera{
+    font-size: 0.8rem;
     font-family: 'madaniArabicBold';
     color: var(--green);
-    margin:0
+    margin:0;
+    text-align: center;
 }
 
+
+.component-credencialPosicion{
+    font-size: 0.8rem;
+    font-family: 'madaniArabicBold';
+    color: var(--orange);
+    margin:0
+}
 
 
 .component-credencialOtherData{
@@ -73,7 +82,7 @@
     height: auto;
     background-color: transparent;
     text-align: left;
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 
 .component-credencialSmallData{
