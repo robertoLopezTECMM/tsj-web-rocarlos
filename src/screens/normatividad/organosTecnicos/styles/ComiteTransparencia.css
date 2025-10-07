@@ -1,0 +1,126 @@
+.ct-wrapper {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  margin-top: 3rem;
+}
+
+.ct-container {
+  position: relative;
+  z-index: 2;
+  font-family: 'Poppins', sans-serif;
+  padding: 2rem;
+  max-width: 60dvw;
+  margin: auto;
+  background-color: #f8f9fc;
+  border-radius: 16px;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.12);
+  animation: fadeIn 0.6s ease-out;
+}
+
+.ct-titulo {
+  font-size: 2rem;
+  color: #32129a;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.ct-subtitulo {
+  font-size: 1.25rem;
+  color: #32129a;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.ct-parrafo {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #374151;
+  margin: 0.5rem 0 1rem;
+}
+
+.ct-lista {
+  padding-left: 1.5rem;
+  list-style: disc;
+  color: #374151;
+  margin-bottom: 1rem;
+}
+.ct-lista li { margin-bottom: 0.5rem; }
+
+.ct-link {
+  color: #3b82f6;
+  text-decoration: underline;
+}
+.ct-link:hover { color: #1d4ed8; }
+
+.ct-card {
+  margin-top: 2rem;
+  background: #ffffff;
+  border: 2px solid #c7dbff;
+  border-radius: 14px;
+  min-height: 120px;
+  padding: 1rem;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  text-decoration: none;
+  color: #1e3a8a;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  cursor: pointer;
+}
+
+.ct-card:hover {
+  transform: translateY(-2px) scale(1.02);
+  background-color: #f9fbff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.ct-card-badge {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #3b82f6;
+  background: #e8f1ff;
+  border: 1px solid #c7dbff;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  margin-bottom: 0.3rem;
+}
+
+.ct-card-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #3b248f;
+}
+
+.ct-card-meta {
+  font-size: 0.9rem;
+  color: #3b82f6;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-in { animation: fadeIn 0.6s ease-in-out; }
+
+@media (max-width: 768px) {
+  .ct-container { padding: 1.25rem; max-width: 100dvw; }
+  .ct-titulo { font-size: 1.5rem; }
+  .ct-subtitulo { font-size: 1.1rem; }
+}
+
+.ct-enlace {
+  color: #3b82f6;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s ease-in-out;
+}
+
+.ct-enlace:hover {
+  color: #1e40af;
+  border-bottom: 1px solid #1e40af;
+}

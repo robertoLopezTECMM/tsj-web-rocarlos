@@ -27,6 +27,8 @@ import PrivateRoute from './components/privateRoute'
 import Login from './screens/login'
 import { EnConstruccion } from './screens/enConstruccion'
 import { CredencialesAlumnos } from './screens/credencialesAlumnos'
+import ComiteTransparencia from './screens/normatividad/organosTecnicos/ComiteTransparencia'
+import GrupoInter from './screens/normatividad/organosTecnicos/GrupoInter'
 
 
 function App() {
@@ -64,6 +66,8 @@ function App() {
           <Route path="/organos-tecnicos/comite-de-control-interno-cocodi" element={<COCODI />} />
           <Route path="/organos-tecnicos/unidad-de-igualdad-de-genero-uig" element={<UIG />} />
           <Route path="/organos-tecnicos/comite-de-etica" element={<ComiteEtica />} />
+          <Route path="/organos-tecnicos/comite-de-transparencia" element={<ComiteTransparencia />} />
+          <Route path="/organos-tecnicos/grupo-interdisciplinario" element={<GrupoInter />} />
           <Route path="/quienes-somos" element={<QuienesSomos />} />
           {/* <Route path="/credenciales" element={<Credenciales />} /> */}
 
