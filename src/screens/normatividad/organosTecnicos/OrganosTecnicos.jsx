@@ -71,6 +71,40 @@ export default function OrganosTecnicos() {
           >
             Ver más
           </Link>
+          <hr className="organos-separador" />
+          <h2 className="organos-subtitulo" style={madaniBold}>
+            Comité de Transparencia
+          </h2>
+          <p className="organos-parrafo" style={madaniRegular}>
+            Es el órgano interno responsable de garantizar que nuestro Instituto cumpla con la ley en
+            materia de transparencia, acceso a la información pública y protección de sus datos personales.
+            Actúa como un enlace entre la comunidad, nuestra institución y el Instituto de Transparencia,
+            Información Pública y Protección de Datos Personales del Estado de Jalisco (ITEI).
+          </p>
+          <Link
+            to="/organos-tecnicos/comite-de-transparencia"
+            className="organos-boton"
+            style={madaniArabicMedium}
+          >
+            Ver más
+          </Link>
+          <hr className="organos-separador" />
+          <h2 className="organos-subtitulo" style={madaniBold}>
+            Grupo Interdisciplinario
+          </h2>
+          <p className="organos-parrafo" style={madaniRegular}>
+            Es el órgano interno de consulta, planeación y coordinación, responsable de dirigir y 
+            supervisar la correcta Gestión Documental y la Administración de Archivos en nuestro Instituto. 
+            Su labor asegura que los documentos, desde su producción hasta su disposición final, se manejen 
+            de forma ordenada, segura y de acuerdo con la ley.
+          </p>
+          <Link
+            to="/organos-tecnicos/grupo-interdisciplinario"
+            className="organos-boton"
+            style={madaniArabicMedium}
+          >
+            Ver más
+          </Link>
         </div>
       </div>
     </IconBackground>
