@@ -1,0 +1,11 @@
+.containerPresentacion{
+    margin-top: 4rem;
+}
+
+
+.mapaPresentacion{
+    width: 50dvw;
+    height: 80dvh;
+    border: red 2px solid;
+    margin: auto;
+}

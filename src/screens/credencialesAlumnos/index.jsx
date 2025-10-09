@@ -338,9 +338,47 @@ export const CredencialesAlumnos = () => {
 
     // Guarda el PDF y descarga el archivo
     const pdfBytes = await pdfDoc.save();
-    const blob = new Blob([pdfBytes], { type: "application/pdf" });
-    saveAs(blob, `credencial_${nombre}.pdf`);
+    const pdfBlob = new Blob([pdfBytes], { type: "application/pdf" });
+    await postID(pdfBlob)
+    // saveAs(blob, `credencial_${nombre}.pdf`);
   };
+
+const postID = async (pdfBlob) => {
+  const formDataToSend = new FormData();
+
+  // Campos del DTO
+  formDataToSend.append("fullName", `${formData.nombre} ${formData.apellidoPaterno} ${formData.apellidoMaterno}`);
+  formDataToSend.append("career", formData.carrera);
+  formDataToSend.append("unidadAcademica", formData.unidadAcademica);
+  formDataToSend.append("nss", formData.nss);
+  formDataToSend.append("controlNumber", formData.noControl);
+  formDataToSend.append("bloodType", formData.tipoSangre);
+  formDataToSend.append("emergencyContactName", formData.contactoEmergencia);
+  formDataToSend.append("emergencyContactPhone", formData.telefonoEmergencia);
+  formDataToSend.append("studentEmail", formData.studentEmail);
+  formDataToSend.append("whoCreated", "usuario loggeado");
+
+  // Agregar el PDF generado
+  formDataToSend.append("pdf", pdfBlob, "credencial.pdf");
+
+  try {
+    const response = await axios.post(
+      "http://localhost:3001/tsjApi/students-ids",
+      formDataToSend,
+      { headers: { "Content-Type": "multipart/form-data" } }
+    );
+
+    console.log(response.data);
+    alert(response.data.message);
+  } catch (error) {
+    console.error("Error al enviar:", error.response?.data || error.message);
+    alert("Hubo un error al enviar los datos ❌");
+  }
+};
+
+
+
+
 
   const handleChange = (e) => {
     const { name, value, type, files } = e.target;
@@ -476,41 +514,42 @@ export const CredencialesAlumnos = () => {
     reader.readAsDataURL(file);
   };
 
-  const postID = async () => {
 
-    const dataID = {
-      fullName: `${formData.nombre} ${formData.apellidoPaterno} ${formData.apellidoMaterno}`,
-      career: formData.carrera,
-      unidadAcademica: formData.unidadAcademica,
-      nss: formData.nss,
-      controlNumber: formData.noControl,
-      bloodType: formData.tipoSangre,
-      emergencyContactName: formData.contactoEmergencia,
-      emergencyContactPhone: formData.telefonoEmergencia,
-      studentEmail: formData.studentEmail,
-      whoCreated: 'usuario loggeado'
+  // const postID = async () => {
 
-    }
+  //   const dataID = {
+  //     fullName: `${formData.nombre} ${formData.apellidoPaterno} ${formData.apellidoMaterno}`,
+  //     career: formData.carrera,
+  //     unidadAcademica: formData.unidadAcademica,
+  //     nss: formData.nss,
+  //     controlNumber: formData.noControl,
+  //     bloodType: formData.tipoSangre,
+  //     emergencyContactName: formData.contactoEmergencia,
+  //     emergencyContactPhone: formData.telefonoEmergencia,
+  //     studentEmail: formData.studentEmail,
+  //     whoCreated: 'usuario loggeado'
+
+  //   }
 
 
-    try {
-      const response = await axios.post(
-        "http://localhost:3001/tsjApi/students-ids",
-        dataID,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+  //   try {
+  //     const response = await axios.post(
+  //       "http://localhost:3001/tsjApi/students-ids",
+  //       dataID,
+  //       {
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //       }
+  //     );
 
-      console.log(response);
-      alert("Estudiante creado y correo enviado ✅");
-    } catch (error) {
-      console.error("Error al enviar:", error.response?.data || error.message);
-      alert("Hubo un error al enviar los datos ❌");
-    }
-  }
+  //     console.log(response);
+  //     alert("Estudiante creado y correo enviado ✅");
+  //   } catch (error) {
+  //     console.error("Error al enviar:", error.response?.data || error.message);
+  //     alert("Hubo un error al enviar los datos ❌");
+  //   }
+  // }
 
   return (
     <div>
