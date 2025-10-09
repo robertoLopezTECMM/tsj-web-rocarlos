@@ -29,6 +29,7 @@ import { EnConstruccion } from './screens/enConstruccion'
 import { CredencialesAlumnos } from './screens/credencialesAlumnos'
 import ComiteTransparencia from './screens/normatividad/organosTecnicos/ComiteTransparencia'
 import GrupoInter from './screens/normatividad/organosTecnicos/GrupoInter'
+import { Presentacion } from './screens/presentacion'
 
 
 function App() {
@@ -74,6 +75,8 @@ function App() {
           <Route path="/contraloria-social" element={<ContraloriaSocial />} />
           <Route path="/login" element={<Login />} />
           <Route path="/enConstruccion" element={<EnConstruccion />} />
+          <Route path="/presentacion" element={<Presentacion />} />
+
 
 
 
