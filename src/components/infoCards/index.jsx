@@ -24,7 +24,7 @@ export default function InfoCards({ side = 'left' }) {
     if (isInView) {
       filteredData.forEach((card, index) => {
         let start = 0;
-        const increment = card.value / 80;
+        const increment = card.value / 100;
         const interval = setInterval(() => {
           start += increment;
           setCounts((prev) => {
@@ -33,7 +33,7 @@ export default function InfoCards({ side = 'left' }) {
             return newCounts;
           });
           if (start >= card.value) clearInterval(interval);
-        }, 30);
+        }, 20);
       });
     } else {
       setCounts(filteredData.map(() => 0));
@@ -44,31 +44,28 @@ export default function InfoCards({ side = 'left' }) {
     <div ref={ref} className={`info-cards-container ${side}`}>
       {filteredData.map((card, index) => (
         <motion.div
-          key={`${side}-${index}`} // 🔑 clave única
+          key={`${side}-${index}`}
           className={`info-card ${side}`}
-          initial={{ opacity: 0, x: side === 'left' ? -120 : 120, y: 0 }}
+          initial={{ opacity: 0, x: side === 'left' ? -80 : 80 }}
           animate={
             isInView
               ? {
                   opacity: 1,
                   x: 0,
-                  y: [0, -6, 0],
+                  y: [0, -10, 0],
                   transition: {
-                    duration: 1.6,
-                    delay: index * 0.25,
-                    ease: [0.22, 1, 0.36, 1],
+                    duration: 0.8,
+                    delay: index * 0.3,
+                    ease: [0.25, 0.1, 0.25, 1],
                     y: {
                       repeat: Infinity,
-                      duration: 3.5,
+                      repeatType: "mirror",
+                      duration: 5.5,
                       ease: "easeInOut",
                     },
                   },
                 }
-              : {
-                  opacity: 0,
-                  x: side === 'left' ? -120 : 120,
-                  y: 0,
-                }
+              : { opacity: 0, x: side === 'left' ? -80 : 80, y: 0 }
           }
         >
           <div className="info-card-content">

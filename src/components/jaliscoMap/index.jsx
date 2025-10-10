@@ -1,121 +1,304 @@
 // MapJalisco.jsx
-import { MapContainer, TileLayer, GeoJSON } from 'react-leaflet';
-import { useEffect, useState } from 'react';
-import 'leaflet/dist/leaflet.css';
-import L from 'leaflet'
-import './index.css'
-import { esES } from '@mui/material/locale';
+import { MapContainer, TileLayer, GeoJSON } from "react-leaflet";
+import { useEffect, useState } from "react";
+import "leaflet/dist/leaflet.css";
+import "./index.css";
 
-const MapJalisco = ({isMobile}) => {
+const MapJalisco = ({ isMobile }) => {
   const [geoData, setGeoData] = useState(null);
 
+  const unidadesAcademicas = [
+    {
+      name: "Arandas",
+      address:
+        "C. José Guadalupe Tejeda Vázquez 557, S/C, Hacienda Palomino, 47184 Arandas, Jal.",
+      phone: "3481331815",
+      hasRedi: true,
+      type: "campus",
+      images: ["https://tecmm.edu.mx/media/original_images/Arandas_2.jpg"],
+    },
+    {
+      name: "Chapala",
+      address: "Libramiento Chapala-Ajijic #200, 45900 Chapala, Jal.",
+      phone: "3767658030",
+      hasRedi: false,
+      type: "campus",
+      images: ["https://tecmm.edu.mx/media/original_images/chapala01-2.jpeg"],
+    },
+    {
+      name: "Cocula",
+      address: "C. Tecnológico 1000, Lomas de Cocula, 48505 Cocula, Jal.",
+      phone: "3777730030",
+      hasRedi: true,
+      type: "campus",
+      images: ["https://tecmm.edu.mx/media/original_images/Cocula_2.jpg"],
+    },
+    {
+      name: "El Grullo",
+      address:
+        "Carretera el Grullo - Ejutla. Kilómetro 5, Puerta de Barro, 48740 El Grullo, Jal.",
+      phone: "3213873435",
+      hasRedi: false,
+      type: "campus",
+      images: ["https://tecmm.edu.mx/media/original_images/El_grullo_2.jpg"],
+    },
+    {
+      name: "La Huerta",
+      address: "Avenida Rafael Palomera 161, El Maguey, 48850 La Huerta, Jal.",
+      phone: "3573841884",
+      hasRedi: false,
+      type: "campus",
+      images: [
+        "https://www.tecmm.edu.mx/apiCms/cmsWebFiles/unidadAcademicaLaHuerta.jpg",
+      ],
+    },
+    {
+      name: "Lagos de Moreno",
+      address:
+        "Libramiento Tecnológico No. 5000, Colonia Portugalejo de los Romanes, 47480 Lagos de Moreno, Jal.",
+      phone: "4744033970",
+      hasRedi: true,
+      type: "campus",
+      images: ["https://tecmm.edu.mx/media/original_images/DSC01871.jpg"],
+    },
+    {
+      name: "Mascota",
+      address: "Ameca - Mascota Km 100, Chan Rey, 46900 Jalisco, Jal.",
+      phone: "3883852010",
+      hasRedi: true,
+      type: "campus",
+      images: [
+        "https://www.tecmm.edu.mx/apiCms/cmsWebFiles/unidadAcademicaMascota.jpg",
+      ],
+    },
+    {
+      name: "Puerto Vallarta",
+      address:
+        "Corea del Sur 600. Col. El Mangal, Coapinole, 48290 Puerto Vallarta, Jal.",
+      phone: "3222265600",
+      hasRedi: false,
+      type: "campus",
+      images: [
+        "https://tecmm.edu.mx/media/original_images/Edificio_D_frente.jpeg",
+      ],
+    },
+    {
+      name: "San Juan de los Lagos",
+      address: "Sierra Hermosa 427, San Juan de los Lagos, Mexico",
+      phone: "3951208295",
+      hasRedi: false,
+      type: "campus",
+      images: [
+        "https://tecmm.edu.mx/media/original_images/WhatsApp_Image_2025-07-04_at_13.20.27_d4c38380.jpg",
+      ],
+    },
+    {
+      name: "Tala",
+      address: "Av. Tecnológico 2010, Centro, 45300 Tala, Jal.",
+      phone: "3847333000",
+      hasRedi: false,
+      type: "campus",
+      images: ["https://tecmm.edu.mx/media/original_images/JGM07835.jpg"],
+    },
+    {
+      name: "Tamazula de Gordiano",
+      address:
+        "Carretera Tamazula Santa Rosa 329, 49650 Tamazula de Gordiano, Jal.",
+      phone: "3581030060",
+      hasRedi: true,
+      type: "campus",
+      images: [
+        "https://tecmm.edu.mx/media/original_images/Instalaciones_Tamazula_Dron_9.jpg",
+      ],
+    },
+    {
+      name: "Tepatitlán de Morelos",
+      address:
+        "Anillo Periferico Sr. Cura Salvador Zuñiga nte. 47704 Tepatitlán de Morelos, Jal.",
+      phone: "3786881573",
+      hasRedi: false,
+      type: "campus",
+      images: [
+        "https://www.tecmm.edu.mx/apiCms/cmsWebFiles/unidadAcademicaTepatitlan.jpg",
+      ],
+    },
+    {
+      name: "Tequila",
+      address:
+        "Calle Dr. Joel Magallanes 501, Lomas del Paraíso, 46403 Tequila, Jal.",
+      phone: "3747427288",
+      hasRedi: false,
+      type: "campus",
+      images: [
+        "https://www.tecmm.edu.mx/apiCms/cmsWebFiles/unidadAcademicaTequila.jpg",
+      ],
+    },
+    {
+      name: "Tomatlán",
+      address: "Prolongación Galeana #750, 48454, Tomatlán, Jalisco, Mexico",
+      phone: "3221936685",
+      hasRedi: true,
+      type: "campus",
+      images: [
+        "https://www.tecmm.edu.mx/apiCms/cmsWebFiles/unidadAcademicaTomatlan.jpg",
+      ],
+    },
+    {
+      name: "Zapopan",
+      address:
+        "Camino Arenero #1101 Colonia El Bajío, Zapopan, Jalisco, México",
+      phone: "3338849470",
+      hasRedi: true,
+      type: "campus",
+      images: [
+        "https://www.tecmm.edu.mx/apiCms/cmsWebFiles/unidadAcademicaZapopan.jpg",
+      ],
+    },
+    {
+      name: "Zapotlanejo",
+      address:
+        "Avenida Tecnológico # 300 Carretera Libre Zapotlanejo-Tepatitlán Km. 4.5, Zapotlanejo, Mexico",
+      phone: "3737356060",
+      hasRedi: true,
+      type: "campus",
+      images: ["https://tecmm.edu.mx/media/original_images/Ed_B_-_1.jpg"],
+    },
+    {
+      name: "Ixtlahuacán del Río",
+      address: "",
+      phone: "12123123123",
+      hasRedi: false,
+      type: "extension",
+      images: [
+        "tecmm.edu.mx/cmsApi",
+        "tecmm.edu.mx/cmsApi",
+        "tecmm.edu.mx/cmsApi",
+      ],
+    },
+    {
+      name: "Cuquío",
+      address: "",
+      phone: "12123123123",
+      hasRedi: false,
+      type: "extension",
+      images: [
+        "tecmm.edu.mx/cmsApi",
+        "tecmm.edu.mx/cmsApi",
+        "tecmm.edu.mx/cmsApi",
+      ],
+    },
+    {
+      name: "Tenamaxtlán",
+      address: "",
+      phone: "12123123123",
+      hasRedi: false,
+      type: "extension",
+      images: [
+        "tecmm.edu.mx/cmsApi",
+        "tecmm.edu.mx/cmsApi",
+        "tecmm.edu.mx/cmsApi",
+      ],
+    },
+    {
+      name: "Atemajac de Brizuela",
+      address: "",
+      phone: "12123123123",
+      hasRedi: false,
+      type: "extension",
+      images: [
+        "tecmm.edu.mx/cmsApi",
+        "tecmm.edu.mx/cmsApi",
+        "tecmm.edu.mx/cmsApi",
+      ],
+    },
+  ];
+
   useEffect(() => {
-    fetch('/jalisco.geojson')
+    fetch("/jalisco.geojson")
       .then((res) => res.json())
       .then((data) => setGeoData(data))
-      .catch((err) => console.error('Error al cargar GeoJSON:', err));
+      .catch((err) => console.error("Error al cargar GeoJSON:", err));
   }, []);
 
-    const onEachFeature = (feature, layer) => {
-        const nombre = feature.properties.mun_name || feature.properties.name || 'Municipio';
+  const onEachFeature = (feature, layer) => {
+    const nombre = feature.properties.mun_name || "Municipio";
+    const campus = unidadesAcademicas.find((u) => u.name === nombre[0]);
 
-        const unidadesAcademicas = [
-            'Arandas',
-            'Chapala',
-            'Cocula',
-            'El Grullo',
-            'La Huerta',
-            'Lagos de Moreno',
-            'Mascota',
-            'Puerto Vallarta',
-            'San Juan de los Lagos',
-            'Tala',
-            'Tamazula de Gordiano',
-            'Tepatitlán de Morelos',
-            'Tequila',
-            'Tomatlán',
-            'Zapopan',
-            'Zapotlanejo',
-        ];
-
-        const extensiones =[
-            "Ixtlahuacán del Río",
-            "Cuquío",
-            "Tenamaxtlán",
-            "Atemajac de Brizuela"
-        ]
-
-        // console.log(nombre[0])
-        // Determina si el municipio está en la lista
-        const esEspecial = unidadesAcademicas.includes(nombre[0]);
-        const isExtension = extensiones.includes(nombre[0]);
-
-
-        //console.log('es especial: ', esEspecial)
-        // Estilo condicional
-        layer.setStyle({
-            color: esEspecial ? '#3388ff' : '#3388ff',
-            fillColor:isExtension||esEspecial?'white':'#f5f5f5',
-            // fillColor: esEspecial ? '#54c98f': isExtension ? '#ffae31' : 'white',
-            fillOpacity: esEspecial ? 0.7 : 0.5,
-            weight: 1
-        });
-
-        
-        if(esEspecial||isExtension){
-            layer.on({
-                click: () => {
-                    // layer.bindPopup(`<strong style="color: red; font-size: 25px;">${nombre}</strong>`).openPopup();
-                    layer.bindPopup(`   <div style="background-color:transparent; width:300px; height:200px; z-index:10000; display:flex; flex-direction:column">
-                                            <span style="font-family: madaniArabicBold; color: #33179c; font-size: 25px;">${nombre}</span>
-                                            <span style="font-family: madaniArabicLight; color: #33179c; font-size: 1rem; margin: 0.2rem 0rem 0.2rem 0rem">3317478004</span>
-                                            <span style="font-family: madaniArabicLight; color: #33179c; font-size: 1rem; margin: 0.2rem 0rem 0.2rem 0rem">zapopan@tecmm.edu.mx</span>
-                                            <span style="font-family: madaniArabicLight; color: #33179c; font-size: 1rem; margin: 0.2rem 0rem 0.2rem 0rem">Camino Arenero 1101, El Bajio, Zapopan, Jalisco</span>
-                                        </div>`
-                                    ).openPopup();
-
-                }
-            });  
-        }
-
-
-
-        if (esEspecial || isExtension) {
-            const center = layer.getBounds().getCenter();
-
-            const icon = L.divIcon({
-                className: 'material-icon-marker',
-                html: `<span class="material-icons" style="color: ${esEspecial?"#54c98f":"#ffae31"}; font-size:${isMobile?"1.5rem": "2rem"};">location_on</span>`,
-                iconSize: [40, 24],
-                iconAnchor: [12, 25],
-            });
-
-            setTimeout(() => {
-                if (layer._map) {
-                    L.marker(center, { icon }).addTo(layer._map);
-                }
-            }, 50); // Espera al siguiente ciclo de ejecución
-        }
+    const baseStyle = {
+      color: campus ? "#3388ff" : "#3388ff",
+      fillColor:
+        campus?.type === "campus"
+          ? "#54c98f"
+          : campus?.type === "extension"
+          ? "#ffae31"
+          : "white",
+      fillOpacity: campus ? 0.7 : 0.5,
+      weight: 1,
     };
 
-  return (
-    <MapContainer
-        center={isMobile ? [20.500, -103.600] :  [20.800, -103.500]}
-        zoom={isMobile ? 7 : 8 }
-        // style={{ width: '100%', height: '100%', backgroundColor: 'transparent', borderRadius:'50%', border:'white 5px dashed', zIndex:'10000'}} // 👈 usa 100%
-        style={{ width: '100%', height: '100%', backgroundColor: 'transparent'}} // 👈 usa 100%
+    layer.setStyle(baseStyle);
 
-        zoomControl={false}
-        dragging={false}
+    if (campus) {
+      layer.on({
+        mouseover: (e) => {
+          const target = e.target;
+          target.setStyle({
+            fillOpacity: 1,
+            weight: 3,
+            color: "#1b65ff",
+          });
+          target.bringToFront();
+        },
+        mouseout: (e) => {
+          const target = e.target;
+          target.setStyle(baseStyle);
+        },
+        click: () => {
+          handleOpen(campus || { name: nombre });
+        },
+      });
+
+      layer.bindTooltip(campus?.name, {
+        permanent: false,
+        direction: "top",
+        className: "map-label",
+        
+      });
+    }
+
+    //Evento al hacer clic: mostrar alerta
+    if (campus) {
+      layer.on({
+        click: () => {
+          //   handleOpen(campus);
+          //   alert(
+          //     `Campus: ${campus.name}\nTeléfono: ${campus.phone}\nDirección: ${campus.address}`
+          //   );
+        },
+      });
+    }
+  };
+
+  return (
+    <>
+      <MapContainer
+        center={isMobile ? [20.5, -103.6] : [20.8, -103.5]}
+        zoom={isMobile ? 7 : 8}
+        style={{
+          width: "100%",
+          height: "100%",
+          backgroundColor: "transparent",
+        }}
+        zoomControl={true}
+        dragging={true}
         doubleClickZoom={false}
         scrollWheelZoom={false}
         attributionControl={false}
-    >
-      {/* Quita TileLayer para que no se muestre ningún mapa base */}
-      {geoData && <GeoJSON data={geoData} onEachFeature={onEachFeature} />}
-    </MapContainer>
+      >
+        {geoData && <GeoJSON data={geoData} onEachFeature={onEachFeature} />}
+      </MapContainer>
+    </>
   );
 };
 
-
-export default MapJalisco
+export default MapJalisco;

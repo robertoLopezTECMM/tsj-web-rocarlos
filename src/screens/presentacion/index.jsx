@@ -1,46 +1,88 @@
-import React, { useState } from 'react'
-import './index.css'
-import { BasicContainer } from '../../components/basicContainer'
-
-import Box from '@mui/material/Box'
-import Modal from '@mui/material/Modal';
-
-import './index.css';
-import InfoCards from '../../components/infoCards';
-import MapJaliscoPresentation from '../../components/jaliscoMapPresentation';
+import { useState } from "react";
+import * as motion from "motion/react-client";
+import { AnimatePresence } from "motion/react";
+import { BasicContainer } from "../../components/basicContainer";
+import InfoCards from "../../components/infoCards";
+import MapJaliscoPresentation from "../../components/jaliscoMapPresentation";
+import UnidadInfo from "../../components/unidadInfo/";
+import "./index.css";
 
 export const Presentacion = () => {
-    const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: '80dvw',
-    height:'65dvh',
+  const [selectedUnidad, setSelectedUnidad] = useState(null);
 
+  const handleSelectUnidad = (unidad) => {
+    setSelectedUnidad(unidad);
+  };
 
-    boxShadow: 24,
-    p: 4,
-    };
+  const handleBack = () => {
+    setSelectedUnidad(null);
+  };
 
-
-      const [open, setOpen] = useState(true);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
   return (
     <BasicContainer>
       <div className="presentacion-wrapper">
-        <div className="cards-left">
-          <InfoCards side="left" />
-        </div>
+        {!selectedUnidad && (
+          <motion.div
+            className="cards-left"
+            animate={{
+              opacity: selectedUnidad ? 0 : 1,
+              x: selectedUnidad ? -80 : 0,
+              pointerEvents: selectedUnidad ? "none" : "auto",
+            }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <InfoCards side="left" />
+          </motion.div>
+        )}
+        <motion.div
+          className="mapaPresentacion"
+          animate={{
+            x: selectedUnidad ? "-1dvw" : 0,
+            scale: selectedUnidad ? 0.9 : 1,
+            filter: selectedUnidad ? "brightness(0.9)" : "brightness(1)",
+          }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
+        >
+          <MapJaliscoPresentation onSelectUnidad={handleSelectUnidad} />
+        </motion.div>
+        <AnimatePresence mode="wait">
+          {!selectedUnidad && (
+            <motion.div
+              className="cards-right"
+              animate={{
+                opacity: selectedUnidad ? 0 : 1,
+                x: selectedUnidad ? 80 : 0,
+                pointerEvents: selectedUnidad ? "none" : "auto",
+              }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+              <InfoCards side="right" />
+            </motion.div>
+          )}
+          {selectedUnidad && (
+            <motion.div
+              key="unidad-info"
+              className="unidad-info-wrapper"
+              initial={{ x: "50dvw", opacity: 0 }}
+              animate={{ x: "-2dvw", opacity: 1 }}
+              exit={{ x: "50dvw", opacity: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+              <UnidadInfo unidad={selectedUnidad} />
+              <motion.button
+                className="back-button"
+                onClick={handleBack}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.4 }}
+              >
+                ← Regresar
+              </motion.button>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
-        <div className="mapaPresentacion">
-          <MapJaliscoPresentation />
-        </div>
-
-        <div className="cards-right">
-          <InfoCards side="right" />
-        </div>
       </div>
     </BasicContainer>
   );
