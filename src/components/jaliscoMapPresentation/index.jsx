@@ -326,9 +326,50 @@ const MapJaliscoPresentation = ({ isMobile }) => {
       weight: 1,
     });
 
-    // if (campus || isExtension) {
-    //   layer.getElement()?.classList.add("municipio-resaltado");
-    // }
+
+  // 🎨 Estilo base
+  const baseStyle = {
+      color: campus ? "#3388ff" : "#3388ff",
+      fillColor: campus? "#54c98f" : "white",
+      // fillColor: esEspecial ? '#54c98f': isExtension ? '#ffae31' : 'white',
+      fillOpacity: campus ? 0.7 : 0.5,
+      weight: 1,
+  };
+
+  layer.setStyle(baseStyle);
+
+  // 🟢 Eventos de interacción
+  // 🟢 Solo si el municipio pertenece a tus listas, añadimos interactividad
+  if (campus) {
+    layer.on({
+      mouseover: (e) => {
+        const target = e.target;
+        target.setStyle({
+          fillOpacity: 1,
+          weight: 3,
+          color: "#1b65ff",
+        });
+        target.bringToFront(); // 👈 “eleva” el municipio al frente
+      },
+      mouseout: (e) => {
+        const target = e.target;
+        target.setStyle(baseStyle);
+      },
+      click: () => {
+        handleOpen(campus || { name: nombre });
+      },
+    });
+
+      layer.bindTooltip(campus?.name, {
+    permanent: false, // aparece solo al pasar el cursor
+    direction: "top", // posición del tooltip
+    className: "map-label", // clase para estilizarlo si quieres
+  });
+
+  }
+
+
+
 
     // 🖱️ Evento al hacer clic: mostrar alerta
     if (campus) {

@@ -12,13 +12,14 @@
 .mapaPresentacion{
     width: 50dvw;
     height: 80dvh;
-    background-color: var(--navyBlue);
+    background-color: white;
+    /* opacity: 0.5; */
     /* border: red 2px solid; */
     margin: auto;
     border-radius: 20px;
-    box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.75);
+    /* box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.75);
     -webkit-box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.75); */
 }
 
 

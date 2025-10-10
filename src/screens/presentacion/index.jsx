@@ -1,14 +1,13 @@
 import React, { useState } from 'react'
 import './index.css'
 import { BasicContainer } from '../../components/basicContainer'
-import MapJalisco from '../../components/jaliscoMap'
+
 import Box from '@mui/material/Box'
 import Modal from '@mui/material/Modal';
-import MapJaliscoPresentation from '../../components/jaliscoMapPresentation'
-import MapJalisco from '../../components/jaliscoMap';
-import { BasicContainer } from '../../components/basicContainer';
+
 import './index.css';
 import InfoCards from '../../components/infoCards';
+import MapJaliscoPresentation from '../../components/jaliscoMapPresentation';
 
 export const Presentacion = () => {
     const style = {
@@ -36,7 +35,7 @@ export const Presentacion = () => {
         </div>
 
         <div className="mapaPresentacion">
-          <MapJalisco />
+          <MapJaliscoPresentation />
         </div>
 
         <div className="cards-right">
