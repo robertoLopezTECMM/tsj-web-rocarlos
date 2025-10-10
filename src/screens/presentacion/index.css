@@ -1,11 +1,25 @@
-.containerPresentacion{
-    margin-top: 4rem;
+.presentationContainer{
+    
+}
+
+.cardsContainer{
+    width: 25%;
+    height: 100dvh;
+    background-color: red;
 }
 
 
 .mapaPresentacion{
     width: 50dvw;
     height: 80dvh;
-    border: red 2px solid;
+    background-color: white;
+    /* opacity: 0.5; */
+    /* border: red 2px solid; */
     margin: auto;
+    border-radius: 20px;
+    /* box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.75); */
 }
+
+

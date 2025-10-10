@@ -105,8 +105,8 @@ const MapJalisco = ({isMobile}) => {
         // style={{ width: '100%', height: '100%', backgroundColor: 'transparent', borderRadius:'50%', border:'white 5px dashed', zIndex:'10000'}} // 👈 usa 100%
         style={{ width: '100%', height: '100%', backgroundColor: 'transparent'}} // 👈 usa 100%
 
-        zoomControl={true}
-        dragging={true}
+        zoomControl={false}
+        dragging={false}
         doubleClickZoom={false}
         scrollWheelZoom={false}
         attributionControl={false}
@@ -117,4 +117,5 @@ const MapJalisco = ({isMobile}) => {
   );
 };
 
-export default MapJalisco;
+
+export default MapJalisco
