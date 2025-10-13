@@ -25,10 +25,10 @@ const MapJaliscoPresentation = ({
       phone: "3481331815",
       hasRedi: true,
       type: "campus",
-      images: ["public/imagesUnidadesAcademicas/arandas.jpg"],
+      images: ["/imagesUnidadesAcademicas/arandas.jpg"],
       imagesRedi: [
-        "public/imagesRedis/rediZapopan1.jpg",
-        "public/imagesRedis/rediZapopan2.jpg",
+        "/imagesRedis/rediZapopan1.jpg",
+        "/imagesRedis/rediZapopan2.jpg",
       ],
       ofertaEducativa: [
         "INGENIERÍA INDUSTRIAL",
@@ -46,7 +46,7 @@ const MapJaliscoPresentation = ({
       phone: "3767658030",
       hasRedi: false,
       type: "campus",
-      images: ["public/imagesUnidadesAcademicas/chapala.jpg"],
+      images: ["/imagesUnidadesAcademicas/chapala.jpg"],
       ofertaEducativa: [
         "INGENIERÍA INDUSTRIAL",
         "INGENIERÍA EN GESTIÓN EMPRESARIAL",
@@ -62,10 +62,10 @@ const MapJaliscoPresentation = ({
       phone: "3777730030",
       hasRedi: true,
       type: "campus",
-      images: ["public/imagesUnidadesAcademicas/cocula.jpg"],
+      images: ["/imagesUnidadesAcademicas/cocula.jpg"],
       imagesRedi: [
-        "public/imagesRedis/rediZapopan1.jpg",
-        "public/imagesRedis/rediZapopan2.jpg",
+        "/imagesRedis/rediZapopan1.jpg",
+        "/imagesRedis/rediZapopan2.jpg",
       ],
       ofertaEducativa: [
         "INGENIERÍA EN INNOVACIÓN AGRÍCOLA SUSTENTABLE",
@@ -81,7 +81,7 @@ const MapJaliscoPresentation = ({
       phone: "3213873435",
       hasRedi: false,
       type: "campus",
-      images: ["public/imagesUnidadesAcademicas/elGrullo.jpg"],
+      images: ["/imagesUnidadesAcademicas/elGrullo.jpg"],
       ofertaEducativa: [
         "INGENIERÍA EN GESTIÓN EMPRESARIAL",
         "ARQUITECTURA",
@@ -97,7 +97,7 @@ const MapJaliscoPresentation = ({
       phone: "3573841884",
       hasRedi: false,
       type: "campus",
-      images: ["public/imagesUnidadesAcademicas/laHuerta.jpg"],
+      images: ["/imagesUnidadesAcademicas/laHuerta.jpg"],
       ofertaEducativa: [
         "INGENIERÍA EN ADMINISTRACIÓN",
         "INGENIERÍA EN SISTEMAS COMPUTACIONALES",
@@ -114,10 +114,10 @@ const MapJaliscoPresentation = ({
       phone: "4744033970",
       hasRedi: true,
       type: "campus",
-      images: ["public/imagesUnidadesAcademicas/lagosDeMoreno.jpg"],
+      images: ["/imagesUnidadesAcademicas/lagosDeMoreno.jpg"],
       imagesRedi: [
-        "public/imagesRedis/rediZapopan1.jpg",
-        "public/imagesRedis/rediZapopan2.jpg",
+        "/imagesRedis/rediZapopan1.jpg",
+        "/imagesRedis/rediZapopan2.jpg",
       ],
       ofertaEducativa: [
         "INGENIERÍA EN GESTIÓN EMPRESARIAL",
@@ -137,10 +137,10 @@ const MapJaliscoPresentation = ({
       phone: "3883852010",
       hasRedi: true,
       type: "campus",
-      images: ["public/imagesUnidadesAcademicas/mascota.jpg"],
+      images: ["/imagesUnidadesAcademicas/mascota.jpg"],
       imagesRedi: [
-        "public/imagesRedis/rediZapopan1.jpg",
-        "public/imagesRedis/rediZapopan2.jpg",
+        "/imagesRedis/rediZapopan1.jpg",
+        "/imagesRedis/rediZapopan2.jpg",
       ],
       ofertaEducativa: [
         "INGENIERÍA EN INNOVACIÓN AGRÍCOLA SUSTENTABLE",
@@ -156,7 +156,7 @@ const MapJaliscoPresentation = ({
       phone: "3222265600",
       hasRedi: false,
       type: "campus",
-      images: ["public/imagesUnidadesAcademicas/puertoVallarta.jpg"],
+      images: ["/imagesUnidadesAcademicas/puertoVallarta.jpg"],
       ofertaEducativa: [
         "INGENIERÍA EN GESTIÓN EMPRESARIAL",
         "ARQUITECTURA",
@@ -173,9 +173,7 @@ const MapJaliscoPresentation = ({
       phone: "3951208295",
       hasRedi: false,
       type: "campus",
-      images: [
-        "https://tecmm.edu.mx/media/original_images/WhatsApp_Image_2025-07-04_at_13.20.27_d4c38380.jpg",
-      ],
+      images: ["/imagesUnidadesAcademicas/sanJuanDeLosLagos.jpg"],
       ofertaEducativa: [
         "INGENIERÍA EN GESTIÓN EMPRESARIAL",
         "INGENIERÍA INDUSTRIAL",
@@ -188,7 +186,7 @@ const MapJaliscoPresentation = ({
       phone: "3847333000",
       hasRedi: false,
       type: "campus",
-      images: ["public/imagesUnidadesAcademicas/tala.jpg"],
+      images: ["/imagesUnidadesAcademicas/tala.jpg"],
       ofertaEducativa: [
         "INGENIERÍA EN INNOVACIÓN AGRÍCOLA SUSTENTABLE",
         "INGENIERÍA EN ADMINISTRACIÓN",
@@ -203,10 +201,10 @@ const MapJaliscoPresentation = ({
       phone: "3581030060",
       hasRedi: true,
       type: "campus",
-      images: ["public/imagesUnidadesAcademicas/tamazula.jpg"],
+      images: ["/imagesUnidadesAcademicas/tamazula.jpg"],
       imagesRedi: [
-        "public/imagesRedis/rediZapopan1.jpg",
-        "public/imagesRedis/rediZapopan2.jpg",
+        "/imagesRedis/rediZapopan1.jpg",
+        "/imagesRedis/rediZapopan2.jpg",
       ],
       ofertaEducativa: [
         "INGENIERÍA EN INNOVACIÓN AGRÍCOLA SUSTENTABLE",
@@ -222,7 +220,7 @@ const MapJaliscoPresentation = ({
       phone: "3786881573",
       hasRedi: false,
       type: "campus",
-      images: ["public/imagesUnidadesAcademicas/tepatitlan.jpg"],
+      images: ["/imagesUnidadesAcademicas/tepatitlan.jpg"],
       ofertaEducativa: [
         "INGENIERÍA CIVIL",
         "INGENIERÍA INDUSTRIAL",
@@ -238,7 +236,7 @@ const MapJaliscoPresentation = ({
       phone: "3747427288",
       hasRedi: false,
       type: "campus",
-      images: ["public/imagesUnidadesAcademicas/tequila.jpg"],
+      images: ["/imagesUnidadesAcademicas/tequila.jpg"],
       ofertaEducativa: [
         "INGENIERÍA INDUSTRIAL",
         "INGENIERÍA CIVIL",
@@ -255,10 +253,10 @@ const MapJaliscoPresentation = ({
       phone: "3221936685",
       hasRedi: true,
       type: "campus",
-      images: ["public/imagesUnidadesAcademicas/tomatlan.jpg"],
+      images: ["/imagesUnidadesAcademicas/tomatlan.jpg"],
       imagesRedi: [
-        "public/imagesRedis/rediZapopan1.jpg",
-        "public/imagesRedis/rediZapopan2.jpg",
+        "/imagesRedis/rediZapopan1.jpg",
+        "/imagesRedis/rediZapopan2.jpg",
       ],
       ofertaEducativa: [
         "INGENIERÍA EN GESTIÓN EMPRESARIAL",
@@ -274,10 +272,10 @@ const MapJaliscoPresentation = ({
       phone: "3338849470",
       hasRedi: true,
       type: "campus",
-      images: ["public/imagesUnidadesAcademicas/zapopan.jpg"],
+      images: ["/imagesUnidadesAcademicas/zapopan.jpg"],
       imagesRedi: [
-        "public/imagesRedis/rediZapopan1.jpg",
-        "public/imagesRedis/rediZapopan2.jpg",
+        "/imagesRedis/rediZapopan1.jpg",
+        "/imagesRedis/rediZapopan2.jpg",
       ],
       ofertaEducativa: [
         "INGENIERÍA INDUSTRIAL",
@@ -299,10 +297,10 @@ const MapJaliscoPresentation = ({
       phone: "3737356060",
       hasRedi: true,
       type: "campus",
-      images: ["public/imagesUnidadesAcademicas/zapotlanejo.jpg"],
+      images: ["/imagesUnidadesAcademicas/zapotlanejo.jpg"],
       imagesRedi: [
-        "public/imagesRedis/rediZapopan1.jpg",
-        "public/imagesRedis/rediZapopan2.jpg",
+        "/imagesRedis/rediZapopan1.jpg",
+        "/imagesRedis/rediZapopan2.jpg",
       ],
       ofertaEducativa: [
         "INGENIERÍA INDUSTRIAL",

@@ -122,7 +122,7 @@ function Landing() {
   // --- enlaces de interés (tarjetas) ---
   const interestLinks = [
     { label: 'Identidad', to: '/quienes-somos' },
-    { label: 'Calendario', to: 'https://tecmm.edu.mx/media/documents/calendario24C.pdf' },
+    { label: 'Calendario', to: 'https://www.tecmm.edu.mx/apiCms/cmsWebFiles/documents/calendario2025-2026.pdf' },
     { label: 'Organigrama', to: '/directorio' },
     { label: 'Licitaciones Vencidas', to: '/enConstruccion' },
     { label: 'Programa Anual de Desarrollo Archivístico', to: '/archivo' },
