@@ -77,8 +77,8 @@ function App() {
           <Route path="/contraloria-social" element={<ContraloriaSocial />} />
           <Route path="/login" element={<Login />} />
           <Route path="/enConstruccion" element={<EnConstruccion />} />
-          <Route path="/presentacion" element={<Presentacion />} />
-          <Route path="/presentation2" element={<Presentation2/>} />
+          {/* <Route path="/presentacion" element={<Presentacion />} /> */}
+          <Route path="/presentacion" element={<Presentation2/>} />
 
 
 
