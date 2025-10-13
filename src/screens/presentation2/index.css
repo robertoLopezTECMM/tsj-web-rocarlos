@@ -1,0 +1,39 @@
+.presentation-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* o ajusta según lo que quieras ocupar */
+  overflow: hidden;
+}
+
+.map-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  pointer-events: none; /* permite interactuar con el mapa si lo necesitas */
+}
+
+.overlay-left {
+  left: 0;
+  justify-content: flex-start;
+}
+
+.overlay-right {
+  right: 0;
+  justify-content: flex-end;
+}
+
+/* Permite que los InfoCards sigan siendo interactivos */
+.overlay > * {
+  pointer-events: all;
+}

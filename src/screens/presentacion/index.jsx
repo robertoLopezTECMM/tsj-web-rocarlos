@@ -20,6 +20,7 @@ export const Presentacion = () => {
 
   return (
     <BasicContainer>
+
       <div className="presentacion-wrapper">
         {!selectedUnidad && (
           <motion.div
@@ -34,17 +35,23 @@ export const Presentacion = () => {
             <InfoCards side="left" />
           </motion.div>
         )}
+
+
+
+
         <motion.div
           className="mapaPresentacion"
           animate={{
             x: selectedUnidad ? "-1dvw" : 0,
-            scale: selectedUnidad ? 0.9 : 1,
-            filter: selectedUnidad ? "brightness(0.9)" : "brightness(1)",
+            scale: selectedUnidad ? 1 : 1,
           }}
           transition={{ duration: 0.8, ease: "easeInOut" }}
         >
           <MapJaliscoPresentation onSelectUnidad={handleSelectUnidad} />
         </motion.div>
+
+
+
         <AnimatePresence mode="wait">
           {!selectedUnidad && (
             <motion.div
@@ -59,6 +66,8 @@ export const Presentacion = () => {
               <InfoCards side="right" />
             </motion.div>
           )}
+
+
           {selectedUnidad && (
             <motion.div
               key="unidad-info"
