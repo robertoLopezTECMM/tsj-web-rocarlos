@@ -313,51 +313,74 @@ const MapJaliscoPresentation = ({
     },
     {
       name: "Ixtlahuacán del Río",
-      address: "",
-      phone: "12123123123",
+      address: "Abasolo #148, Col. Jardines de la Paz, Ixtlahuacán del Río",
+      phone: "3737347612",
       hasRedi: false,
       type: "extension",
-      images: [
-        "tecmm.edu.mx/cmsApi",
-        "tecmm.edu.mx/cmsApi",
-        "tecmm.edu.mx/cmsApi",
-      ],
+      images: ["/imagesUnidadesAcademicas/buildingPlaceholder.jpg"],
+      ofertaEducativa: [
+        "INGENIERÍA EN ADMINISTRACIÓN",
+        "INGENIERÍA EN INNOVACIÓN AGRÍCOLA SUSTENTABLE"
+      ]
     },
     {
       name: "Cuquío",
-      address: "",
-      phone: "12123123123",
+      address: "Pendiente...",
+      phone: "Pendiente...",
       hasRedi: false,
       type: "extension",
-      images: [
-        "tecmm.edu.mx/cmsApi",
-        "tecmm.edu.mx/cmsApi",
-        "tecmm.edu.mx/cmsApi",
+      images: ["/imagesUnidadesAcademicas/buildingPlaceholder.jpg"],
+      ofertaEducativa: [
+        "INGENIERÍA EN ADMINISTRACIÓN",
+        "INGENIERÍA EN INNOVACIÓN AGRÍCOLA SUSTENTABLE"
       ],
     },
     {
       name: "Tenamaxtlán",
-      address: "",
-      phone: "12123123123",
+      address: "Pendiente...",
+      phone: "Pendiente...",
       hasRedi: false,
       type: "extension",
-      images: [
-        "tecmm.edu.mx/cmsApi",
-        "tecmm.edu.mx/cmsApi",
-        "tecmm.edu.mx/cmsApi",
-      ],
+      images: ["/imagesUnidadesAcademicas/buildingPlaceholder.jpg"],
+      ofertaEducativa: [
+        "INGENIERÍA EN INNOVACIÓN AGRÍCOLA SUSTENTABLE",
+        "INGENIERÍA EN ADMINISTRACIÓN",
+        "INGENIERÍA EN GESTIÓN EMPRESARIAL"
+      ]
     },
     {
       name: "Atemajac de Brizuela",
-      address: "",
-      phone: "12123123123",
+      address: "Pendiente...",
+      phone: "Pendiente...",
       hasRedi: false,
       type: "extension",
-      images: [
-        "tecmm.edu.mx/cmsApi",
-        "tecmm.edu.mx/cmsApi",
-        "tecmm.edu.mx/cmsApi",
+      images: ["/imagesUnidadesAcademicas/atemajac.jpg"],
+      ofertaEducativa: [
+        "INGENIERÍA EN INNOVACIÓN AGRÍCOLA SUSTENTABLE"
       ],
+    },
+    {
+      name: "Huejuquilla el Alto",
+      address: "Pendiente...",
+      phone: "Pendiente...",
+      hasRedi: false,
+      type: "extension",
+      images: ["/imagesUnidadesAcademicas/buildingPlaceholder.jpg"],
+      ofertaEducativa: [
+        "INGENIERÍA EN ADMINISTRACIÓN"
+      ],
+    },
+    {
+      name: "Totatiche",
+      address: "Pendiente...",
+      phone: "Pendiente...",
+      hasRedi: false,
+      type: "extension",
+      images: ["/imagesUnidadesAcademicas/buildingPlaceholder.jpg"],
+      ofertaEducativa: [
+        "ARQUITECTURA",
+        "INGENIERÍA EN ADMINISTRACIÓN"
+      ]
     },
   ];
 
@@ -454,11 +477,11 @@ const MapJaliscoPresentation = ({
           target.setStyle(baseStyle);
         },
         click: () => {
-          if (campus.type === "campus") {
+          // if (campus.type === "campus") {
             if (onSelectUnidad) onSelectUnidad(campus);
             setter([21, -102.0]);
             console.log(moveMap);
-          }
+          // }
         },
       });
 
