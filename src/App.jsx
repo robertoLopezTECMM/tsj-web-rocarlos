@@ -30,6 +30,8 @@ import { CredencialesAlumnos } from './screens/credencialesAlumnos'
 import ComiteTransparencia from './screens/normatividad/organosTecnicos/ComiteTransparencia'
 import GrupoInter from './screens/normatividad/organosTecnicos/GrupoInter'
 import { Presentacion } from './screens/presentacion'
+import { Presentation2 } from './screens/presentation2'
+
 
 
 function App() {
@@ -76,6 +78,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/enConstruccion" element={<EnConstruccion />} />
           <Route path="/presentacion" element={<Presentacion />} />
+          <Route path="/presentation2" element={<Presentation2/>} />
+
 
 
 
