@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { BasicContainer } from "../../components/basicContainer";
 import MapJaliscoPresentation from "../../components/jaliscoMapPresentation";
 

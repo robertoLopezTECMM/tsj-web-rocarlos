@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import "./index.css";
-import { esES } from "@mui/material/locale";
 
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
@@ -28,10 +27,30 @@ const MapJaliscoPresentation = ({
       type: "campus",
       images: ["https://tecmm.edu.mx/media/original_images/Arandas_2.jpg"],
       imagesRedi:[
-        ''
+        'https://tecmm.edu.mx/media/original_images/chapala01-2.jpeg',
+        'https://tecmm.edu.mx/media/original_images/Cocula_2.jpg',
+        'https://tecmm.edu.mx/media/original_images/El_grullo_2.jpg',
       ],
       ofertaEducativa:[
-        ''
+        'Ingeniería en Gestión Empresarial',
+        'Ingeniería en Sistemas Computacionales',
+        'Ingeniería en Mecatrónica',
+        'Ingeniería en Energías Renovables',
+        'Ingeniería en Desarrollo de Negocios',
+        'Ingeniería en Logística y Transporte',
+        'Ingeniería en Tecnologías de la Información y Comunicaciones',
+        'Ingeniería en Innovación Agrícola Sustentable',
+        'Ingeniería en Industrias Alimentarias',
+        'Licenciatura en Administración y Gestión de PyMEs',
+        'Licenciatura en Turismo',
+        'Licenciatura en Gastronomía',
+        'Licenciatura en Contaduría Pública',
+        'Licenciatura en Derecho',
+        'Técnico Superior Universitario en Desarrollo de Negocios',
+        'Técnico Superior Universitario en Logística y Transporte', 
+        'Técnico Superior Universitario en Tecnologías de la Información y Comunicaciones',
+        'Técnico Superior Universitario en Innovación Agrícola Sustentable',
+        'Técnico Superior Universitario en Industrias Alimentarias',
       ]
     },
     {
