@@ -33,6 +33,24 @@
   justify-content: flex-end;
 }
 
+.overlay-acotaciones {
+  position: absolute;
+  top: 17%;
+  left:25%;
+  height: auto;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  font-family: 'madaniArabicMedium';
+  pointer-events: none; /* permite interactuar con el mapa si lo necesitas */
+}
+
+.acotaciones-position {
+
+  justify-content: flex-start;
+  z-index: 1000000;
+}
+
 /* Permite que los InfoCards sigan siendo interactivos */
 .overlay > * {
   pointer-events: all;

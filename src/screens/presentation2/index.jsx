@@ -37,6 +37,21 @@ export const Presentation2 = () => {
         {showInfoCards && (
           <>
             <motion.div
+              className="overlay-acotaciones acotaciones-position"
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -50 }}
+              transition={{ duration: 0.6 }}
+            >
+              <div>
+                <p style={{display:'flex', justifyContent:'left', alignItems:'center',gap:'10px'}}> <div style={{width:'0.8rem', height:'0.8rem', borderRadius:'1rem', backgroundColor:'var(--green)'}}></div> Unidad Académica</p>
+                <p style={{display:'flex', justifyContent:'left', alignItems:'center',gap:'10px'}}> <div style={{width:'0.8rem', height:'0.8rem', borderRadius:'1rem', backgroundColor:'var(--orange)'}}></div> Extension</p>
+                <p style={{display:'flex', justifyContent:'left', alignItems:'center'}}><span class="material-icons" style={{color:'var(--red)', padding:0}}>location_on</span>REDI</p>
+
+              </div>
+            </motion.div>
+
+            <motion.div
               className="overlay overlay-left"
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}

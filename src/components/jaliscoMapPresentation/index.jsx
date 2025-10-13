@@ -25,33 +25,20 @@ const MapJaliscoPresentation = ({
       phone: "3481331815",
       hasRedi: true,
       type: "campus",
-      images: ["https://tecmm.edu.mx/media/original_images/Arandas_2.jpg"],
-      imagesRedi:[
-        'https://tecmm.edu.mx/media/original_images/chapala01-2.jpeg',
-        'https://tecmm.edu.mx/media/original_images/Cocula_2.jpg',
-        'https://tecmm.edu.mx/media/original_images/El_grullo_2.jpg',
+      images: ["public/imagesUnidadesAcademicas/arandas.jpg"],
+      imagesRedi: [
+        "public/imagesRedis/rediZapopan1.jpg",
+        "public/imagesRedis/rediZapopan2.jpg",
       ],
-      ofertaEducativa:[
-        'Ingeniería en Gestión Empresarial',
-        'Ingeniería en Sistemas Computacionales',
-        'Ingeniería en Mecatrónica',
-        'Ingeniería en Energías Renovables',
-        'Ingeniería en Desarrollo de Negocios',
-        'Ingeniería en Logística y Transporte',
-        'Ingeniería en Tecnologías de la Información y Comunicaciones',
-        'Ingeniería en Innovación Agrícola Sustentable',
-        'Ingeniería en Industrias Alimentarias',
-        'Licenciatura en Administración y Gestión de PyMEs',
-        'Licenciatura en Turismo',
-        'Licenciatura en Gastronomía',
-        'Licenciatura en Contaduría Pública',
-        'Licenciatura en Derecho',
-        'Técnico Superior Universitario en Desarrollo de Negocios',
-        'Técnico Superior Universitario en Logística y Transporte', 
-        'Técnico Superior Universitario en Tecnologías de la Información y Comunicaciones',
-        'Técnico Superior Universitario en Innovación Agrícola Sustentable',
-        'Técnico Superior Universitario en Industrias Alimentarias',
-      ]
+      ofertaEducativa: [
+        "INGENIERÍA INDUSTRIAL",
+        "INGENIERÍA EN GESTIÓN EMPRESARIAL",
+        "ARQUITECTURA",
+        "INGENIERÍA ELECTROMECÁNICA",
+        "INGENIERÍA EN SISTEMAS COMPUTACIONALES",
+        "INGENIERÍA EN INDUSTRIAS ALIMENTARIAS",
+        "INGENIERÍA EN INNOVACIÓN AGRÍCOLA SUSTENTABLE",
+      ],
     },
     {
       name: "Chapala",
@@ -59,7 +46,15 @@ const MapJaliscoPresentation = ({
       phone: "3767658030",
       hasRedi: false,
       type: "campus",
-      images: ["https://tecmm.edu.mx/media/original_images/chapala01-2.jpeg"],
+      images: ["public/imagesUnidadesAcademicas/chapala.jpg"],
+      ofertaEducativa: [
+        "INGENIERÍA INDUSTRIAL",
+        "INGENIERÍA EN GESTIÓN EMPRESARIAL",
+        "LICENCIATURA EN GASTRONOMÍA",
+        "INGENIERÍA EN SISTEMAS COMPUTACIONALES",
+        "INGENIERÍA EN ANIMACIÓN DIGITAL Y EFECTOS VISUALES",
+        "INGENIERÍA MECATRÓNICA",
+      ],
     },
     {
       name: "Cocula",
@@ -67,7 +62,17 @@ const MapJaliscoPresentation = ({
       phone: "3777730030",
       hasRedi: true,
       type: "campus",
-      images: ["https://tecmm.edu.mx/media/original_images/Cocula_2.jpg"],
+      images: ["public/imagesUnidadesAcademicas/cocula.jpg"],
+      imagesRedi: [
+        "public/imagesRedis/rediZapopan1.jpg",
+        "public/imagesRedis/rediZapopan2.jpg",
+      ],
+      ofertaEducativa: [
+        "INGENIERÍA EN INNOVACIÓN AGRÍCOLA SUSTENTABLE",
+        "INGENIERÍA INDUSTRIAL",
+        "INGENIERÍA EN GESTIÓN EMPRESARIAL",
+        "INGENIERÍA EN SISTEMAS COMPUTACIONALES",
+      ],
     },
     {
       name: "El Grullo",
@@ -76,7 +81,15 @@ const MapJaliscoPresentation = ({
       phone: "3213873435",
       hasRedi: false,
       type: "campus",
-      images: ["https://tecmm.edu.mx/media/original_images/El_grullo_2.jpg"],
+      images: ["public/imagesUnidadesAcademicas/elGrullo.jpg"],
+      ofertaEducativa: [
+        "INGENIERÍA EN GESTIÓN EMPRESARIAL",
+        "ARQUITECTURA",
+        "INGENIERÍA INDUSTRIAL",
+        "INGENIERÍA INFORMÁTICA",
+        "INGENIERÍA EN INNOVACIÓN AGRÍCOLA SUSTENTABLE",
+        "INGENIERÍA ELECTROMECÁNICA",
+      ],
     },
     {
       name: "La Huerta",
@@ -84,8 +97,14 @@ const MapJaliscoPresentation = ({
       phone: "3573841884",
       hasRedi: false,
       type: "campus",
-      images: [
-        "https://www.tecmm.edu.mx/apiCms/cmsWebFiles/unidadAcademicaLaHuerta.jpg",
+      images: ["public/imagesUnidadesAcademicas/laHuerta.jpg"],
+      ofertaEducativa: [
+        "INGENIERÍA EN ADMINISTRACIÓN",
+        "INGENIERÍA EN SISTEMAS COMPUTACIONALES",
+        "LICENCIATURA EN ADMINISTRACIÓN",
+        "LICENCIATURA EN CONTADOR PÚBLICO",
+        "ARQUITECTURA",
+        "INGENIERÍA EN INDUSTRIAS ALIMENTARIAS",
       ],
     },
     {
@@ -95,7 +114,22 @@ const MapJaliscoPresentation = ({
       phone: "4744033970",
       hasRedi: true,
       type: "campus",
-      images: ["https://tecmm.edu.mx/media/original_images/DSC01871.jpg"],
+      images: ["public/imagesUnidadesAcademicas/lagosDeMoreno.jpg"],
+      imagesRedi: [
+        "public/imagesRedis/rediZapopan1.jpg",
+        "public/imagesRedis/rediZapopan2.jpg",
+      ],
+      ofertaEducativa: [
+        "INGENIERÍA EN GESTIÓN EMPRESARIAL",
+        "INGENIERÍA INDUSTRIAL",
+        "INGENIERÍA EN SISTEMAS COMPUTACIONALES",
+        "ARQUITECTURA",
+        "INGENIERÍA CIVIL",
+        "INGENIERÍA EN SISTEMAS AUTOMOTRICES",
+        "INGENIERÍA ELECTROMECÁNICA",
+        "INGENIERÍA EN INDUSTRIAS ALIMENTARIAS",
+        "INGENIERÍA MECATRÓNICA",
+      ],
     },
     {
       name: "Mascota",
@@ -103,8 +137,16 @@ const MapJaliscoPresentation = ({
       phone: "3883852010",
       hasRedi: true,
       type: "campus",
-      images: [
-        "https://www.tecmm.edu.mx/apiCms/cmsWebFiles/unidadAcademicaMascota.jpg",
+      images: ["public/imagesUnidadesAcademicas/mascota.jpg"],
+      imagesRedi: [
+        "public/imagesRedis/rediZapopan1.jpg",
+        "public/imagesRedis/rediZapopan2.jpg",
+      ],
+      ofertaEducativa: [
+        "INGENIERÍA EN INNOVACIÓN AGRÍCOLA SUSTENTABLE",
+        "INGENIERÍA EN ADMINISTRACIÓN",
+        "INGENIERÍA INDUSTRIAL",
+        "INGENIERÍA EN SISTEMAS COMPUTACIONALES",
       ],
     },
     {
@@ -114,8 +156,15 @@ const MapJaliscoPresentation = ({
       phone: "3222265600",
       hasRedi: false,
       type: "campus",
-      images: [
-        "https://tecmm.edu.mx/media/original_images/Edificio_D_frente.jpeg",
+      images: ["public/imagesUnidadesAcademicas/puertoVallarta.jpg"],
+      ofertaEducativa: [
+        "INGENIERÍA EN GESTIÓN EMPRESARIAL",
+        "ARQUITECTURA",
+        "LICENCIATURA EN GASTRONOMÍA",
+        "INGENIERÍA ELECTROMECÁNICA",
+        "INGENIERÍA EN SISTEMAS COMPUTACIONALES",
+        "LICENCIATURA EN TURISMO",
+        "MAESTRÍA EN ADMINISTRACIÓN",
       ],
     },
     {
@@ -127,6 +176,11 @@ const MapJaliscoPresentation = ({
       images: [
         "https://tecmm.edu.mx/media/original_images/WhatsApp_Image_2025-07-04_at_13.20.27_d4c38380.jpg",
       ],
+      ofertaEducativa: [
+        "INGENIERÍA EN GESTIÓN EMPRESARIAL",
+        "INGENIERÍA INDUSTRIAL",
+        "INGENIERÍA ELECTROMECÁNICA",
+      ],
     },
     {
       name: "Tala",
@@ -134,7 +188,13 @@ const MapJaliscoPresentation = ({
       phone: "3847333000",
       hasRedi: false,
       type: "campus",
-      images: ["https://tecmm.edu.mx/media/original_images/JGM07835.jpg"],
+      images: ["public/imagesUnidadesAcademicas/tala.jpg"],
+      ofertaEducativa: [
+        "INGENIERÍA EN INNOVACIÓN AGRÍCOLA SUSTENTABLE",
+        "INGENIERÍA EN ADMINISTRACIÓN",
+        "ARQUITECTURA",
+        "INGENIERÍA INDUSTRIAL",
+      ],
     },
     {
       name: "Tamazula de Gordiano",
@@ -143,8 +203,16 @@ const MapJaliscoPresentation = ({
       phone: "3581030060",
       hasRedi: true,
       type: "campus",
-      images: [
-        "https://tecmm.edu.mx/media/original_images/Instalaciones_Tamazula_Dron_9.jpg",
+      images: ["public/imagesUnidadesAcademicas/tamazula.jpg"],
+      imagesRedi: [
+        "public/imagesRedis/rediZapopan1.jpg",
+        "public/imagesRedis/rediZapopan2.jpg",
+      ],
+      ofertaEducativa: [
+        "INGENIERÍA EN INNOVACIÓN AGRÍCOLA SUSTENTABLE",
+        "INGENIERÍA EN ADMINISTRACIÓN",
+        "INGENIERÍA ELECTROMECÁNICA",
+        "INGENIERÍA EN INDUSTRIAS ALIMENTARIAS",
       ],
     },
     {
@@ -154,8 +222,13 @@ const MapJaliscoPresentation = ({
       phone: "3786881573",
       hasRedi: false,
       type: "campus",
-      images: [
-        "https://www.tecmm.edu.mx/apiCms/cmsWebFiles/unidadAcademicaTepatitlan.jpg",
+      images: ["public/imagesUnidadesAcademicas/tepatitlan.jpg"],
+      ofertaEducativa: [
+        "INGENIERÍA CIVIL",
+        "INGENIERÍA INDUSTRIAL",
+        "INGENIERÍA INFORMÁTICA",
+        "INGENIERÍA EN ADMINISTRACIÓN",
+        "INGENIERÍA AMBIENTAL",
       ],
     },
     {
@@ -165,8 +238,15 @@ const MapJaliscoPresentation = ({
       phone: "3747427288",
       hasRedi: false,
       type: "campus",
-      images: [
-        "https://www.tecmm.edu.mx/apiCms/cmsWebFiles/unidadAcademicaTequila.jpg",
+      images: ["public/imagesUnidadesAcademicas/tequila.jpg"],
+      ofertaEducativa: [
+        "INGENIERÍA INDUSTRIAL",
+        "INGENIERÍA CIVIL",
+        "LICENCIATURA EN ADMINISTRACIÓN",
+        "INGENIERÍA ELECTROMECÁNICA",
+        "INGENIERÍA EN GESTIÓN EMPRESARIAL",
+        "INGENIERÍA INFORMÁTICA",
+        "INGENIERÍA EN ENERGÍAS RENOVABLES",
       ],
     },
     {
@@ -175,8 +255,16 @@ const MapJaliscoPresentation = ({
       phone: "3221936685",
       hasRedi: true,
       type: "campus",
-      images: [
-        "https://www.tecmm.edu.mx/apiCms/cmsWebFiles/unidadAcademicaTomatlan.jpg",
+      images: ["public/imagesUnidadesAcademicas/tomatlan.jpg"],
+      imagesRedi: [
+        "public/imagesRedis/rediZapopan1.jpg",
+        "public/imagesRedis/rediZapopan2.jpg",
+      ],
+      ofertaEducativa: [
+        "INGENIERÍA EN GESTIÓN EMPRESARIAL",
+        "INGENIERÍA EN INNOVACIÓN AGRÍCOLA SUSTENTABLE",
+        "INGENIERÍA EN SISTEMAS COMPUTACIONALES",
+        "LICENCIATURA EN ADMINISTRACIÓN",
       ],
     },
     {
@@ -186,8 +274,22 @@ const MapJaliscoPresentation = ({
       phone: "3338849470",
       hasRedi: true,
       type: "campus",
-      images: [
-        "https://www.tecmm.edu.mx/apiCms/cmsWebFiles/unidadAcademicaZapopan.jpg",
+      images: ["public/imagesUnidadesAcademicas/zapopan.jpg"],
+      imagesRedi: [
+        "public/imagesRedis/rediZapopan1.jpg",
+        "public/imagesRedis/rediZapopan2.jpg",
+      ],
+      ofertaEducativa: [
+        "INGENIERÍA INDUSTRIAL",
+        "INGENIERÍA CIVIL",
+        "INGENIERÍA EN SISTEMAS COMPUTACIONALES",
+        "INGENIERÍA ELECTROMECÁNICA",
+        "LICENCIATURA EN GASTRONOMÍA",
+        "INGENIERÍA EN GESTIÓN EMPRESARIAL",
+        "ARQUITECTURA",
+        "INGENIERÍA ELECTRÓNICA",
+        "MAESTRÍA EN SISTEMAS COMPUTACIONALES",
+        "MAESTRÍA EN INGENIERÍA ELECTRÓNICA",
       ],
     },
     {
@@ -197,7 +299,19 @@ const MapJaliscoPresentation = ({
       phone: "3737356060",
       hasRedi: true,
       type: "campus",
-      images: ["https://tecmm.edu.mx/media/original_images/Ed_B_-_1.jpg"],
+      images: ["public/imagesUnidadesAcademicas/zapotlanejo.jpg"],
+      imagesRedi: [
+        "public/imagesRedis/rediZapopan1.jpg",
+        "public/imagesRedis/rediZapopan2.jpg",
+      ],
+      ofertaEducativa: [
+        "INGENIERÍA INDUSTRIAL",
+        "INGENIERÍA EN INNOVACIÓN AGRÍCOLA SUSTENTABLE",
+        "LICENCIATURA EN CONTADOR PÚBLICO",
+        "INGENIERÍA EN ADMINISTRACIÓN",
+        "INGENIERÍA INFORMÁTICA",
+        "INGENIERÍA MECATRÓNICA",
+      ],
     },
     {
       name: "Ixtlahuacán del Río",
@@ -300,18 +414,23 @@ const MapJaliscoPresentation = ({
 
     if (campus) console.log("✅ Campus encontrado:", campus.name);
     // Estilo condicional
-    layer.setStyle({
-      color: campus ? "#3388ff" : "#3388ff",
-      fillColor: campus ? "#54c98f" : "white",
-      // fillColor: esEspecial ? '#54c98f': isExtension ? '#ffae31' : 'white',
-      fillOpacity: campus ? 0.7 : 0.5,
-      weight: 1,
-    });
+    // layer.setStyle({
+    //   color: campus ? "#3388ff" : "#3388ff",
+    //   fillColor: campus?.type==='campus' ? "#54c98f" : campus?.type==='extension' ? '#ffae31' : "white",
+    //   // fillColor: esEspecial ? '#54c98f': isExtension ? '#ffae31' : 'white',
+    //   fillOpacity: campus ? 0.7 : 0.5,
+    //   weight: 1,
+    // });
 
     // 🎨 Estilo base
     const baseStyle = {
       color: campus ? "#3388ff" : "#3388ff",
-      fillColor: campus ? "#54c98f" : "white",
+      fillColor:
+        campus?.type === "campus"
+          ? "#54c98f"
+          : campus?.type === "extension"
+          ? "#ffae31"
+          : "white",
       // fillColor: esEspecial ? '#54c98f': isExtension ? '#ffae31' : 'white',
       fillOpacity: campus ? 0.7 : 0.5,
       weight: 1,
@@ -337,11 +456,11 @@ const MapJaliscoPresentation = ({
           target.setStyle(baseStyle);
         },
         click: () => {
-          if (onSelectUnidad) onSelectUnidad(campus);
-          setter([21, -102.0]);
-          console.log(moveMap);
-          console.log("hola");
-          // handleOpen(campus);
+          if (campus.type === "campus") {
+            if (onSelectUnidad) onSelectUnidad(campus);
+            setter([21, -102.0]);
+            console.log(moveMap);
+          }
         },
       });
 
@@ -349,18 +468,6 @@ const MapJaliscoPresentation = ({
         permanent: false, // aparece solo al pasar el cursor
         direction: "top", // posición del tooltip
         className: "map-label", // clase para estilizarlo si quieres
-      });
-    }
-
-    // 🖱️ Evento al hacer clic: mostrar alerta
-    if (campus) {
-      layer.on({
-        click: () => {
-          // handleOpen(campus);
-          //   alert(
-          //     `Campus: ${campus.name}\nTeléfono: ${campus.phone}\nDirección: ${campus.address}`
-          //   );
-        },
       });
     }
   };
@@ -378,7 +485,7 @@ const MapJaliscoPresentation = ({
           backgroundColor: "transparent",
         }} // 👈 usa 100%
         zoomControl={false}
-        dragging={true}
+        dragging={false}
         doubleClickZoom={false}
         scrollWheelZoom={false}
         attributionControl={false}
