@@ -84,8 +84,25 @@ function App() {
 
 
 
-          <Route path="/credenciales" element={<PrivateRoute> <Credenciales /> </PrivateRoute>} />
-          <Route path="/credencialesAlumnos" element={<PrivateRoute> <CredencialesAlumnos /> </PrivateRoute>} />
+          <Route
+            path="/credencialesAdmins" 
+            element={
+              <PrivateRoute requiredPermission="credencialesAdmins"> 
+                <Credenciales/> 
+              </PrivateRoute>
+            } 
+          />
+
+          <Route
+            path="/credencialesAlumnos"
+            element={
+              <PrivateRoute requiredPermission="credencialesAlumnos">
+                <CredencialesAlumnos />
+              </PrivateRoute>
+            }
+          />
+
+          {/* <Route path="/credencialesAlumnos" element={<PrivateRoute> <CredencialesAlumnos /> </PrivateRoute>} /> */}
 
 
         </Routes>
