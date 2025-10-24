@@ -4,8 +4,6 @@
   "version": "1.0.0",
   "type": "module",
   "main": "main.cjs",
-
-
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -14,7 +12,7 @@
     "start": "electron .",
     "dist": "electron-builder"
   },
-    "build": {
+  "build": {
     "appId": "com.tsj.web",
     "productName": "TSJ Web",
     "directories": {
@@ -31,16 +29,22 @@
       "node_modules/@tailwindcss/oxide-wasm32-wasi/**/*"
     ],
     "mac": {
-      "target": ["dmg", "zip"]
+      "target": [
+        "dmg",
+        "zip"
+      ]
     },
     "win": {
-      "target": ["nsis", "zip"]
+      "target": [
+        "nsis",
+        "zip"
+      ]
     }
   },
   "dependencies": {
+    "@emnapi/core": "^1.0.0",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
-    "@emnapi/core": "^1.0.0",
     "@fullpage/react-fullpage": "^0.1.48",
     "@headlessui/react": "^2.2.4",
     "@mui/icons-material": "^7.1.2",
@@ -54,6 +58,7 @@
     "express": "^5.1.0",
     "file-saver": "^2.0.5",
     "fullpage.js": "^4.0.36",
+    "jwt-decode": "^3.1.2",
     "keen-slider": "^6.8.6",
     "leaflet": "^1.9.4",
     "lottie-react": "^2.4.1",
@@ -71,6 +76,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
+    "@types/jwt-decode": "^2.2.1",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
     "@vitejs/plugin-react": "^4.4.1",

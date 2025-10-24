@@ -339,11 +339,19 @@ export const CredencialesAlumnos = () => {
     // Guarda el PDF y descarga el archivo
     const pdfBytes = await pdfDoc.save();
     const pdfBlob = new Blob([pdfBytes], { type: "application/pdf" });
-    await postID(pdfBlob)
+    return pdfBlob;
+    // await postID(pdfBlob)
     // saveAs(blob, `credencial_${nombre}.pdf`);
   };
 
 const postID = async (pdfBlob) => {
+
+  if (!pdfBlob) {
+    alert("No hay PDF para enviar.");
+    return;
+  }
+
+
   const formDataToSend = new FormData();
 
   // Campos del DTO
@@ -363,7 +371,7 @@ const postID = async (pdfBlob) => {
 
   try {
     const response = await axios.post(
-      "http://localhost:3001/tsjApi/students-ids",
+      "https://tecmm.edu.mx/tsjApi/students-ids",
       formDataToSend,
       { headers: { "Content-Type": "multipart/form-data" } }
     );
@@ -376,7 +384,29 @@ const postID = async (pdfBlob) => {
   }
 };
 
-
+const handleGenerateAndSend = async () => {
+  try {
+    const pdfBlob = await                         
+    generateCredentialPDF({
+                          image: formData.image,
+                          nombre: `${formData.nombre} ${formData.apellidoPaterno} ${formData.apellidoMaterno}`,
+                          position: "ESTUDIANTE",
+                          carrera: formData.carrera,
+                          unidadAcademica: formData.unidadAcademica,
+                          apellidoPaterno: formData.apellidoPaterno,
+                          apellidoMaterno: formData.apellidoMaterno,
+                          nss: formData.nss,
+                          noEmpleado: formData.noEmpleado,
+                          noControl: formData.noControl,
+                          tipoSangre: formData.tipoSangre,
+                          contactoEmergencia: formData.contactoEmergencia,
+                          telefonoEmergencia: formData.telefonoEmergencia,
+                        })
+    await postID(pdfBlob); // 2️⃣ enviar PDF
+  } catch (err) {
+    console.error("Error generando o enviando la credencial:", err);
+  }
+};
 
 
 
@@ -585,7 +615,7 @@ const postID = async (pdfBlob) => {
             <Row className="mb-3 pt-3">
               <Form.Group as={Col} md="2">
                 <Button
-                  onClick={postID}
+                  onClick={handleGenerateAndSend}
                 >
                   Enviar
                 </Button>

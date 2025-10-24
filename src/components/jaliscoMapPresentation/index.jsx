@@ -15,7 +15,6 @@ const MapJaliscoPresentation = ({
   setter,
 }) => {
   const [geoData, setGeoData] = useState(null);
-  // const [moveMap, setMoveMap] = useState([21, -103.5])
 
   const unidadesAcademicas = [
     {
@@ -325,8 +324,8 @@ const MapJaliscoPresentation = ({
     },
     {
       name: "Cuquío",
-      address: "Pendiente...",
-      phone: "Pendiente...",
+      address: "Morelos #542 A, Unidad deportiva, Cuquío, Jalisco.",
+      phone: "3737966172",
       hasRedi: false,
       type: "extension",
       images: ["/imagesUnidadesAcademicas/buildingPlaceholder.jpg"],
@@ -337,11 +336,11 @@ const MapJaliscoPresentation = ({
     },
     {
       name: "Tenamaxtlán",
-      address: "Pendiente...",
-      phone: "Pendiente...",
+      address: "AGUSTÍN MELGAR 5ª",
+      phone: "3751057138",
       hasRedi: false,
       type: "extension",
-      images: ["/imagesUnidadesAcademicas/buildingPlaceholder.jpg"],
+      images: ["/imagesUnidadesAcademicas/tenamaxtlan.jpg"],
       ofertaEducativa: [
         "INGENIERÍA EN INNOVACIÓN AGRÍCOLA SUSTENTABLE",
         "INGENIERÍA EN ADMINISTRACIÓN",
@@ -350,8 +349,8 @@ const MapJaliscoPresentation = ({
     },
     {
       name: "Atemajac de Brizuela",
-      address: "Pendiente...",
-      phone: "Pendiente...",
+      address: "CARRETERA LIBRE CATARINA TAPALPA KILÓMETRO 60",
+      phone: "3335974461",
       hasRedi: false,
       type: "extension",
       images: ["/imagesUnidadesAcademicas/atemajac.jpg"],
@@ -361,8 +360,8 @@ const MapJaliscoPresentation = ({
     },
     {
       name: "Huejuquilla el Alto",
-      address: "Pendiente...",
-      phone: "Pendiente...",
+      address: "Carretera a San Juan Capistrano Km. 3 S/N Col las pilas, Huejuquilla el Alto",
+      phone: "N/A",
       hasRedi: false,
       type: "extension",
       images: ["/imagesUnidadesAcademicas/buildingPlaceholder.jpg"],
@@ -372,11 +371,11 @@ const MapJaliscoPresentation = ({
     },
     {
       name: "Totatiche",
-      address: "Pendiente...",
-      phone: "Pendiente...",
+      address: "Av. Tecnológico #1, La Mezquitera, Totatiche, Jalisco. 46170.",
+      phone: "4379640223",
       hasRedi: false,
       type: "extension",
-      images: ["/imagesUnidadesAcademicas/buildingPlaceholder.jpg"],
+      images: ["/imagesUnidadesAcademicas/totatiche.jpg"],
       ofertaEducativa: [
         "ARQUITECTURA",
         "INGENIERÍA EN ADMINISTRACIÓN"
@@ -400,7 +399,7 @@ const MapJaliscoPresentation = ({
   }
 
   useEffect(() => {
-    fetch("/jalisco.geojson")
+    fetch("/jalisco2.geojson")
       .then((res) => res.json())
       .then((data) => setGeoData(data))
       .catch((err) => console.error("Error al cargar GeoJSON:", err));
@@ -434,14 +433,6 @@ const MapJaliscoPresentation = ({
     }
 
     if (campus) console.log("✅ Campus encontrado:", campus.name);
-    // Estilo condicional
-    // layer.setStyle({
-    //   color: campus ? "#3388ff" : "#3388ff",
-    //   fillColor: campus?.type==='campus' ? "#54c98f" : campus?.type==='extension' ? '#ffae31' : "white",
-    //   // fillColor: esEspecial ? '#54c98f': isExtension ? '#ffae31' : 'white',
-    //   fillOpacity: campus ? 0.7 : 0.5,
-    //   weight: 1,
-    // });
 
     // 🎨 Estilo base
     const baseStyle = {

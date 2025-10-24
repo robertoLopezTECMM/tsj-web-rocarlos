@@ -23,15 +23,16 @@ const Login = () => {
       });
 
       // const { user, token } = res.data;
-      console.log("Usuario autenticado:", res.data);
+      // console.log("Usuario autenticado:", res.data);
 
       if(res.data.accessToken){
-        login(res.data.accessToken, res.data.user.picture, res.data.user.email)
-        setIsLoggedIn(true)
+        login(res.data.accessToken, res.data.picture)
+        // setIsLoggedIn(true)
       }
 
       // Navigate("/");
     } catch (error) {
+      console.log(error)
       if(error.status === 401) alert('Tienes que utilizar un correo @tecmm.edu.mx');
       // console.error("Error al autenticar con Google:", error);
     }
@@ -47,8 +48,27 @@ const Login = () => {
         <div className="div-loginContainer">
 
           <div className="div-loginControls">
+            
 
-            {!isAuthenticated?(
+              <>
+
+                <img src={logoTsjColor}/>
+                <h1>Iniciar Sesión</h1>
+
+                <p>Necesitas permisos para acceder a esta seccion, por favor inicia sesión con tu correo institucional tecmm.edu.mx</p>
+
+                <GoogleLogin
+                  onSuccess={handleGoogleSuccess}
+                  onError={() => console.log("Error al iniciar sesión con Google")}
+                  theme="filled_blue"   // opciones: "outline", "filled_blue", "filled_black"
+                  size="large"           // opciones: "small", "medium", "large"
+                  shape="pill"           // opciones: "rectangular", "pill", "circle"
+                  text="signin_with"   // opciones: "signin_with", "signup_with", "continue_with"
+                  logo_alignment="left"  // opciones: "left", "center"
+                />
+              </>
+
+            {/* {!isAuthenticated?(
               <>
 
                 <img src={logoTsjColor}/>
@@ -75,7 +95,7 @@ const Login = () => {
 
               </>
 
-            )}
+            )} */}
 
           </div>
 

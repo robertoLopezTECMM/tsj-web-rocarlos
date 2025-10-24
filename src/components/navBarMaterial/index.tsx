@@ -257,7 +257,7 @@ export default function DrawerAppBar(props: Props) {
             </Menu>
 
             <Button
-              key={"Sobre TSJ"}
+              key={"Admision"}
               sx={{ color: "#fff", fontFamily: "madaniArabicMedium" }}
               component='a'
               href='https://admision.tsj.mx:3000/' 
@@ -267,7 +267,7 @@ export default function DrawerAppBar(props: Props) {
             </Button>
 
             <Button
-              key={"Sobre TSJ"}
+              key={"ofertaEducativa"}
               sx={{ color: "#fff", fontFamily: "madaniArabicMedium" }}
               component='a'
               href='/ofertaEducativa' 
@@ -276,7 +276,7 @@ export default function DrawerAppBar(props: Props) {
             </Button>
 
             <Button
-              key={"Sobre TSJ"}
+              key={"unidadesAcademicas"}
               sx={{ color: "#fff", fontFamily: "madaniArabicMedium" }}
               component='a'
               href='/unidadesAcademicas' 
