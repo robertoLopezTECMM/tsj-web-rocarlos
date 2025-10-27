@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import "./index.css";
 
@@ -74,10 +74,65 @@ export const CredencialAlumno = ({
   tipoSangre,
   telefonoEmergencia,
   unidadAcademica,
-}: CredencialStudentType) => {
+}:CredencialStudentType) => {
+  const [flipped, setFlipped] = useState(false);
+
+  const handleFlip = () => setFlipped(!flipped);
+
   return (
     <div className="component-credencialContainerViews">
-      <div className="component-credencialContainerFront">
+      {/* ✅ En PC se verán ambas, en móvil se usa este contenedor flip */}
+      <div
+        className={`component-credencialFlipCard ${flipped ? "flipped" : ""}`}
+        onClick={handleFlip}
+      >
+        <div className="component-credencialFlipInner">
+          {/* CARA FRONTAL */}
+          <div className="component-credencialContainerFront">
+            <div className="component-credencialContainerDatos">
+              <div className="component-credencialPhotoContainer">
+                <img src={photoUrl} />
+              </div>
+
+              <p className="component-credencialName">{nombre}</p>
+              <p className="component-credencialCarrera">{carrera}</p>
+              <p className="component-credencialPosicion">{rol}</p>
+
+              <div className="component-credencialOtherData">
+                <p className="component-credencialSmallData">
+                  Número de control: {noControl}
+                </p>
+
+                <div className="component-credencialSmallDataRow">
+                  <p className="component-credencialSmallData">NSS: {noSeguro}</p>
+                  <p className="component-credencialSmallData">
+                    Tipo de sangre: {tipoSangre}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* CARA TRASERA */}
+          <div className="component-credencialContainerBack">
+            <div className="component-credencialContainerDatosBack">
+              <p className="component-credencialUnidadAcademica">
+                UNIDAD ACADÉMICA {unidadAcademica}
+              </p>
+
+              <div className="component-credencialQrContainer">
+                <img className="component-credencialPhoto" src={qrTemplate} />
+              </div>
+
+              <p className="component-credencialPhone">CONTACTO DE EMERGENCIA</p>
+              <p className="component-credencialPhone">{telefonoEmergencia}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ✅ En PC se muestran las dos caras normales */}
+      <div className="component-credencialContainerFront desktop-only">
         <div className="component-credencialContainerDatos">
           <div className="component-credencialPhotoContainer">
             <img src={photoUrl} />
@@ -88,22 +143,21 @@ export const CredencialAlumno = ({
           <p className="component-credencialPosicion">{rol}</p>
 
           <div className="component-credencialOtherData">
-
             <p className="component-credencialSmallData">
               Número de control: {noControl}
             </p>
 
-            
-
             <div className="component-credencialSmallDataRow">
-                <p className="component-credencialSmallData">NSS: {noSeguro}</p>
-                <p className="component-credencialSmallData"> Tipo de sangre: {tipoSangre} </p>
+              <p className="component-credencialSmallData">NSS: {noSeguro}</p>
+              <p className="component-credencialSmallData">
+                Tipo de sangre: {tipoSangre}
+              </p>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="component-credencialContainerBack">
+      <div className="component-credencialContainerBack desktop-only">
         <div className="component-credencialContainerDatosBack">
           <p className="component-credencialUnidadAcademica">
             UNIDAD ACADÉMICA {unidadAcademica}

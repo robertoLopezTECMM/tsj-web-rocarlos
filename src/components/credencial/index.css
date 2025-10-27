@@ -1,163 +1,184 @@
-.component-credencialContainerViews{
-    display: flex;
+/* ====== CONTENEDOR GENERAL ====== */
+.component-credencialContainerViews {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+/* ====== TAMAÑOS BASE ====== */
+.component-credencialContainerFront,
+.component-credencialContainerBack {
+  width: 20rem;
+  height: 30rem;
+  border-radius: 1rem;
+  margin: 1rem;
+  background-size: cover;
+  background-position: center;
+}
 
+.component-credencialContainerFront {
+  background-image: url("../../assets/images/credencialFront.jpg");
+}
 
-.component-credencialContainerFront{
-    width:20rem;
-    height: 30rem;
-    background-image: url('../../assets/images/credencialFront.jpg');
-    background-size: cover; /* Ajusta la imagen para que cubra todo el div */
-    background-position: center; /* Centra la imagen */
-    border-radius: 1rem;
-    margin:1rem;
-    display: flex;
-    flex-direction: column;
+.component-credencialContainerBack {
+  background-image: url("../../assets/images/credencialBackNew.jpg");
+  padding-top: 2rem;
+}
+
+/* ====== DATOS FRONT ====== */
+.component-credencialContainerDatos {
+  width: 100%;
+  height: 18rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.component-credencialPhotoContainer {
+  width: 35%;
+  height: 12dvh;
+}
+
+.component-credencialPhotoContainer img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.component-credencialName {
+  font-size: 1rem;
+  font-family: "madaniArabicBold";
+  color: var(--navyBlue);
+  margin: 0;
+  text-align: center;
+}
+
+.component-credencialCarrera {
+  font-size: 0.8rem;
+  font-family: "madaniArabicBold";
+  color: var(--green);
+  margin: 0;
+  text-align: center;
+}
+
+.component-credencialPosicion {
+  font-size: 0.8rem;
+  font-family: "madaniArabicBold";
+  color: var(--orange);
+  margin: 0;
+}
+
+.component-credencialOtherData {
+  width: 85%;
+  text-align: left;
+  margin-top: 1rem;
+}
+
+.component-credencialSmallData {
+  font-size: 0.7rem;
+  font-family: "madaniArabicBold";
+  color: var(--navyBlue);
+  margin: 5px;
+}
+
+.component-credencialSmallDataRow {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ====== DATOS BACK ====== */
+.component-credencialContainerDatosBack {
+  width: 100%;
+  height: 18rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.component-credencialQrContainer {
+  width: 5rem;
+  height: 5rem;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.component-credencialPhoto {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.component-credencialPhone {
+  font-size: 0.8rem;
+  font-family: "madaniArabicBold";
+  color: var(--navyBlue);
+  margin: 0;
+}
+
+.component-credencialUnidadAcademica {
+  font-size: 0.8rem;
+  font-family: "madaniArabicBold";
+  color: var(--green);
+  text-align: center;
+}
+
+/* ====== EFECTO FLIP SOLO EN MÓVIL ====== */
+.component-credencialFlipCard {
+  perspective: 1000px;
+  width: 15rem;
+  height: 25rem;
+  cursor: pointer;
+  display: none; /* Oculto en PC */
+}
+
+.component-credencialFlipInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.component-credencialFlipCard.flipped .component-credencialFlipInner {
+  transform: rotateY(180deg);
+}
+
+.component-credencialContainerFront,
+.component-credencialContainerBack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.component-credencialContainerBack {
+  transform: rotateY(180deg);
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 900px) {
+  .desktop-only {
+    display: none !important; /* Ocultamos vistas PC */
+  }
+
+  .component-credencialContainerViews {
     justify-content: center;
-    justify-items: center;
+  }
+
+  .component-credencialFlipCard {
+    display: block; /* Mostramos el flip solo en móvil */
+  }
 }
 
-.component-credencialContainerDatos{
-    width: 100%;
-    height: 18rem;
-    /* border: 2px solid red; */
-    /*border: red solid 5px;*/
-    position: relative;
+@media (min-width: 901px) {
+  .component-credencialFlipCard {
+    display: none; /* Ocultamos el flip en PC */
+  }
+
+  .desktop-only {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 1rem;
+  }
 }
-
-
-
-.component-credencialPhotoContainer{
-    width: 35%;
-    height: 12dvh;
-    /* background-color: red; */
-}
-
-
-.component-credencialPhotoContainer img{
-    object-fit: contain;
-    width: 100%;
-    height: 100%;
-}
-
-
-
-
-
-
-
-.component-credencialName{
-    font-size: 1rem;
-    font-family: 'madaniArabicBold';
-    color: var(--navyBlue);
-    margin:0;
-    text-align: center;
-}
-
-
-.component-credencialCarrera{
-    font-size: 0.8rem;
-    font-family: 'madaniArabicBold';
-    color: var(--green);
-    margin:0;
-    text-align: center;
-}
-
-
-.component-credencialPosicion{
-    font-size: 0.8rem;
-    font-family: 'madaniArabicBold';
-    color: var(--orange);
-    margin:0
-}
-
-
-.component-credencialOtherData{
-    width: 85%;
-    height: auto;
-    background-color: transparent;
-    text-align: left;
-    margin-top: 1rem;
-}
-
-.component-credencialSmallData{
-    width: 100%;
-    font-size: 0.7rem;
-    font-family: 'madaniArabicBold';
-    color: var(--navyBlue);
-    margin:5px
-}
-
-.component-credencialSmallDataRow{
-    display: flex;
-    justify-content: space-between;
-}
-
-
-
-
-
-
-
-
-
-
-.component-credencialContainerBack{
-    width:20rem;
-    height: 30rem;
-    background-image: url('../../assets/images/credencialBackNew.jpg');
-    background-size: cover; /* Ajusta la imagen para que cubra todo el div */
-    background-position: center; /* Centra la imagen */
-    padding-top: 2rem;
-    border-radius: 1rem;
-    margin:1rem
-}
-
-.component-credencialContainerDatosBack{
-    width: 100%;
-    height: 18rem;
-    /*border: red solid 5px;*/
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-}
-
-.component-credencialQrContainer{
-    width: 5rem;
-    height: 5rem;
-    overflow: hidden;
-    margin-bottom: 1rem;
-}
-
-.component-credencialPhoto{
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-}
-
-.component-credencialPhone{
-    font-size: 0.8rem;
-    font-family: 'madaniArabicBold';
-    color: var(--navyBlue);
-    margin:0
-}
-
-.component-credencialUnidadAcademica{
-    font-size: 0.8rem;
-    font-family: 'madaniArabicBold';
-    color: var(--green);
-    margin-bottom:0;
-    text-align: center;
-}
-
-
-
-
-

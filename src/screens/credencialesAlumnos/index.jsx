@@ -38,8 +38,8 @@ export const CredencialesAlumnos = () => {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: "auto",
-    height: "auto",
+    width: "300px",
+    height: "400px",
 
     boxShadow: 24,
     p: 0,
@@ -385,6 +385,7 @@ const postID = async (pdfBlob) => {
 };
 
 const handleGenerateAndSend = async () => {
+  setLoading(true)
   try {
     const pdfBlob = await                         
     generateCredentialPDF({
@@ -405,6 +406,8 @@ const handleGenerateAndSend = async () => {
     await postID(pdfBlob); // 2️⃣ enviar PDF
   } catch (err) {
     console.error("Error generando o enviando la credencial:", err);
+  }finally{
+    setLoading(false)
   }
 };
 
@@ -435,7 +438,8 @@ const handleGenerateAndSend = async () => {
     }
 
     if (isFormComplete) {
-      setOpen(true);
+      //setOpen(true);
+      handleGenerateAndSend()
     }
     setValidated(true);
     event.preventDefault(); // evita el reload
@@ -874,11 +878,28 @@ const handleGenerateAndSend = async () => {
                 </Row>
 
                 <Row className="mb-3 pt-3">
-                  <Form.Group as={Col} md="4">
+                  {/* <Form.Group as={Col} md="4">
                     <Button type="submit">Generar vista previa</Button>
+                  </Form.Group> */}
+
+                  <Form.Group as={Col} md="2">
+                    <Button type="submit" disabled={loading}>
+                      {loading ? (
+                        <>
+                          <span
+                            className="spinner-border spinner-border-sm me-2"
+                            role="status"
+                            aria-hidden="true"
+                          ></span>
+                          Enviando...
+                        </>
+                      ) : (
+                        "Enviar Credencial"
+                      )}
+                    </Button>
                   </Form.Group>
 
-                  <Form.Group as={Col} md="4">
+                  {/* <Form.Group as={Col} md="4">
                     <Button
                       onClick={() =>
                         generateCredentialPDF({
@@ -904,7 +925,7 @@ const handleGenerateAndSend = async () => {
 
                   <Form.Group as={Col} md="4">
                     <Button type="reset">Limpiar Campos</Button>
-                  </Form.Group>
+                  </Form.Group> */}
                 </Row>
               </Form.Group>
             </Row>
