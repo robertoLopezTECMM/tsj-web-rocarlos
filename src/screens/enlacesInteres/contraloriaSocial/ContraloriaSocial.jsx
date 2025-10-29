@@ -69,9 +69,9 @@ export default function ContraloriaSocial() {
     },
     {
       id: 'informe',
-      title: '5 - Informe Final 2024',
+      title: '5 - Informe Final 2025',
       files: [
-        { label: 'Informe Final I.N. 2024', url: INFORME_FINAL },
+        { label: 'Informe Final I.N. 2025', url: INFORME_FINAL },
       ],
     },
   ];
@@ -85,7 +85,7 @@ export default function ContraloriaSocial() {
       itemClassName="icon-background-item"
     >
       <div className="cs-container fade-in">
-        
+
         {/* Imagen */}
         <div className="cs-imagen-container">
           <img src={ContraloriaIMG} alt="Contraloría Social" className="cs-imagen" />
@@ -95,8 +95,8 @@ export default function ContraloriaSocial() {
 
         <h2 className="cs-subtitulo" style={madaniBold}>¿Qué es la Contraloría Social?</h2>
         <p className="cs-parrafo" style={madaniRegular}>
-          La Contraloría Social es un grupo de beneficiarios, que, de manera organizada, 
-          verifican el cumplimiento de las metas y la correcta aplicación de los recursos 
+          La Contraloría Social es un grupo de beneficiarios, que, de manera organizada,
+          verifican el cumplimiento de las metas y la correcta aplicación de los recursos
           públicos asignados a Programas Presupuestales con recursos federales.
         </p>
 
@@ -109,11 +109,11 @@ export default function ContraloriaSocial() {
 
         <h2 className="cs-subtitulo" style={madaniBold}>¿Qué es un Comité de Contraloría Social?</h2>
         <p className="cs-parrafo" style={madaniRegular}>
-          Supervisión y vigilancia de la ejecución, cumplimiento de las metas y acciones comprometidas, 
+          Supervisión y vigilancia de la ejecución, cumplimiento de las metas y acciones comprometidas,
           así como de la correcta aplicación de los recursos asignados a los mismos.
         </p>
         <p className="cs-parrafo" style={madaniRegular}>
-          Las formas de organización social constituidas por los beneficiarios referidas en el artículo 67 
+          Las formas de organización social constituidas por los beneficiarios referidas en el artículo 67
           del Reglamento de la Ley General de Desarrollo Social, que llevan a cabo el seguimiento.
         </p>
 
@@ -121,7 +121,7 @@ export default function ContraloriaSocial() {
         <div className="cs-submenus">
           {submenus.map((menu) => (
             <div key={menu.id} className="cs-submenu">
-              <div 
+              <div
                 className="cs-submenu-title"
                 onClick={() => toggleMenu(menu.id)}
                 style={madaniBold}
@@ -132,7 +132,7 @@ export default function ContraloriaSocial() {
                 {menu.files.map((file, idx) => {
                   const isDocx = file.url.toLowerCase().endsWith('.docx');
                   return (
-                    <a 
+                    <a
                       key={idx}
                       href={file.url}
                       target="_blank"
