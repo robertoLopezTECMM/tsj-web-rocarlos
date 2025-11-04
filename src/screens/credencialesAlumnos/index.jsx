@@ -479,7 +479,7 @@ const handleGenerateAndSend = async () => {
         imageFromEdcore: studentInfo.data.photo,
         nombre: studentInfo.data.name,
         apellidoPaterno: studentInfo.data.firstName,
-        apellidoMaterno: studentInfo.data.secondName,
+        apellidoMaterno: studentInfo.data.secondName.length===0?` `:studentInfo.data.secondName,
         carrera: studentInfo.data.programName,
         nss: studentInfo.data.numeroSeguro,
         noControl: studentInfo.data.code,
@@ -491,7 +491,7 @@ const handleGenerateAndSend = async () => {
             : studentInfo.data.blobFactor,
       });
 
-      console.log("student: ", studentInfo.data);
+      console.log("studentSecondName: ", studentInfo.data.secondName.length);
       setDisabledForm(false);
     } catch (err) {
       console.error(err);
