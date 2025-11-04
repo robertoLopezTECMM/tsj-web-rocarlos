@@ -48,15 +48,15 @@ import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
+import tsj from '../../assets/logos/tsjBco.png'
+import gobJalisco from '../../assets/logos/jaliscoBco.png'
+import sicyt from '../../assets/logos/sicytBco.png'
+import educacion from '../../assets/logos/educacionBco.png'
+import tecnm from '../../assets/logos/tecnmBco.png'
 
 
-import Typography from '@mui/material/Typography';
-import Modal from '@mui/material/Modal';
-// import Navbar from '../../components/navbar/index'
-// import viteLogo from '/vite.svg'
-// import whatsappLogo from '../../assets/logos/whatsapp.webp'
+
+
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: '#fff',
@@ -219,9 +219,27 @@ function Landing() {
               className="absolute bottom-0 left-0 w-32 h-32"
               loop={true}
             />
-            {!isPlaying ? <Pause onClick={handlePlayPause} fontSize='large' /> : <PlayArrow onClick={handlePlayPause} fontSize='large' />}
+            {isPlaying ? <Pause onClick={handlePlayPause} fontSize='large' /> : <PlayArrow onClick={handlePlayPause} fontSize='large' />}
+          </div>
+
+
+          <div className="divLogosVideo">
+            <img src={tsj}/>
+            <img src={gobJalisco}/>
+            <img src={sicyt}/>
+            <img src={educacion}/>
+            <img src={tecnm}/>
+
+
+            
+
+
+
           </div>
         </section>
+
+
+        
 
         <section className="sectionLanding green">
 
