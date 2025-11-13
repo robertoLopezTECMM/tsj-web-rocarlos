@@ -68,6 +68,7 @@ export const ValidadorCredenciales = () => {
                         <h2>{userFound.nombre}</h2>
                         <h4>{userFound.carrera}</h4>
                         <p id='puestoDirector'>{userFound.no_control}</p>
+                        <p id='puestoDirector'>{`Semestre: ${userFound.semestre}°`}</p>
                         <p>{userFound.unidad}</p>
                         <p id='emailDirector' >{userFound.status}</p>
 
