@@ -383,7 +383,7 @@ function Landing() {
               <div className='div-footer-phoneSocialMedia'>
                 <img src={whatsappQr} />
                 <div className='div-footer-phones'>
-                  <h3>33 3884 9498</h3>
+                  <h3>33 3682 1180</h3>
                 </div>
                 <div className='div-footer-phones'>
                   <h3>33 3884 9470</h3>
